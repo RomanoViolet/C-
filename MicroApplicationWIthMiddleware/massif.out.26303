@@ -1,0 +1,1192 @@
+desc: --detailed-freq=1
+cmd: ./build/myProject
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=1
+#-----------
+time=2174060
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=detailed
+n1: 72704 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+#-----------
+snapshot=2
+#-----------
+time=2289197
+mem_heap_B=73728
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=detailed
+n2: 73728 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+#-----------
+snapshot=3
+#-----------
+time=2321330
+mem_heap_B=73769
+mem_heap_extra_B=31
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73769 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 41 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=4
+#-----------
+time=2325632
+mem_heap_B=73833
+mem_heap_extra_B=39
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73833 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 105 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=5
+#-----------
+time=2325895
+mem_heap_B=73833
+mem_heap_extra_B=39
+mem_stacks_B=0
+heap_tree=peak
+n3: 73833 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 105 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=6
+#-----------
+time=2325895
+mem_heap_B=73769
+mem_heap_extra_B=31
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73769 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 41 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=7
+#-----------
+time=2326599
+mem_heap_B=73728
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73728 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=8
+#-----------
+time=2329662
+mem_heap_B=73736
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73736 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 8 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=9
+#-----------
+time=2340907
+mem_heap_B=73777
+mem_heap_extra_B=47
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73777 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 49 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=10
+#-----------
+time=2343694
+mem_heap_B=73841
+mem_heap_extra_B=55
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73841 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 113 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=11
+#-----------
+time=2343957
+mem_heap_B=73777
+mem_heap_extra_B=47
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73777 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 49 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=12
+#-----------
+time=2344054
+mem_heap_B=73736
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73736 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 8 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=13
+#-----------
+time=2344591
+mem_heap_B=73752
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73752 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 24 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=14
+#-----------
+time=2345422
+mem_heap_B=73744
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 16 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=15
+#-----------
+time=2355901
+mem_heap_B=73785
+mem_heap_extra_B=39
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73785 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 57 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=16
+#-----------
+time=2358688
+mem_heap_B=73849
+mem_heap_extra_B=47
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73849 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 121 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=17
+#-----------
+time=2358951
+mem_heap_B=73785
+mem_heap_extra_B=39
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73785 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 57 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=18
+#-----------
+time=2359048
+mem_heap_B=73744
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 16 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=19
+#-----------
+time=2359585
+mem_heap_B=73776
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73776 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 48 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=20
+#-----------
+time=2360416
+mem_heap_B=73760
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73760 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 32 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=21
+#-----------
+time=2361245
+mem_heap_B=73784
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73784 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 56 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=22
+#-----------
+time=2361742
+mem_heap_B=73752
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73752 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 24 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=23
+#-----------
+time=2372413
+mem_heap_B=73793
+mem_heap_extra_B=47
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73793 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 65 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=24
+#-----------
+time=2375200
+mem_heap_B=73857
+mem_heap_extra_B=55
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73857 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 129 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=25
+#-----------
+time=2375463
+mem_heap_B=73793
+mem_heap_extra_B=47
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73793 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 65 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=26
+#-----------
+time=2375560
+mem_heap_B=73752
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73752 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 24 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=27
+#-----------
+time=2376097
+mem_heap_B=73760
+mem_heap_extra_B=48
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73760 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 32 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=28
+#-----------
+time=2387342
+mem_heap_B=73801
+mem_heap_extra_B=63
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73801 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 73 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=29
+#-----------
+time=2390129
+mem_heap_B=73865
+mem_heap_extra_B=71
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73865 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 137 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=30
+#-----------
+time=2390392
+mem_heap_B=73801
+mem_heap_extra_B=63
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73801 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 73 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=31
+#-----------
+time=2390489
+mem_heap_B=73760
+mem_heap_extra_B=48
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73760 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 32 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=32
+#-----------
+time=2391025
+mem_heap_B=73776
+mem_heap_extra_B=56
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73776 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 48 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=33
+#-----------
+time=2391856
+mem_heap_B=73768
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73768 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 40 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=34
+#-----------
+time=2402335
+mem_heap_B=73809
+mem_heap_extra_B=55
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73809 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 81 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=35
+#-----------
+time=2405122
+mem_heap_B=73873
+mem_heap_extra_B=63
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73873 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 145 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=36
+#-----------
+time=2405385
+mem_heap_B=73809
+mem_heap_extra_B=55
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73809 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 81 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=37
+#-----------
+time=2405482
+mem_heap_B=73768
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73768 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 40 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=38
+#-----------
+time=2406018
+mem_heap_B=73800
+mem_heap_extra_B=48
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73800 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 72 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=39
+#-----------
+time=2406849
+mem_heap_B=73784
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73784 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 56 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=40
+#-----------
+time=2417363
+mem_heap_B=73825
+mem_heap_extra_B=71
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73825 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 97 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=41
+#-----------
+time=2420150
+mem_heap_B=73889
+mem_heap_extra_B=79
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73889 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 161 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=42
+#-----------
+time=2420413
+mem_heap_B=73825
+mem_heap_extra_B=71
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73825 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 97 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=43
+#-----------
+time=2420510
+mem_heap_B=73784
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73784 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 56 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=44
+#-----------
+time=2421048
+mem_heap_B=73792
+mem_heap_extra_B=56
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73792 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 64 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=45
+#-----------
+time=2432281
+mem_heap_B=73833
+mem_heap_extra_B=71
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73833 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 105 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=46
+#-----------
+time=2435068
+mem_heap_B=73897
+mem_heap_extra_B=79
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73897 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 169 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=47
+#-----------
+time=2435331
+mem_heap_B=73833
+mem_heap_extra_B=71
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73833 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 105 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=48
+#-----------
+time=2435428
+mem_heap_B=73792
+mem_heap_extra_B=56
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73792 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 64 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=49
+#-----------
+time=2435965
+mem_heap_B=73808
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73808 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 80 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=50
+#-----------
+time=2436796
+mem_heap_B=73800
+mem_heap_extra_B=48
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73800 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 72 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=51
+#-----------
+time=2437191
+mem_heap_B=73824
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73824 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 96 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=52
+#-----------
+time=2437743
+mem_heap_B=73840
+mem_heap_extra_B=72
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73840 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 112 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=53
+#-----------
+time=2438240
+mem_heap_B=73824
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73824 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 96 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=54
+#-----------
+time=2438425
+mem_heap_B=73792
+mem_heap_extra_B=56
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73792 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4EC2414: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n0: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n0: 64 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=55
+#-----------
+time=2440338
+mem_heap_B=1088
+mem_heap_extra_B=48
+mem_stacks_B=0
+heap_tree=detailed
+n3: 1088 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1024 0x545218A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5462377: _IO_doallocbuf (genops.c:365)
+   n1: 1024 0x5461496: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x545F9EB: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x5453975: fwrite (iofwrite.c:39)
+      n1: 1024 0x4F46CB2: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+       n1: 1024 0x4F47025: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+        n0: 1024 0x1106C5: main (main.cpp:6)
+ n1: 64 0x10FA26: __gnu_cxx::new_allocator<InterfaceCommonOperationsAcrossAllTypes*>::allocate(unsigned long, void const*) (new_allocator.h:111)
+  n1: 64 0x10F06F: std::allocator_traits<std::allocator<InterfaceCommonOperationsAcrossAllTypes*> >::allocate(std::allocator<InterfaceCommonOperationsAcrossAllTypes*>&, unsigned long) (alloc_traits.h:436)
+   n2: 64 0x10DD50: std::_Vector_base<InterfaceCommonOperationsAcrossAllTypes*, std::allocator<InterfaceCommonOperationsAcrossAllTypes*> >::_M_allocate(unsigned long) (stl_vector.h:172)
+    n1: 64 0x10D2A6: InterfaceCommonOperationsAcrossAllTypes** std::vector<InterfaceCommonOperationsAcrossAllTypes*, std::allocator<InterfaceCommonOperationsAcrossAllTypes*> >::_M_allocate_and_copy<__gnu_cxx::__normal_iterator<InterfaceCommonOperationsAcrossAllTypes* const*, std::vector<InterfaceCommonOperationsAcrossAllTypes*, std::allocator<InterfaceCommonOperationsAcrossAllTypes*> > > >(unsigned long, __gnu_cxx::__normal_iterator<InterfaceCommonOperationsAcrossAllTypes* const*, std::vector<InterfaceCommonOperationsAcrossAllTypes*, std::allocator<InterfaceCommonOperationsAcrossAllTypes*> > >, __gnu_cxx::__normal_iterator<InterfaceCommonOperationsAcrossAllTypes* const*, std::vector<InterfaceCommonOperationsAcrossAllTypes*, std::allocator<InterfaceCommonOperationsAcrossAllTypes*> > >) (stl_vector.h:1260)
+     n2: 64 0x10CD6B: std::vector<InterfaceCommonOperationsAcrossAllTypes*, std::allocator<InterfaceCommonOperationsAcrossAllTypes*> >::operator=(std::vector<InterfaceCommonOperationsAcrossAllTypes*, std::allocator<InterfaceCommonOperationsAcrossAllTypes*> > const&) (vector.tcc:206)
+      n2: 40 0x10C838: AggregateInterfaces::operator=(AggregateInterfaces const&) (Builder.hpp:49)
+       n1: 24 0x110561: GenerateDataStream::initialize() (GenerateDataStream.inl:4)
+        n0: 24 0x110707: main (main.cpp:11)
+       n1: 16 0x10BF70: ManipulateDataStream::initialize() (ManipulateDataStream.cpp:6)
+        n0: 16 0x110716: main (main.cpp:12)
+      n1: 24 0x10C81D: AggregateInterfaces::operator=(AggregateInterfaces const&) (Builder.hpp:49)
+       n1: 24 0x10BF70: ManipulateDataStream::initialize() (ManipulateDataStream.cpp:6)
+        n0: 24 0x110716: main (main.cpp:12)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=56
+#-----------
+time=2441903
+mem_heap_B=64
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=detailed
+n2: 64 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 64 0x10FA26: __gnu_cxx::new_allocator<InterfaceCommonOperationsAcrossAllTypes*>::allocate(unsigned long, void const*) (new_allocator.h:111)
+  n1: 64 0x10F06F: std::allocator_traits<std::allocator<InterfaceCommonOperationsAcrossAllTypes*> >::allocate(std::allocator<InterfaceCommonOperationsAcrossAllTypes*>&, unsigned long) (alloc_traits.h:436)
+   n2: 64 0x10DD50: std::_Vector_base<InterfaceCommonOperationsAcrossAllTypes*, std::allocator<InterfaceCommonOperationsAcrossAllTypes*> >::_M_allocate(unsigned long) (stl_vector.h:172)
+    n1: 64 0x10D2A6: InterfaceCommonOperationsAcrossAllTypes** std::vector<InterfaceCommonOperationsAcrossAllTypes*, std::allocator<InterfaceCommonOperationsAcrossAllTypes*> >::_M_allocate_and_copy<__gnu_cxx::__normal_iterator<InterfaceCommonOperationsAcrossAllTypes* const*, std::vector<InterfaceCommonOperationsAcrossAllTypes*, std::allocator<InterfaceCommonOperationsAcrossAllTypes*> > > >(unsigned long, __gnu_cxx::__normal_iterator<InterfaceCommonOperationsAcrossAllTypes* const*, std::vector<InterfaceCommonOperationsAcrossAllTypes*, std::allocator<InterfaceCommonOperationsAcrossAllTypes*> > >, __gnu_cxx::__normal_iterator<InterfaceCommonOperationsAcrossAllTypes* const*, std::vector<InterfaceCommonOperationsAcrossAllTypes*, std::allocator<InterfaceCommonOperationsAcrossAllTypes*> > >) (stl_vector.h:1260)
+     n2: 64 0x10CD6B: std::vector<InterfaceCommonOperationsAcrossAllTypes*, std::allocator<InterfaceCommonOperationsAcrossAllTypes*> >::operator=(std::vector<InterfaceCommonOperationsAcrossAllTypes*, std::allocator<InterfaceCommonOperationsAcrossAllTypes*> > const&) (vector.tcc:206)
+      n2: 40 0x10C838: AggregateInterfaces::operator=(AggregateInterfaces const&) (Builder.hpp:49)
+       n1: 24 0x110561: GenerateDataStream::initialize() (GenerateDataStream.inl:4)
+        n0: 24 0x110707: main (main.cpp:11)
+       n1: 16 0x10BF70: ManipulateDataStream::initialize() (ManipulateDataStream.cpp:6)
+        n0: 16 0x110716: main (main.cpp:12)
+      n1: 24 0x10C81D: AggregateInterfaces::operator=(AggregateInterfaces const&) (Builder.hpp:49)
+       n1: 24 0x10BF70: ManipulateDataStream::initialize() (ManipulateDataStream.cpp:6)
+        n0: 24 0x110716: main (main.cpp:12)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 4 places, all below massif's threshold (1.00%)
