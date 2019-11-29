@@ -4,6 +4,8 @@
 #include <cstdint>
 namespace RomanoViolet
 {
+  // It would be convenient to have a custom type as a template parameter, but see
+  // https://stackoverflow.com/q/15896579
   template < int NumeratorForMinBound = 1,
              int DenominatorForMinBound = 1,
              int NumeratorForMaxBound = 1,

@@ -74,6 +74,42 @@ TEST( InstantationTest, OverflowCheck_2 )
   EXPECT_FLOAT_EQ( c.getValue( ), ( MaxValueOfInt * 1.0F - MaxValueOfInt ) / MaxValueOfInt );
 }
 
+TEST( InstantationTest, CheckForSignRobustness )
+{
+  // A negative value for fraction by putting negative sign in the denominator must be evaluated as
+  // having negative sign in the numerator. Tests:
+  //  (MAX_INT_VALUE-1)        MAX_INT_VALUE
+  //  ------------------  <=  ----------------
+  //    -MAX_INT_VALUE                1
+  // Or
+  // (MAX_INT_VALUE - 1) <= (-MAX_INT_VALUE * MAX_INT_VALUE) (INCORRECT. Equality has been
+  // reversed.)
+  //
+  //*********************************************************************
+  //                               EXPECTATION
+  //*********************************************************************
+  //  (MAX_INT_VALUE-1)        MAX_INT_VALUE
+  //  ------------------  <=  ----------------
+  //    -MAX_INT_VALUE                1
+  //
+  // transformed to:
+  //  -(MAX_INT_VALUE-1)        MAX_INT_VALUE
+  //  ------------------  <=  ----------------
+  //    MAX_INT_VALUE                1
+  //
+  // Or
+  // -(MAX_INT_VALUE - 1) <= (MAX_INT_VALUE * MAX_INT_VALUE) (INCORRECT.)
+  //                                    |
+  //                                    |
+  //                    (overflow may happen in this expression)
+  //
+  const int MaxValueOfInt = std::numeric_limits< int >::max( );
+  using customType = RomanoViolet::SafeType< Fraction( MaxValueOfInt - 1, MaxValueOfInt ),
+                                             Fraction( MaxValueOfInt, 1 ) >;
+  customType c = ( MaxValueOfInt * 1.0F - MaxValueOfInt ) / MaxValueOfInt;
+  EXPECT_FLOAT_EQ( c.getValue( ), ( MaxValueOfInt * 1.0F - MaxValueOfInt ) / MaxValueOfInt );
+}
+
 TEST( InstantationTest, T6 )
 {
   CountingType c = 3;
