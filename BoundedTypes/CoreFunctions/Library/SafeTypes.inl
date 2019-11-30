@@ -28,66 +28,68 @@ namespace RomanoViolet
     static_assert( DenominatorForMinBound != 0, "Denominator for lower bound cannot be zero." );
     static_assert( DenominatorForMaxBound != 0, "Denominator for upper bound cannot be zero." );
 
-    // define temporary data structure to hold new numerators and denominators if these need to be
-    // transformed.
-    struct NewFraction {
-      int numerator = 1;
-      int denominator = 1;
-    };
-
 #if ( __cplusplus == 201703L )
     // Negative sign from denominator is always moved to the numerator.
-    if constexpr ( DenominatorForMinBound < 0 ) {
-      NumeratorForMinBound = NumeratorForMinBound * -1;
-      DenominatorForMinBound = DenominatorForMinBound * -1;
-    }
+    // if constexpr ( DenominatorForMinBound < 0 ) {
+    //   NumeratorForMinBound = NumeratorForMinBound * -1;
+    //   DenominatorForMinBound = DenominatorForMinBound * -1;
+    // }
 
-    // verify that min <= max
-
-    constexpr auto IsLowerBoundLessThanUpperBound = []( int a, int b, int c, int d ) {
-      static_assert( ( a * d ) < ( b * c ),
-                     "Provided lower bound is greater than the provided upper bound. Abort" );
-    };
-    IsLowerBoundLessThanUpperBound( NumeratorForMinBound, DenominatorForMinBound,
-                                    NumeratorForMaxBound, DenominatorForMaxBound );
-#else
-    // Negative sign from denominator is always moved to the numerator.
-    // constexpr NewFraction newMinBound = []( ) {
-    //   NewFraction f;
-    //   if ( DenominatorForMinBound < 0 ) {
-    //     f.numerator = NumeratorForMinBound * -1;
-    //     f.denominator = DenominatorForMinBound * -1;
-    //   } else {
-    //     f.numerator = NumeratorForMinBound;
-    //     f.denominator = DenominatorForMinBound;
-    //   }
-    //   return f;
-    // };
-
-    int getnewMinBound = []( int b ) -> int {
-      // int f;
-      if ( b < 0 ) {
-        int f = NumeratorForMinBound * -1;
-        return f;
+    constexpr NewFraction minBound = []( ) {
+      NewFraction f;
+      if ( DenominatorForMinBound < 0 ) {
+        f.numerator = NumeratorForMinBound * -1;
+        f.denominator = DenominatorForMinBound * -1;
 
       } else {
-        int f = NumeratorForMinBound;
-        return f;
+        f.numerator = NumeratorForMinBound;
+        f.denominator = DenominatorForMinBound;
       }
-      // return f;
-    };
+      return f;
+    }( );
 
-    constexpr int newMinBound = getnewMinBound( DenominatorForMinBound );
+    constexpr NewFraction maxBound = []( ) {
+      NewFraction f;
+      if ( DenominatorForMaxBound < 0 ) {
+        f.numerator = NumeratorForMaxBound * -1;
+        f.denominator = DenominatorForMaxBound * -1;
+
+      } else {
+        f.numerator = NumeratorForMaxBound;
+        f.denominator = DenominatorForMaxBound;
+      }
+      return f;
+    }( );
+
+    static_assert( ( ( long long )minBound.numerator * maxBound.denominator )
+                       < ( ( long long )minBound.denominator * maxBound.numerator ),
+                   "Provided lower bound is greater than the provided upper bound. Abort" );
+
+#elif ( __cplusplus == 201402L )
+    constexpr NewFraction newMinBound = correctMinBound( );
+
+    constexpr NewFraction newMaxBound = correctMaxBound( );
+
+    static_assert( ( ( long long )newMinBound.numerator * newMaxBound.denominator )
+                       < ( ( long long )newMinBound.denominator * newMaxBound.numerator ),
+                   "Provided lower bound is greater than the provided upper bound. Abort" );
+
+#elif ( __cplusplus == 201102L )
+    // constexpr lambdas are not allowed until C++17.
+    if ( DenominatorForMinBound < 0 ) {
+    }
 
     // verified that the check is done at compile time only for which long long is acceptable.
     // https://godbolt.org/z/8eJKzR, if it is still alive.
     static_assert( ( ( long long )NumeratorForMinBound * DenominatorForMaxBound )
                        < ( ( long long )DenominatorForMinBound * NumeratorForMaxBound ),
                    "Provided lower bound is greater than the provided upper bound. Abort" );
+#else
+    static_assert( "You need minimum C++11 standard to use this library" );
 #endif
 
     _value = value;
-  }
+  }  // end of constructor
 
   template < int NumeratorForMinBound,
              int DenominatorForMinBound,
@@ -99,7 +101,7 @@ namespace RomanoViolet
                   DenominatorForMaxBound >::getMinValue( )
   {
     return this->_min;
-  }
+  }  // getMinValue
 
   template < int NumeratorForMinBound,
              int DenominatorForMinBound,
@@ -111,20 +113,78 @@ namespace RomanoViolet
                   DenominatorForMaxBound >::getValue( )
   {
     return this->_value;
-  }
+  }  // getValue
 
   template < int NumeratorForMinBound, int NumeratorForMaxBound >
   SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::SafeType( int value )
       : _min( NumeratorForMinBound ), _max( NumeratorForMaxBound )
   {
     _value = value;
-  }
+  }  // constructor
 
   template < int NumeratorForMinBound, int NumeratorForMaxBound >
   int SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::getValue( )
   {
     return this->_value;
-  }
+  }  // getValue
+
+#if ( __cplusplus == 201402L )
+  template < int NumeratorForMinBound,
+             int DenominatorForMinBound,
+             int NumeratorForMaxBound,
+             int DenominatorForMaxBound >
+  constexpr SafeType::NewFraction SafeType< NumeratorForMinBound,
+                                            DenominatorForMinBound,
+                                            NumeratorForMaxBound,
+                                            DenominatorForMaxBound >::
+      correctMinBound(
+          // the compiler treats arguments are runtime changeable, therefore not allowed inside a
+          // constexpr.
+          // const int Numerator, const int Denominator
+          ) const
+  {
+    // the statement below is not allowed to be inside a constexpr until C++14.
+    NewFraction f;
+    if ( DenominatorForMinBound < 0 ) {
+      f.denominator = DenominatorForMinBound * -1;
+      f.numerator = NumeratorForMinBound * -1;
+    } else {
+      f.denominator = DenominatorForMinBound;
+      f.numerator = NumeratorForMinBound;
+    }
+    return f;
+
+  }  // correctMinBound
+
+  template < int NumeratorForMinBound,
+             int DenominatorForMinBound,
+             int NumeratorForMaxBound,
+             int DenominatorForMaxBound >
+  constexpr SafeType::NewFraction SafeType< NumeratorForMinBound,
+                                            DenominatorForMinBound,
+                                            NumeratorForMaxBound,
+                                            DenominatorForMaxBound >::
+      correctMaxBound(
+          // the compiler treats arguments are runtime changeable, therefore not allowed inside a
+          // constexpr.
+          // const int Numerator, const int Denominator
+          ) const
+  {
+    // the statement below is not allowed to be inside a constexpr until C++14.
+    NewFraction f;
+    if ( DenominatorForMaxBound < 0 ) {
+      f.denominator = DenominatorForMaxBound * -1;
+      f.numerator = NumeratorForMaxBound * -1;
+    } else {
+      f.denominator = DenominatorForMaxBound;
+      f.numerator = NumeratorForMaxBound;
+    }
+    return f;
+
+  }  // correctMaxBound
+
+#endif  // __cplusplus == 201402L
+
 }  // namespace RomanoViolet
 
-#endif
+#endif  //. #ifndef SAFETYPES_INL_
