@@ -104,10 +104,10 @@ TEST( InstantationTest, CheckForSignRobustness )
   //                    (overflow may happen in this expression)
   //
   const int MaxValueOfInt = std::numeric_limits< int >::max( );
-  using customType = RomanoViolet::SafeType< Fraction( MaxValueOfInt - 1, MaxValueOfInt ),
+  using customType = RomanoViolet::SafeType< Fraction( MaxValueOfInt - 1, -MaxValueOfInt ),
                                              Fraction( MaxValueOfInt, 1 ) >;
   customType c = ( MaxValueOfInt * 1.0F - MaxValueOfInt ) / MaxValueOfInt;
-  EXPECT_FLOAT_EQ( c.getValue( ), ( MaxValueOfInt * 1.0F - MaxValueOfInt ) / MaxValueOfInt );
+  EXPECT_FLOAT_EQ( c.getValue( ), ( MaxValueOfInt * 1.0F - MaxValueOfInt ) / -MaxValueOfInt );
 }
 
 TEST( InstantationTest, T6 )
