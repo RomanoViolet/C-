@@ -21,8 +21,25 @@ namespace RomanoViolet
     float _min;
     float _max;
     float _value;
-  };
 
+#if ( __cplusplus == 201402L )
+    struct NewFraction {
+      int numerator = 1;
+      int denominator = 1;
+    };
+    // the compiler treats arguments are runtime changeable, therefore not allowed inside a
+    // constexpr.
+    //
+    // constexpr NewFraction correctBound(
+    // const int Numerator,
+    // const int Denominator
+    //    ) const;
+    //
+    constexpr NewFraction correctMinBound( ) const;
+    constexpr NewFraction correctMaxBound( ) const;
+
+#endif
+  };
   template < int NumeratorForMinBound, int NumeratorForMaxBound >
   class SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >
   {
@@ -34,9 +51,24 @@ namespace RomanoViolet
     int _min;
     int _max;
     int _value;
+
+    // define temporary data structure to hold new numerators and denominators if these need to be
+    // transformed.
+#if ( __cplusplus == 201402L )
+    struct NewFraction {
+      int numerator = 1;
+      int denominator = 1;
+    };
+
+    constexpr NewFraction correctBound( int Numerator, int Denominator ) const;
+
+#endif
   };
 
 #define Fraction( a, b ) a, b
+
 }  // namespace RomanoViolet
+
 #include "SafeTypes.inl"
+
 #endif  // !SAFETYPES_HPP_

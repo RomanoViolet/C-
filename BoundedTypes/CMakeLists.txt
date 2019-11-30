@@ -8,7 +8,7 @@ cmake_minimum_required(VERSION 3.10)
 
 # Supply arguments as key-value pairs CompilerChain: gcc | llvm | msvc | mingw
 # LanguageStandard: 11 | 14 | 17 BuildType: Debug | Release
-setbuildchainspecifications(CompilerChain ${COMPILER} LanguageStandard 11
+setbuildchainspecifications(CompilerChain ${COMPILER} LanguageStandard 14
                             BuildType ${CMAKE_BUILD_TYPE})
 
 # The name of the project
