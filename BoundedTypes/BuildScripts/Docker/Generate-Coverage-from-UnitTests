@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+export CC=gcc
+export CXX=g++
+rm -rf ./compile_commands.json
+cd ./Application
+CURRENTDIR=`pwd`
+echo "Changed to: "`pwd`
+if [ -d "./build" ]; then
+    rm -rf ./build
+fi
+
+mkdir ./build
+cd ./build
+cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF -DCMAKE_BUILD_TYPE=Debug -DCOMPILER=GCC ..  && \
+make && \
+cp -v ${CURRENTDIR}/build/compile_commands.json ${CURRENTDIR}/../compile_commands.json && \
+lcov --capture --directory . --output-file ./coverage.info && \
+genhtml ./coverage.info --output-directory CoverageReportInHTMLFormat
+
+echo ""
+echo ""
+echo "--------------------------------------"
+if [[ -f "./CoverageReportInHTMLFormat/index.html" ]]; then 
+    echo "Coverage report available in Application/build/CoverageReportInHTMLFormat/index.html"
+else
+    echo "Something went wrong. Coverage report could not be generated. Look into error messages for details."
+fi
+echo "--------------------------------------"
+echo ""
+echo ""

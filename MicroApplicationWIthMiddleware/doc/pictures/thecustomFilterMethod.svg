@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="645.12048mm"
+   height="221.62004mm"
+   viewBox="0 0 645.12049 221.62004"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="thecustomFilterMethod.svg"
+   inkscape:export-filename="/home/dumbledore/Documents/Github/CPP-Snippets/doc/pictures/thecustomFilterMethod.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300">
+  <defs
+     id="defs2">
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker9728"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path9726"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker9193"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend"
+       inkscape:collect="always">
+      <path
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path9191"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker7113"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend">
+      <path
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path7111"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7047"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7045"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker5188"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend">
+      <path
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path5186"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="1105.8633"
+     inkscape:cy="398.75482"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1172"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     showguides="false" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(299.15546,-58.973377)">
+    <rect
+       style="opacity:1;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-miterlimit:4;stroke-dasharray:0.26458331, 0.52916661;stroke-dashoffset:0"
+       id="rect10360"
+       width="286.78171"
+       height="33.921528"
+       x="-148.44649"
+       y="246.67189"
+       rx="0.93544233"
+       ry="0.7559517" />
+    <rect
+       style="opacity:1;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-miterlimit:4;stroke-dasharray:0.26458332, 0.52916662;stroke-dashoffset:0"
+       id="rect6973"
+       width="286.78171"
+       height="60.046391"
+       x="-148.44649"
+       y="58.973377"
+       rx="0.93544233"
+       ry="0.7559517" />
+    <rect
+       ry="0.7559517"
+       rx="0.93544233"
+       y="164.65094"
+       x="-148.44649"
+       height="16.281738"
+       width="286.78171"
+       id="rect10334"
+       style="opacity:1;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-miterlimit:4;stroke-dasharray:0.26458332, 0.52916662;stroke-dashoffset:0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:39.40000153;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="17.014734"
+       y="69.097168"
+       id="text4749"><tspan
+         sodipodi:role="line"
+         id="tspan4747"
+         x="17.014734"
+         y="69.097168"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Noto Mono';-inkscape-font-specification:'Noto Mono';stroke-width:0.26458332">manipulator.myCustomFilter()</tspan></text>
+    <text
+       id="text5049"
+       y="82.193375"
+       x="55.071754"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:39.40000153;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         y="82.193375"
+         x="55.071754"
+         id="tspan5047"
+         sodipodi:role="line">class: Generator</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.26458332, 0.52916663;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 59.333835,71.558152 H 94.479778"
+       id="path5051"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path5053"
+       d="m 76.906807,71.513827 v 5.049588"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.26458332, 0.52916663;stroke-dashoffset:0;stroke-opacity:1"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:39.40000153;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-216.33266"
+       y="90.789192"
+       id="text6983"><tspan
+         sodipodi:role="line"
+         id="tspan6981"
+         x="-216.33266"
+         y="90.789192"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#000000;stroke-width:0.26458332">Written by the developer</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker7047)"
+       d="M 113.20387,72.217008 V 98.297365"
+       id="path7037"
+       inkscape:connector-curvature="0" />
+    <text
+       id="text7087"
+       y="111.24151"
+       x="29.032976"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:39.40000153;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Noto Mono';-inkscape-font-specification:'Noto Mono';stroke-width:0.26458332"
+         y="111.24151"
+         x="29.032976"
+         id="tspan7085"
+         sodipodi:role="line">customInputFilter(filter)</tspan></text>
+    <text
+       id="text7101"
+       y="91.075806"
+       x="115.35896"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:39.40000153;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         y="91.075806"
+         x="115.35896"
+         id="tspan7099"
+         sodipodi:role="line">calls</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path7109"
+       d="m 161.78397,98.108377 h -34.21701 l -6.9824,7.181543"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker7113)"
+       sodipodi:nodetypes="ccc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="163.92888"
+       y="68.775215"
+       id="text7091"><tspan
+         sodipodi:role="line"
+         id="tspan7089"
+         x="163.92888"
+         y="68.775215"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332">exact filter to be used from several</tspan><tspan
+         sodipodi:role="line"
+         x="163.92888"
+         y="75.688568"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         id="tspan8067">available implementations is chosen</tspan><tspan
+         sodipodi:role="line"
+         x="163.92888"
+         y="82.601921"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         id="tspan8069">at <tspan
+   style="font-weight:bold"
+   id="tspan8073">design time</tspan> (i.e., before compiling</tspan><tspan
+         sodipodi:role="line"
+         x="163.92888"
+         y="89.515282"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         id="tspan8071">the application)</tspan></text>
+    <text
+       id="text9129"
+       y="99.793823"
+       x="163.25121"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan9127"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Noto Mono';-inkscape-font-specification:'Noto Mono';fill:#666666;stroke-width:0.26458332"
+         y="99.793823"
+         x="163.25121"
+         sodipodi:role="line">Filter&lt;<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Noto Mono';-inkscape-font-specification:'Noto Mono';fill:#d40000"
+   id="tspan9151">NotMyApp</tspan>&gt; <tspan
+   id="tspan9353"
+   style="fill:#0066ff">filter</tspan>;</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Noto Mono';-inkscape-font-specification:'Noto Mono';fill:#666666;stroke-width:0.26458332"
+         y="106.68811"
+         x="163.25121"
+         sodipodi:role="line"
+         id="tspan9145">this-&gt;allInterfaces.customInputFilter(filter);</tspan></text>
+    <text
+       id="text9163"
+       y="117.15099"
+       x="162.8598"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan9161"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         y="117.15099"
+         x="162.8598"
+         sodipodi:role="line">Available class of filters:</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Noto Mono';-inkscape-font-specification:'Noto Mono';fill:#666666;stroke-width:0.26458332"
+         y="124.04528"
+         x="162.8598"
+         sodipodi:role="line"
+         id="tspan9175">NotMyApp</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Noto Mono';-inkscape-font-specification:'Noto Mono';fill:#666666;stroke-width:0.26458332"
+         y="130.93956"
+         x="162.8598"
+         sodipodi:role="line"
+         id="tspan9177">MyApp</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path9185"
+       d="m 113.20387,117.72537 v 45.85832"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker9193)"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="115.0917"
+       y="129.90234"
+       id="text9189"><tspan
+         sodipodi:role="line"
+         id="tspan9187"
+         x="115.0917"
+         y="129.90234"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332">implemented </tspan><tspan
+         sodipodi:role="line"
+         x="115.0917"
+         y="136.8157"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         id="tspan9416">in each class</tspan><tspan
+         sodipodi:role="line"
+         x="115.0917"
+         y="143.72905"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         id="tspan9418">e.g., in TypeA, </tspan><tspan
+         sodipodi:role="line"
+         x="115.0917"
+         y="150.64241"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         id="tspan9420">TypeB, ... as</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:39.40000153;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-119.42037"
+       y="174.68576"
+       id="text9345"><tspan
+         sodipodi:role="line"
+         id="tspan9343"
+         x="-119.42037"
+         y="174.68576"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Noto Mono';-inkscape-font-specification:'Noto Mono';stroke-width:0.26458332">customFilter(AbstractFilter &amp;filter) { <tspan
+   style="fill:#0066ff"
+   id="tspan9355">filter</tspan>.<tspan
+   style="fill:#338000"
+   id="tspan9357">filter</tspan>(<tspan
+   style="fill:#d4aa00"
+   id="tspan9359">*this</tspan>); }</tspan></text>
+    <text
+       id="text9386"
+       y="189.4998"
+       x="-67.392899"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan9384"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         y="189.4998"
+         x="-67.392899"
+         sodipodi:role="line">method provided by <tspan
+   style="font-style:italic"
+   id="tspan9398">all</tspan> available implementations of filters</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path9408"
+       d="M 64.946495,177.44927 H 88.867118"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.26458332, 0.52916663;stroke-dashoffset:0;stroke-opacity:1"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.26458332, 0.52916663;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 76.906807,177.55469 v 5.04959"
+       id="path9410"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.26458332, 0.52916663;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 93.521498,177.44927 H 112.52845"
+       id="path9412"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path9414"
+       d="m 103.02497,177.56543 v 21.6203"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.26458332, 0.52916663;stroke-dashoffset:0;stroke-opacity:1"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-11.563095"
+       y="205.53598"
+       id="text9426"><tspan
+         sodipodi:role="line"
+         x="-11.563095"
+         y="205.53598"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         id="tspan9424">resolves (or tells) the exact type (e.g., TypeA) which called the </tspan><tspan
+         sodipodi:role="line"
+         x="-11.563095"
+         y="212.44934"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         id="tspan9434">filter. <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Noto Mono';-inkscape-font-specification:'Noto Mono';fill:#338000"
+   id="tspan9430">filter</tspan> method accepts the class <tspan
+   style="font-style:italic"
+   id="tspan9448">type</tspan> as a parameter,</tspan><tspan
+         sodipodi:role="line"
+         x="-11.563095"
+         y="219.36269"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         id="tspan9442">making it possible to create a dedicated filtering solution for </tspan><tspan
+         sodipodi:role="line"
+         x="-11.563095"
+         y="226.27605"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         id="tspan9446">each class.</tspan></text>
+    <text
+       id="text9710"
+       y="254.59935"
+       x="-63.106884"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Noto Mono';-inkscape-font-specification:'Noto Mono';stroke-width:0.26458332"
+         y="254.59935"
+         x="-63.106884"
+         id="tspan9708"
+         sodipodi:role="line">template &lt;&gt; void <tspan
+   style="fill:#0066ff"
+   id="tspan9714">Filter</tspan>&lt;<tspan
+   style="fill:#d40000"
+   id="tspan9716">MyApp</tspan>&gt;::<tspan
+   style="fill:#338000"
+   id="tspan9712">filter</tspan>(TypeA &amp;a)</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Noto Mono';-inkscape-font-specification:'Noto Mono';stroke-width:0.26458332"
+         y="261.49362"
+         x="-63.106884"
+         sodipodi:role="line"
+         id="tspan10226">{ </tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Noto Mono';-inkscape-font-specification:'Noto Mono';stroke-width:0.26458332"
+         y="268.38791"
+         x="-63.106884"
+         sodipodi:role="line"
+         id="tspan10230">  ... </tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Noto Mono';-inkscape-font-specification:'Noto Mono';stroke-width:0.26458332"
+         y="275.2822"
+         x="-63.106884"
+         sodipodi:role="line"
+         id="tspan10228">}</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker9728)"
+       d="m 113.20387,223.2821 v 20.73498"
+       id="path9724"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:39.40000153;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="117.22985"
+       y="236.7377"
+       id="text10224"><tspan
+         sodipodi:role="line"
+         id="tspan10222"
+         x="117.22985"
+         y="236.7377"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332">implemented as</tspan></text>
+    <text
+       id="text10338"
+       y="170.84453"
+       x="-243.2791"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#000000;stroke-width:0.26458332"
+         y="170.84453"
+         x="-243.2791"
+         id="tspan10336"
+         sodipodi:role="line">method provided by class used for</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#000000;stroke-width:0.26458332"
+         y="177.75789"
+         x="-243.2791"
+         sodipodi:role="line"
+         id="tspan10340">communication (e.g., TypeA, ...)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-299.28595"
+       y="187.60992"
+       id="text10346"><tspan
+         sodipodi:role="line"
+         x="-299.28595"
+         y="187.60992"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         id="tspan10344">The owner of types (e.g., TypeA) does not <tspan
+   style="font-weight:bold"
+   id="tspan10348">need to know</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="-299.28595"
+         y="194.52328"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         id="tspan10350">about how <tspan
+   style="fill:#0066ff"
+   id="tspan10356">Filter</tspan> is implemented, only that a method</tspan><tspan
+         sodipodi:role="line"
+         x="-299.28595"
+         y="201.43663"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         id="tspan10352"><tspan
+   style="fill:#338000"
+   id="tspan10358">filter</tspan> is provided by the class <tspan
+   style="fill:#0066ff"
+   id="tspan10354">Filter</tspan>. This owner may be</tspan><tspan
+         sodipodi:role="line"
+         x="-299.28595"
+         y="208.34999"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#666666;stroke-width:0.26458332"
+         id="tspan10392">a middleware vendor, separate from the end customer.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.68115139px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-229.42419"
+       y="262.02078"
+       id="text10366"><tspan
+         id="tspan10364"
+         sodipodi:role="line"
+         x="-229.42419"
+         y="262.02078"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#000000;stroke-width:0.26458332">implemented by <tspan
+   style="font-weight:bold"
+   id="tspan10386">owner </tspan>of the </tspan><tspan
+         sodipodi:role="line"
+         x="-229.42419"
+         y="268.93414"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';fill:#000000;stroke-width:0.26458332"
+         id="tspan10388">Filter, e.g., an end customer.</tspan></text>
+  </g>
+</svg>

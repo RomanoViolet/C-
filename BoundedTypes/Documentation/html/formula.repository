@@ -1,0 +1,7 @@
+\form#0:$ \text{InterfaceB::outputPort} \leftarrow \mathit{f}(\text{InterfaceA::inputPort}) $
+\form#1:$ \text{outputPort} \leftarrow \mathit{f}(\text{inputPort}) $
+\form#2:$ \frac{rad}{s} $
+\form#3:$ rad$
+\form#4:$ \mathit{f}(\text{InterfaceB::inputPort}) $
+\form#5:$ \text{result} \leftarrow \mathit{f}(arg1, arg2) $
+\form#6:$ \mathit{f} $
