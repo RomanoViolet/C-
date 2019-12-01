@@ -73,7 +73,8 @@ macro(setBuildChainSpecifications)
                                     -Wunused-private-field \
                                     -Wignored-attributes \
                                     -Werror=unused-value \
-                                    -Wno-c++98-compat")
+                                    -Wno-c++98-compat \
+                                    -Werror=invalid-constexpr")
 
   set(CMAKE_CXX_FLAGS_GCC_RELEASE
       "-march=native \
@@ -118,7 +119,8 @@ macro(setBuildChainSpecifications)
                                     -D_FORTIFY_SOURCE=2 \
                                     -Wunused-private-field \
                                     -Werror=unused-value \
-                                    -Wno-c++98-compat")
+                                    -Wno-c++98-compat \
+                                    -Werror=invalid-constexpr")
 
   if("${CompilerChain_alllowerCase}" STREQUAL "gcc")
     set(CMAKE_CXX_FLAGS_RELEASE

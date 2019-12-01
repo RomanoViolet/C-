@@ -10,6 +10,7 @@ fi
 
 mkdir ./build
 cd ./build
+reset && \
 cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF -DCMAKE_BUILD_TYPE=Release -DCOMPILER=LLVM ..  && \
 make && \
 cp ./compile_commands.json ../

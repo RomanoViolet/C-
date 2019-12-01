@@ -66,13 +66,15 @@ namespace RomanoViolet
                    "Provided lower bound is greater than the provided upper bound. Abort" );
 
 #elif ( __cplusplus == 201402L )
-    constexpr NewFraction newMinBound = correctMinBound( );
+    // https://godbolt.org/z/RmA4hk
+    NewFraction newMinBound = correctMinBound( );
 
-    constexpr NewFraction newMaxBound = correctMaxBound( );
-
-    static_assert( ( ( long long )newMinBound.numerator * newMaxBound.denominator )
-                       < ( ( long long )newMinBound.denominator * newMaxBound.numerator ),
-                   "Provided lower bound is greater than the provided upper bound. Abort" );
+    NewFraction newMaxBound = correctMaxBound( );
+    // Although we are using runtime version of assert, the compiler is performing compile-time
+    // check. See https://godbolt.org/z/RmA4hk
+    assert( ( ( long long )newMinBound.numerator * newMaxBound.denominator )
+                < ( ( long long )newMinBound.denominator * newMaxBound.numerator )
+            && "Provided lower bound is greater than the provided upper bound. Abort" );
 
 #elif ( __cplusplus == 201102L )
     // constexpr lambdas are not allowed until C++17.
@@ -133,15 +135,18 @@ namespace RomanoViolet
              int DenominatorForMinBound,
              int NumeratorForMaxBound,
              int DenominatorForMaxBound >
-  constexpr SafeType::NewFraction SafeType< NumeratorForMinBound,
-                                            DenominatorForMinBound,
-                                            NumeratorForMaxBound,
-                                            DenominatorForMaxBound >::
-      correctMinBound(
-          // the compiler treats arguments are runtime changeable, therefore not allowed inside a
-          // constexpr.
-          // const int Numerator, const int Denominator
-          ) const
+  constexpr
+      typename SafeType< NumeratorForMinBound,
+                         DenominatorForMinBound,
+                         NumeratorForMaxBound,
+                         DenominatorForMaxBound >::NewFraction SafeType< NumeratorForMinBound,
+                                                                         DenominatorForMinBound,
+                                                                         NumeratorForMaxBound,
+                                                                         DenominatorForMaxBound >::
+          correctMinBound(
+              // the compiler treats arguments are runtime changeable, therefore not allowed inside
+              // a constexpr. const int Numerator, const int Denominator
+              ) const
   {
     // the statement below is not allowed to be inside a constexpr until C++14.
     NewFraction f;
@@ -160,15 +165,18 @@ namespace RomanoViolet
              int DenominatorForMinBound,
              int NumeratorForMaxBound,
              int DenominatorForMaxBound >
-  constexpr SafeType::NewFraction SafeType< NumeratorForMinBound,
-                                            DenominatorForMinBound,
-                                            NumeratorForMaxBound,
-                                            DenominatorForMaxBound >::
-      correctMaxBound(
-          // the compiler treats arguments are runtime changeable, therefore not allowed inside a
-          // constexpr.
-          // const int Numerator, const int Denominator
-          ) const
+  constexpr
+      typename SafeType< NumeratorForMinBound,
+                         DenominatorForMinBound,
+                         NumeratorForMaxBound,
+                         DenominatorForMaxBound >::NewFraction SafeType< NumeratorForMinBound,
+                                                                         DenominatorForMinBound,
+                                                                         NumeratorForMaxBound,
+                                                                         DenominatorForMaxBound >::
+          correctMaxBound(
+              // the compiler treats arguments are runtime changeable, therefore not allowed inside
+              // a constexpr. const int Numerator, const int Denominator
+              ) const
   {
     // the statement below is not allowed to be inside a constexpr until C++14.
     NewFraction f;

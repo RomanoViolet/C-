@@ -35,8 +35,8 @@ namespace RomanoViolet
     // const int Denominator
     //    ) const;
     //
-    constexpr NewFraction correctMinBound( ) const;
-    constexpr NewFraction correctMaxBound( ) const;
+    constexpr typename SafeType::NewFraction correctMinBound( ) const;
+    constexpr typename SafeType::NewFraction correctMaxBound( ) const;
 
 #endif
   };
