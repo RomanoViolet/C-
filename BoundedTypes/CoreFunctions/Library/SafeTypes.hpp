@@ -22,7 +22,7 @@ namespace RomanoViolet
     float _max;
     float _value;
 
-#if ( __cplusplus == 201402L )
+#if ( ( __cplusplus == 201402L ) || ( __cplusplus == 201703L ) )
     struct NewFraction {
       int numerator = 1;
       int denominator = 1;
@@ -54,7 +54,7 @@ namespace RomanoViolet
 
     // define temporary data structure to hold new numerators and denominators if these need to be
     // transformed.
-#if ( __cplusplus == 201402L )
+#if ( ( __cplusplus == 201402L ) || ( __cplusplus == 201703L ) )
     struct NewFraction {
       int numerator = 1;
       int denominator = 1;
