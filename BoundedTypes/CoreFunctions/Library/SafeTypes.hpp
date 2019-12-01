@@ -1,74 +1,23 @@
 #ifndef SAFETYPES_HPP_
 #define SAFETYPES_HPP_
 
-#include <cstdint>
-namespace RomanoViolet
-{
-  // It would be convenient to have a custom type as a template parameter, but see
-  // https://stackoverflow.com/q/15896579
-  template < int NumeratorForMinBound = 1,
-             int DenominatorForMinBound = 1,
-             int NumeratorForMaxBound = 1,
-             int DenominatorForMaxBound = 1 >
-  class SafeType
-  {
-  public:
-    SafeType( float value );
-    float getMinValue( );
-    float getValue( );
+#include <cassert>
 
-  private:
-    float _min;
-    float _max;
-    float _value;
+#if ( __cplusplus == 201103L )
+// C++11 standards compliant implementation
+#include "SafeTypes_CXX11.hpp"
 
-#if ( ( __cplusplus == 201402L ) || ( __cplusplus == 201703L ) )
-    struct NewFraction {
-      int numerator = 1;
-      int denominator = 1;
-    };
-    // the compiler treats arguments are runtime changeable, therefore not allowed inside a
-    // constexpr.
-    //
-    // constexpr NewFraction correctBound(
-    // const int Numerator,
-    // const int Denominator
-    //    ) const;
-    //
-    constexpr typename SafeType::NewFraction correctMinBound( ) const;
-    constexpr typename SafeType::NewFraction correctMaxBound( ) const;
+#elif ( __cplusplus == 201402L )
+// C++14 standards compliant implementation
+#include "SafeTypes_CXX14.hpp"
 
+#elif ( __cplusplus == 201703L )
+// C++11 standards compliant implementation
+#include "SafeTypes_CXX17.hpp"
+
+#else
+// Library cannot be used.
+static_assert( "You need minimum C++11 standard to use this library" );
 #endif
-  };
-  template < int NumeratorForMinBound, int NumeratorForMaxBound >
-  class SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >
-  {
-  public:
-    SafeType( int value );
-    int getValue( );
-
-  private:
-    int _min;
-    int _max;
-    int _value;
-
-    // define temporary data structure to hold new numerators and denominators if these need to be
-    // transformed.
-#if ( ( __cplusplus == 201402L ) || ( __cplusplus == 201703L ) )
-    struct NewFraction {
-      int numerator = 1;
-      int denominator = 1;
-    };
-
-    constexpr NewFraction correctBound( int Numerator, int Denominator ) const;
-
-#endif
-  };
-
-#define Fraction( a, b ) a, b
-
-}  // namespace RomanoViolet
-
-#include "SafeTypes.inl"
 
 #endif  // !SAFETYPES_HPP_
