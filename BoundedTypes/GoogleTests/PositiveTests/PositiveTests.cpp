@@ -71,8 +71,8 @@ TEST( InstantationTest, OverflowCheck_2 )
   const int MaxValueOfInt = std::numeric_limits< int >::max( );
   using customType = RomanoViolet::SafeType< Fraction( MaxValueOfInt - 1, MaxValueOfInt ),
                                              Fraction( MaxValueOfInt, 1 ) >;
-  customType c = ( MaxValueOfInt * 1.0F - MaxValueOfInt ) / MaxValueOfInt;
-  EXPECT_FLOAT_EQ( c.getValue( ), ( MaxValueOfInt * 1.0F - MaxValueOfInt ) / MaxValueOfInt );
+  customType c = ( float( MaxValueOfInt ) - 1.0F ) / MaxValueOfInt;
+  EXPECT_FLOAT_EQ( c.getValue( ), ( float( MaxValueOfInt ) - 1.0F ) / MaxValueOfInt );
 }
 
 TEST( InstantationTest, CheckForSignRobustness )
@@ -169,17 +169,16 @@ TEST( InstantationTest, CheckForResolution )
   const int MinValueOfInt = std::numeric_limits< int >::min( ) + 1;
   const int MaxValueOfInt = std::numeric_limits< int >::max( );
 
-  const int range_from = MinValueOfInt;
-  const int range_to = MaxValueOfInt;
+  const int range_from = -100;
+  const int range_to = 100;
   std::random_device rand_dev;
   std::mt19937 generator( rand_dev( ) );
 
   std::uniform_int_distribution< int > distr( range_from, range_to );
 
-  float value = float( distr( generator ) ) / distr( generator );
-  std::cout << "Value: " << value << ". Random Value stored: " << ( 1.0F / value ) << std::endl;
-  std::cout << "Min Bound: " << 1.0 / -2147483647 << ". Max Bound:" << 1.0 / 2147483647
-            << std::endl;
+  float value
+      = ( float( distr( generator ) ) / distr( generator ) )
+        * ( ( ( 1.0F / MaxValueOfInt ) - ( 1.0F / MinValueOfInt ) ) / ( range_from - range_to ) );
 
   // note: A denominator of 1 will automatically match against integer
   // specialization of safetype.
@@ -188,6 +187,50 @@ TEST( InstantationTest, CheckForResolution )
   //       denominators are exepected to be of type int
   using customType
       = RomanoViolet::SafeType< Fraction( 1, MinValueOfInt ), Fraction( 1, MaxValueOfInt ) >;
-  customType c = 1.0F / value;
-  EXPECT_FLOAT_EQ( c.getValue( ), 1.0F / value );
+  customType c = value;
+  EXPECT_FLOAT_EQ( c.getValue( ), value );
+}
+
+TEST( InstantationTest, CheckForFlooring )
+{
+  // Test when lower and upper bounds are very close to each other
+
+  const int MinValueOfInt = -3;
+  const int MaxValueOfInt = 5;
+
+  float value = -3.1F;
+
+  // note: A denominator of 1 will automatically match against integer
+  // specialization of safetype.
+  //       That is, a float value cannot be stored inside.
+  //       Setting the denominator to 1.0F will not work since all numerators and
+  //       denominators are exepected to be of type int
+  using customType
+      = RomanoViolet::SafeType< Fraction( 1, MinValueOfInt ), Fraction( 1, MaxValueOfInt ) >;
+  customType c = value;
+
+  // Stored value will be floored to the lower bound.
+  EXPECT_FLOAT_EQ( c.getValue( ), -1.0F / 3.F );
+}
+
+TEST( InstantationTest, CheckForCeiling )
+{
+  // Test when lower and upper bounds are very close to each other
+
+  const int MinValueOfInt = 3;
+  const int MaxValueOfInt = 5;
+
+  float value = 10.F;
+
+  // note: A denominator of 1 will automatically match against integer
+  // specialization of safetype.
+  //       That is, a float value cannot be stored inside.
+  //       Setting the denominator to 1.0F will not work since all numerators and
+  //       denominators are exepected to be of type int
+  using customType
+      = RomanoViolet::SafeType< Fraction( MinValueOfInt, 1 ), Fraction( MaxValueOfInt, 1 ) >;
+  customType c = value;
+
+  // Stored value will be ceiled to the upper bound
+  EXPECT_FLOAT_EQ( c.getValue( ), 5.0F );
 }

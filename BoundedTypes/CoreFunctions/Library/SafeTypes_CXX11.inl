@@ -39,10 +39,6 @@ namespace RomanoViolet
 
     if ( ( DenominatorForMinBound < 0 ) && ( NumeratorForMinBound > 0 )
          && ( DenominatorForMaxBound < 0 ) && ( NumeratorForMaxBound > 0 ) ) {
-      std::cout << std::boolalpha;
-      std::cout << "Condition 1\n\t: " << ( DenominatorForMinBound < 0 ) << ", "
-                << ( NumeratorForMinBound > 0 ) << ", " << ( DenominatorForMaxBound < 0 ) << ", "
-                << ( NumeratorForMaxBound > 0 ) << std::endl;
       constexpr int newNumeratorForMinBound = -NumeratorForMinBound;
       constexpr int newDenominatorForMinBound = -DenominatorForMinBound;
       constexpr int newNumeratorForMaxBound = -NumeratorForMaxBound;
@@ -50,7 +46,8 @@ namespace RomanoViolet
       assert( ( ( long long )newNumeratorForMinBound * newDenominatorForMaxBound )
                   < ( ( long long )newDenominatorForMinBound * newNumeratorForMaxBound )
               && "Provided lower bound is greater than the provided upper bound. Abort" );
-    } else if ( ( DenominatorForMinBound < 0 ) && ( DenominatorForMaxBound > 0 ) ) {
+    } else if ( ( DenominatorForMinBound < 0 ) && ( NumeratorForMinBound > 0 )
+                && ( DenominatorForMaxBound > 0 ) && ( NumeratorForMaxBound > 0 ) ) {
       constexpr int newNumeratorForMinBound = -NumeratorForMinBound;
       constexpr int newDenominatorForMinBound = -DenominatorForMinBound;
       constexpr int newNumeratorForMaxBound = NumeratorForMaxBound;
@@ -58,7 +55,9 @@ namespace RomanoViolet
       assert( ( ( long long )newNumeratorForMinBound * newDenominatorForMaxBound )
                   < ( ( long long )newDenominatorForMinBound * newNumeratorForMaxBound )
               && "Provided lower bound is greater than the provided upper bound. Abort" );
-    } else if ( ( DenominatorForMinBound > 0 ) && ( DenominatorForMaxBound < 0 ) ) {
+    } else if ( ( DenominatorForMinBound > 0 ) && ( NumeratorForMinBound > 0 )
+                && ( DenominatorForMaxBound < 0 ) && ( NumeratorForMaxBound > 0 ) ) {
+      // if ( ( DenominatorForMinBound > 0 ) && ( DenominatorForMaxBound < 0 ) ) {
       constexpr int newNumeratorForMinBound = NumeratorForMinBound;
       constexpr int newDenominatorForMinBound = DenominatorForMinBound;
       constexpr int newNumeratorForMaxBound = -NumeratorForMaxBound;
@@ -78,7 +77,15 @@ namespace RomanoViolet
               && "Provided lower bound is greater than the provided upper bound. Abort" );
     }
 
-    _value = value;
+    // min and max bounds are correct.
+    if ( value < _min ) {
+      _value = _min;
+    } else if ( value > _max ) {
+      _value = _max;
+    } else {
+      _value = value;
+    }
+
   }  // end of constructor
 
   template < int NumeratorForMinBound,

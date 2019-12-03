@@ -68,7 +68,14 @@ namespace RomanoViolet
                        < ( ( long long )minBound.denominator * maxBound.numerator ),
                    "Provided lower bound is greater than the provided upper bound. Abort" );
 
-    _value = value;
+    // min and max bounds are correct.
+    if ( value < _min ) {
+      _value = _min;
+    } else if ( value > _max ) {
+      _value = _max;
+    } else {
+      _value = value;
+    }
   }  // end of constructor
 
   template < int NumeratorForMinBound,
