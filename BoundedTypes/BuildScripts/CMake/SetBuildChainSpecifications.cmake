@@ -43,9 +43,9 @@ macro(setBuildChainSpecifications)
                                     -fstack-protector-strong \
                                     -fstack-protector \
                                     -D_FORTIFY_SOURCE=2 \
-                                -Werror=unused \
-                            -fprofile-arcs \
-                        -ftest-coverage")
+                                    -Werror=unused \
+                                    -fprofile-arcs \
+                                    -ftest-coverage")
 
   set(CMAKE_CXX_FLAGS_CLANG_DEBUG
       "-march=native \

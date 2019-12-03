@@ -151,7 +151,6 @@ TEST( InstantationTest, CheckForNegativeAndPositiveBounds )
   std::uniform_int_distribution< int > distr( range_from, range_to );
 
   float value = float( distr( generator ) ) / distr( generator );
-  std::cout << "Random Value stored: " << value << std::endl;
 
   // note: A denominator of 1 will automatically match against integer specialization of safetype.
   //       That is, a float value cannot be stored inside.
@@ -161,4 +160,34 @@ TEST( InstantationTest, CheckForNegativeAndPositiveBounds )
       = RomanoViolet::SafeType< Fraction( MinValueOfInt, 1 ), Fraction( MaxValueOfInt, 1 ) >;
   customType c = value;
   EXPECT_FLOAT_EQ( c.getValue( ), value );
+}
+
+TEST( InstantationTest, CheckForResolution )
+{
+  // Test when lower and upper bounds are very close to each other
+
+  const int MinValueOfInt = std::numeric_limits< int >::min( ) + 1;
+  const int MaxValueOfInt = std::numeric_limits< int >::max( );
+
+  const int range_from = MinValueOfInt;
+  const int range_to = MaxValueOfInt;
+  std::random_device rand_dev;
+  std::mt19937 generator( rand_dev( ) );
+
+  std::uniform_int_distribution< int > distr( range_from, range_to );
+
+  float value = float( distr( generator ) ) / distr( generator );
+  std::cout << "Value: " << value << ". Random Value stored: " << ( 1.0F / value ) << std::endl;
+  std::cout << "Min Bound: " << 1.0 / -2147483647 << ". Max Bound:" << 1.0 / 2147483647
+            << std::endl;
+
+  // note: A denominator of 1 will automatically match against integer
+  // specialization of safetype.
+  //       That is, a float value cannot be stored inside.
+  //       Setting the denominator to 1.0F will not work since all numerators and
+  //       denominators are exepected to be of type int
+  using customType
+      = RomanoViolet::SafeType< Fraction( 1, MinValueOfInt ), Fraction( 1, MaxValueOfInt ) >;
+  customType c = 1.0F / value;
+  EXPECT_FLOAT_EQ( c.getValue( ), 1.0F / value );
 }

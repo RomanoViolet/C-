@@ -34,3 +34,15 @@ TEST( InstantationTest, CheckForZeroDenominator )
 #pragma GCC diagnostic pop
 #endif
 }
+
+TEST( InstantationTest, CheckForOverLowerBoundOverflow )
+{
+  // Setting lower bound to std::numeric_limits< int >::min( ) is not allowed.
+
+  EXPECT_FALSE( []( ) {
+    const int MinValueOfInt = std::numeric_limits< int >::min( );
+    return (
+        std::is_constructible< RomanoViolet::SafeType< Fraction( 2, MinValueOfInt ),
+                                                       Fraction( 1, MinValueOfInt ) > >::value );
+  }( ) );
+}
