@@ -27,6 +27,10 @@ namespace RomanoViolet
     // assert that denominators are not zero.
     static_assert( DenominatorForMinBound != 0, "Denominator for lower bound cannot be zero." );
     static_assert( DenominatorForMaxBound != 0, "Denominator for upper bound cannot be zero." );
+    static_assert( DenominatorForMinBound > std::numeric_limits< int >::min( ),
+                   "Minimum value of denominator is std::numeric_limits<int>::min() + 1" );
+    static_assert( DenominatorForMaxBound > std::numeric_limits< int >::min( ),
+                   "Minimum value of denominator is std::numeric_limits<int>::min() + 1" );
 
     // Negative sign from denominator is always moved to the numerator.
     // if constexpr ( DenominatorForMinBound < 0 ) {
@@ -92,14 +96,14 @@ namespace RomanoViolet
   }  // getValue
 
   template < int NumeratorForMinBound, int NumeratorForMaxBound >
-  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::SafeType( int value )
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::SafeType( float value )
       : _min( NumeratorForMinBound ), _max( NumeratorForMaxBound )
   {
     _value = value;
   }  // constructor
 
   template < int NumeratorForMinBound, int NumeratorForMaxBound >
-  int SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::getValue( )
+  float SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::getValue( )
   {
     return this->_value;
   }  // getValue

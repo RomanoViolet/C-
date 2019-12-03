@@ -41,13 +41,13 @@ namespace RomanoViolet
   class SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >
   {
   public:
-    SafeType( int value );
-    int getValue( );
+    SafeType( float value );
+    float getValue( );
 
   private:
     int _min;
     int _max;
-    int _value;
+    float _value;
 
     // define temporary data structure to hold new numerators and denominators if these need to be
     // transformed.
@@ -56,7 +56,6 @@ namespace RomanoViolet
       int denominator = 1;
     };
     constexpr NewFraction correctBound( int Numerator, int Denominator ) const;
-
   };
 
 #define Fraction( a, b ) a, b
