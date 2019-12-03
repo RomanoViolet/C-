@@ -1,3 +1,8 @@
+#
+# How to test for build or compile time failures.
+# https://stackoverflow.com/questions/30155619/expected-build-failure-tests-in-
+# cmake
+#
 # Configure google-test as a downloadable library.
 include(${PROJECT_SOURCE_DIR}/BuildScripts/CMake/BuildGoogleTests.cmake)
 find_package(GTest REQUIRED)
@@ -5,9 +10,8 @@ find_package(GTest REQUIRED)
 get_filename_component(ThisGoogleTestDirectory ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 
 # Add Local sources
-file(GLOB_RECURSE TEST_SRC ${CMAKE_CURRENT_LIST_DIR}/*.cpp)
-message("Google Interface Test CPP Sources:" ${TEST_SRC})
-
+file(GLOB TEST_SRC ${CMAKE_CURRENT_LIST_DIR}/*.cpp)
+message("Google Implementation Test CPP Sources:" ${TEST_SRC})
 if(TEST_SRC)
 
   # Lib includes
@@ -22,7 +26,7 @@ if(TEST_SRC)
                                                                         # definition
                                                                         # of core-
                                                                         # functions.
-      $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/CoreFunctions/Library> # SafeType
+      $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/CoreFunctions/Library> # Safe Type
   )
 
   set_target_properties(${ThisGoogleTestDirectory}_GoogleTest
@@ -37,10 +41,11 @@ if(TEST_SRC)
     gmock_main
     gtest_main
     gtest
-    gmock)
+    gmock
+    Library)
+
   # target_link_libraries(${ThisGoogleTestDirectory}_GoogleTest DemoLibrary
-  # ${GMOCK_LIBRARY} ${GMOCK_MAIN_LIBRARY} ${GTEST_LIBRARY}
-  # ${GTEST_MAIN_LIBRARY} pthread)
+  # gtest gtest_main gmock gmock_main pthread)
 
   add_dependencies(AllGoogleTests ${ThisGoogleTestDirectory}_GoogleTest)
   set(UNIT_TEST_TARGETS

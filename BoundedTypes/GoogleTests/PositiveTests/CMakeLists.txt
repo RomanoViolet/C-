@@ -1,3 +1,8 @@
+#
+# How to test for build or compile time failures.
+# https://stackoverflow.com/questions/30155619/expected-build-failure-tests-in-
+# cmake
+#
 # Configure google-test as a downloadable library.
 include(${PROJECT_SOURCE_DIR}/BuildScripts/CMake/BuildGoogleTests.cmake)
 find_package(GTest REQUIRED)
