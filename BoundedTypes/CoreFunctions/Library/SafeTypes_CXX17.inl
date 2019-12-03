@@ -106,7 +106,14 @@ namespace RomanoViolet
   SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::SafeType( float value )
       : _min( NumeratorForMinBound ), _max( NumeratorForMaxBound )
   {
-    _value = value;
+    // min and max bounds are correct.
+    if ( value < _min ) {
+      _value = _min;
+    } else if ( value > _max ) {
+      _value = _max;
+    } else {
+      _value = value;
+    }
   }  // constructor
 
   template < int NumeratorForMinBound, int NumeratorForMaxBound >

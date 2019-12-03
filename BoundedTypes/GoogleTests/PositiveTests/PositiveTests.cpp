@@ -213,20 +213,32 @@ TEST( InstantationTest, CheckForFlooring )
   EXPECT_FLOAT_EQ( c.getValue( ), -1.0F / 3.F );
 }
 
-TEST( InstantationTest, CheckForCeiling )
+TEST( InstantationTest, CheckForCeiling_FloatSpecialization )
 {
-  // Test when lower and upper bounds are very close to each other
+  // Test when value to be assigned is higher than upper bound, and is therefore expected to be
+  // ceiled to the upper bound.
 
   const int MinValueOfInt = 3;
   const int MaxValueOfInt = 5;
 
   float value = 10.F;
+  using customType
+      = RomanoViolet::SafeType< Fraction( MinValueOfInt, 2 ), Fraction( MaxValueOfInt, 2 ) >;
+  customType c = value;
 
-  // note: A denominator of 1 will automatically match against integer
-  // specialization of safetype.
-  //       That is, a float value cannot be stored inside.
-  //       Setting the denominator to 1.0F will not work since all numerators and
-  //       denominators are exepected to be of type int
+  // Stored value will be ceiled to the upper bound
+  EXPECT_FLOAT_EQ( c.getValue( ), 5.0 / 2.0F );
+}
+
+TEST( InstantationTest, CheckForCeiling_IntegerSpecialization )
+{
+  // Test when value to be assigned is higher than upper bound, and is therefore expected to be
+  // ceiled to the upper bound.
+
+  const int MinValueOfInt = 3;
+  const int MaxValueOfInt = 5;
+
+  float value = 10.F;
   using customType
       = RomanoViolet::SafeType< Fraction( MinValueOfInt, 1 ), Fraction( MaxValueOfInt, 1 ) >;
   customType c = value;

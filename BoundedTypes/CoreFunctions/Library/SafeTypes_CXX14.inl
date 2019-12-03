@@ -50,105 +50,111 @@ namespace RomanoViolet
     } else {
       _value = value;
     }
-  }
-}  // namespace RomanoViolet
+  }  // namespace RomanoViolet
 
-template < int NumeratorForMinBound,
-           int DenominatorForMinBound,
-           int NumeratorForMaxBound,
-           int DenominatorForMaxBound >
-float SafeType< NumeratorForMinBound,
-                DenominatorForMinBound,
-                NumeratorForMaxBound,
-                DenominatorForMaxBound >::getMinValue( )
-{
-  return this->_min;
-}  // getMinValue
+  template < int NumeratorForMinBound,
+             int DenominatorForMinBound,
+             int NumeratorForMaxBound,
+             int DenominatorForMaxBound >
+  float SafeType< NumeratorForMinBound,
+                  DenominatorForMinBound,
+                  NumeratorForMaxBound,
+                  DenominatorForMaxBound >::getMinValue( )
+  {
+    return this->_min;
+  }  // getMinValue
 
-template < int NumeratorForMinBound,
-           int DenominatorForMinBound,
-           int NumeratorForMaxBound,
-           int DenominatorForMaxBound >
-float SafeType< NumeratorForMinBound,
-                DenominatorForMinBound,
-                NumeratorForMaxBound,
-                DenominatorForMaxBound >::getValue( )
-{
-  return this->_value;
-}  // getValue
+  template < int NumeratorForMinBound,
+             int DenominatorForMinBound,
+             int NumeratorForMaxBound,
+             int DenominatorForMaxBound >
+  float SafeType< NumeratorForMinBound,
+                  DenominatorForMinBound,
+                  NumeratorForMaxBound,
+                  DenominatorForMaxBound >::getValue( )
+  {
+    return this->_value;
+  }  // getValue
 
-template < int NumeratorForMinBound, int NumeratorForMaxBound >
-SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::SafeType( float value )
-    : _min( NumeratorForMinBound ), _max( NumeratorForMaxBound )
-{
-  _value = value;
-}  // constructor
+  template < int NumeratorForMinBound, int NumeratorForMaxBound >
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::SafeType( float value )
+      : _min( NumeratorForMinBound ), _max( NumeratorForMaxBound )
+  {
+    // min and max bounds are correct.
+    if ( value < _min ) {
+      _value = _min;
+    } else if ( value > _max ) {
+      _value = _max;
+    } else {
+      _value = value;
+    }
+  }  // constructor
 
-template < int NumeratorForMinBound, int NumeratorForMaxBound >
-float SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::getValue( )
-{
-  return this->_value;
-}  // getValue
+  template < int NumeratorForMinBound, int NumeratorForMaxBound >
+  float SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::getValue( )
+  {
+    return this->_value;
+  }  // getValue
 
-template < int NumeratorForMinBound,
-           int DenominatorForMinBound,
-           int NumeratorForMaxBound,
-           int DenominatorForMaxBound >
-constexpr
-    typename SafeType< NumeratorForMinBound,
-                       DenominatorForMinBound,
-                       NumeratorForMaxBound,
-                       DenominatorForMaxBound >::NewFraction SafeType< NumeratorForMinBound,
-                                                                       DenominatorForMinBound,
-                                                                       NumeratorForMaxBound,
-                                                                       DenominatorForMaxBound >::
-        correctMinBound(
-            // the compiler treats arguments are runtime changeable, therefore not allowed inside
-            // a constexpr. const int Numerator, const int Denominator
-            ) const
-{
-  // the statement below is not allowed to be inside a constexpr until C++14.
-  NewFraction f;
-  if ( DenominatorForMinBound < 0 ) {
-    f.denominator = DenominatorForMinBound * -1;
-    f.numerator = NumeratorForMinBound * -1;
-  } else {
-    f.denominator = DenominatorForMinBound;
-    f.numerator = NumeratorForMinBound;
-  }
-  return f;
+  template < int NumeratorForMinBound,
+             int DenominatorForMinBound,
+             int NumeratorForMaxBound,
+             int DenominatorForMaxBound >
+  constexpr
+      typename SafeType< NumeratorForMinBound,
+                         DenominatorForMinBound,
+                         NumeratorForMaxBound,
+                         DenominatorForMaxBound >::NewFraction SafeType< NumeratorForMinBound,
+                                                                         DenominatorForMinBound,
+                                                                         NumeratorForMaxBound,
+                                                                         DenominatorForMaxBound >::
+          correctMinBound(
+              // the compiler treats arguments are runtime changeable, therefore not allowed inside
+              // a constexpr. const int Numerator, const int Denominator
+              ) const
+  {
+    // the statement below is not allowed to be inside a constexpr until C++14.
+    NewFraction f;
+    if ( DenominatorForMinBound < 0 ) {
+      f.denominator = DenominatorForMinBound * -1;
+      f.numerator = NumeratorForMinBound * -1;
+    } else {
+      f.denominator = DenominatorForMinBound;
+      f.numerator = NumeratorForMinBound;
+    }
+    return f;
 
-}  // correctMinBound
+  }  // correctMinBound
 
-template < int NumeratorForMinBound,
-           int DenominatorForMinBound,
-           int NumeratorForMaxBound,
-           int DenominatorForMaxBound >
-constexpr
-    typename SafeType< NumeratorForMinBound,
-                       DenominatorForMinBound,
-                       NumeratorForMaxBound,
-                       DenominatorForMaxBound >::NewFraction SafeType< NumeratorForMinBound,
-                                                                       DenominatorForMinBound,
-                                                                       NumeratorForMaxBound,
-                                                                       DenominatorForMaxBound >::
-        correctMaxBound(
-            // the compiler treats arguments are runtime changeable, therefore not allowed inside
-            // a constexpr. const int Numerator, const int Denominator
-            ) const
-{
-  // the statement below is not allowed to be inside a constexpr until C++14.
-  NewFraction f;
-  if ( DenominatorForMaxBound < 0 ) {
-    f.denominator = DenominatorForMaxBound * -1;
-    f.numerator = NumeratorForMaxBound * -1;
-  } else {
-    f.denominator = DenominatorForMaxBound;
-    f.numerator = NumeratorForMaxBound;
-  }
-  return f;
+  template < int NumeratorForMinBound,
+             int DenominatorForMinBound,
+             int NumeratorForMaxBound,
+             int DenominatorForMaxBound >
+  constexpr
+      typename SafeType< NumeratorForMinBound,
+                         DenominatorForMinBound,
+                         NumeratorForMaxBound,
+                         DenominatorForMaxBound >::NewFraction SafeType< NumeratorForMinBound,
+                                                                         DenominatorForMinBound,
+                                                                         NumeratorForMaxBound,
+                                                                         DenominatorForMaxBound >::
+          correctMaxBound(
+              // the compiler treats arguments are runtime changeable, therefore not allowed inside
+              // a constexpr. const int Numerator, const int Denominator
+              ) const
+  {
+    // the statement below is not allowed to be inside a constexpr until C++14.
+    NewFraction f;
+    if ( DenominatorForMaxBound < 0 ) {
+      f.denominator = DenominatorForMaxBound * -1;
+      f.numerator = NumeratorForMaxBound * -1;
+    } else {
+      f.denominator = DenominatorForMaxBound;
+      f.numerator = NumeratorForMaxBound;
+    }
+    return f;
 
-}  // correctMaxBound
+  }  // correctMaxBound
 }  // namespace RomanoViolet
 
 #endif  //. #ifndef SAFETYPES__CXX14_INL_
