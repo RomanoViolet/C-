@@ -112,6 +112,52 @@ namespace RomanoViolet
     return this->_value;
   }  // getValue
 
+  template < int NumeratorForMinBound,
+             int DenominatorForMinBound,
+             int NumeratorForMaxBound,
+             int DenominatorForMaxBound >
+  SafeType< NumeratorForMinBound,
+            DenominatorForMinBound,
+            NumeratorForMaxBound,
+            DenominatorForMaxBound >::operator float( ) const
+  {
+    return ( this->_value );
+  }
+
+  template < int NumeratorForMinBound,
+             int DenominatorForMinBound,
+             int NumeratorForMaxBound,
+             int DenominatorForMaxBound >
+  SafeType< NumeratorForMinBound,
+            DenominatorForMinBound,
+            NumeratorForMaxBound,
+            DenominatorForMaxBound >::SafeType( const SafeType &other )
+  {
+    this->_min = other._min;
+    this->_max = other._max;
+    this->_value = other._value;
+  }
+
+  // assignment operator
+  template < int NumeratorForMinBound,
+             int DenominatorForMinBound,
+             int NumeratorForMaxBound,
+             int DenominatorForMaxBound >
+  SafeType< NumeratorForMinBound,
+            DenominatorForMinBound,
+            NumeratorForMaxBound,
+            DenominatorForMaxBound > &
+  SafeType< NumeratorForMinBound,
+            DenominatorForMinBound,
+            NumeratorForMaxBound,
+            DenominatorForMaxBound >::operator=( const SafeType &other )
+  {
+    this->_min = other._min;
+    this->_max = other._max;
+    this->_value = other._value;
+    return *this;
+  }
+
   template < int NumeratorForMinBound, int NumeratorForMaxBound >
   SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::SafeType( float value )
       : _min( NumeratorForMinBound ), _max( NumeratorForMaxBound )
@@ -131,6 +177,31 @@ namespace RomanoViolet
   {
     return this->_value;
   }  // getValue
+
+  template < int NumeratorForMinBound, int NumeratorForMaxBound >
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::operator float( ) const
+  {
+    return ( this->_value );
+  }
+
+  template < int NumeratorForMinBound, int NumeratorForMaxBound >
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::SafeType( const SafeType &other )
+  {
+    this->_min = other._min;
+    this->_max = other._max;
+    this->_value = other._value;
+  }
+
+  // assignment operator
+  template < int NumeratorForMinBound, int NumeratorForMaxBound >
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 > &
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::operator=( const SafeType &other )
+  {
+    this->_min = other._min;
+    this->_max = other._max;
+    this->_value = other._value;
+    return *this;
+  }
 }  // namespace RomanoViolet
 
 #endif  //. #ifndef SAFETYPES_CXX11_INL_

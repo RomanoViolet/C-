@@ -179,12 +179,6 @@ TEST( InstantationTest, CheckForResolution )
   float value
       = ( float( distr( generator ) ) / distr( generator ) )
         * ( ( ( 1.0F / MaxValueOfInt ) - ( 1.0F / MinValueOfInt ) ) / ( range_from - range_to ) );
-
-  // note: A denominator of 1 will automatically match against integer
-  // specialization of safetype.
-  //       That is, a float value cannot be stored inside.
-  //       Setting the denominator to 1.0F will not work since all numerators and
-  //       denominators are exepected to be of type int
   using customType
       = RomanoViolet::SafeType< Fraction( 1, MinValueOfInt ), Fraction( 1, MaxValueOfInt ) >;
   customType c = value;
@@ -246,3 +240,83 @@ TEST( InstantationTest, CheckForCeiling_IntegerSpecialization )
   // Stored value will be ceiled to the upper bound
   EXPECT_FLOAT_EQ( c.getValue( ), 5.0F );
 }
+
+TEST( InstantationTest, AssignmentToFloat )
+{
+  // Tests whether the value stored in the class can be assigned to a float (the type value is
+  // stored in the class)
+  //
+  // customType c = <some value>
+  // float x = c;
+  //         |_________ Test this.
+  //
+
+  const int MinValueOfInt = -2;
+  const int MaxValueOfInt = 1;
+
+  float value = -0.73F;
+  using customType
+      = RomanoViolet::SafeType< Fraction( MinValueOfInt, 1 ), Fraction( MaxValueOfInt, 1 ) >;
+  customType c = value;
+  float cNew = c;  // this assignment is being tested.
+
+  // Stored value will be ceiled to the upper bound
+  EXPECT_FLOAT_EQ( c.getValue( ), cNew );
+}
+
+TEST( InstantationTest, CopyConstructor )
+{
+  // Test the copy constructor
+
+  const int MinValueOfInt = -2;
+  const int MaxValueOfInt = 1;
+
+  float value = -0.73F;
+  using customType
+      = RomanoViolet::SafeType< Fraction( MinValueOfInt, 1 ), Fraction( MaxValueOfInt, 1 ) >;
+  customType c = value;
+
+  customType newObject = c;
+
+  // Stored value will be ceiled to the upper bound
+  EXPECT_FLOAT_EQ( c.getValue( ), newObject.getValue( ) );
+}
+
+TEST( InstantationTest, AssignmentOperator )
+{
+  // Test the copy constructor
+
+  const int MinValueOfInt = -2;
+  const int MaxValueOfInt = 1;
+
+  float value = -0.73F;
+  using customType
+      = RomanoViolet::SafeType< Fraction( MinValueOfInt, 1 ), Fraction( MaxValueOfInt, 1 ) >;
+  customType c = value;
+
+  customType c_other = 0.995;  // as long as it is within the bounds of the customType
+
+  c_other = c;  // This is being tested.
+
+  // Stored value will be ceiled to the upper bound
+  EXPECT_FLOAT_EQ( c.getValue( ), c_other.getValue( ) );
+}
+
+TEST( InstantationTest, AdditionWithAnotherFloat )
+{
+  // Binary arithmetic with other floats should work out of the box due to operator float() being
+  // implemented.
+
+  const int MinValueOfInt = -2;
+  const int MaxValueOfInt = 1;
+
+  float value = -0.73F;
+  using customType
+      = RomanoViolet::SafeType< Fraction( MinValueOfInt, 1 ), Fraction( MaxValueOfInt, 1 ) >;
+  customType c = value;
+
+  // Stored value will be ceiled to the upper bound
+  EXPECT_FLOAT_EQ( c.getValue( ) + 1.3F, value + 1.3F );
+}
+
+// todo: customType c; customType d; customType e, test: e = c + d
