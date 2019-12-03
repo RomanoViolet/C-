@@ -4,6 +4,7 @@
 #include <Library/CustomTypes.hpp>
 #include <Library/SafeTypes.hpp>
 #include <limits>
+#include <random>
 
 /**
  * @brief Units tests for each requirement associated to Component B.
@@ -108,4 +109,56 @@ TEST( InstantationTest, CheckForSignRobustness )
                                              Fraction( MaxValueOfInt, 1 ) >;
   customType c = ( MaxValueOfInt * 1.0F - MaxValueOfInt ) / MaxValueOfInt;
   EXPECT_FLOAT_EQ( c.getValue( ), ( MaxValueOfInt * 1.0F - MaxValueOfInt ) / -MaxValueOfInt );
+}
+
+TEST( InstantationTest, CheckForAllNegativeBounds_1 )
+{
+  // Test when bound lower and upper bounds are negative.
+  // https://gcc.godbolt.org/z/NEm_DK
+
+  const int MinValueOfInt = std::numeric_limits< int >::min( ) + 1;
+  using customType
+      = RomanoViolet::SafeType< Fraction( 2, MinValueOfInt ), Fraction( 1, MinValueOfInt ) >;
+  customType c = 1.5F / MinValueOfInt;
+  EXPECT_FLOAT_EQ( c.getValue( ), 1.5F / MinValueOfInt );
+}
+
+TEST( InstantationTest, CheckForAllNegativeBounds_2 )
+{
+  // Test when bound lower and upper bounds are negative.
+  // https://gcc.godbolt.org/z/NEm_DK
+
+  const int MaxValueOfInt = std::numeric_limits< int >::max( );
+  using customType
+      = RomanoViolet::SafeType< Fraction( -2, MaxValueOfInt ), Fraction( -1, MaxValueOfInt ) >;
+  customType c = -1.5F / MaxValueOfInt;
+  EXPECT_FLOAT_EQ( c.getValue( ), -1.5F / MaxValueOfInt );
+}
+
+TEST( InstantationTest, CheckForNegativeAndPositiveBounds )
+{
+  // Test when bound lower and upper bounds are negative.
+  // https://gcc.godbolt.org/z/NEm_DK
+
+  const int MinValueOfInt = std::numeric_limits< int >::min( ) + 1;
+  const int MaxValueOfInt = std::numeric_limits< int >::max( );
+
+  const int range_from = MinValueOfInt;
+  const int range_to = MaxValueOfInt;
+  std::random_device rand_dev;
+  std::mt19937 generator( rand_dev( ) );
+
+  std::uniform_int_distribution< int > distr( range_from, range_to );
+
+  float value = float( distr( generator ) ) / distr( generator );
+  std::cout << "Random Value stored: " << value << std::endl;
+
+  // note: A denominator of 1 will automatically match against integer specialization of safetype.
+  //       That is, a float value cannot be stored inside.
+  //       Setting the denominator to 1.0F will not work since all numerators and denominators are
+  //       exepected to be of type int
+  using customType
+      = RomanoViolet::SafeType< Fraction( MinValueOfInt, 1 ), Fraction( MaxValueOfInt, 1 ) >;
+  customType c = value;
+  EXPECT_FLOAT_EQ( c.getValue( ), value );
 }
