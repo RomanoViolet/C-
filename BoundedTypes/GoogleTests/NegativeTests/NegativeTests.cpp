@@ -22,7 +22,7 @@ TEST( InstantationTest, CheckForZeroDenominator )
 
   // EXPECT_FALSE( f( ) );
 
-  // lambda was necessary to get around limitations of macros and carats.
+  // lambda was necessary to get around limitations of macros with carats.
   EXPECT_FALSE( []( ) {
     return ( std::is_constructible< RomanoViolet::SafeType< 1, 0, 1, 1 > >::value );
   }( ) );
