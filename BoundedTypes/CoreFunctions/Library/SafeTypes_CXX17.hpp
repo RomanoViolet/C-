@@ -17,6 +17,21 @@ namespace RomanoViolet
     float getMinValue( );
     float getValue( );
 
+    // copy constructor
+    SafeType( const SafeType &other );
+
+    // assignment operator
+    SafeType &operator=( const SafeType &other );
+
+    // addition operator
+    SafeType operator+( const SafeType &other );
+
+    // subtraction operator
+    SafeType operator-( const SafeType &other );
+
+    // allows: float x = Object.
+    // operator float( ) const;
+
   private:
     float _min;
     float _max;
@@ -43,6 +58,18 @@ namespace RomanoViolet
   public:
     SafeType( float value );
     float getValue( );
+
+    // copy constructor
+    SafeType( const SafeType &other );
+
+    // assignment operator
+    SafeType &operator=( const SafeType &other );
+
+    // addition operator
+    SafeType operator+( const SafeType &other );
+
+    // subtraction operator
+    SafeType operator-( const SafeType &other );
 
   private:
     int _min;
