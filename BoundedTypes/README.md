@@ -41,17 +41,17 @@ A bounded type will always ceil or floor the stored value based on the provided 
 
 ## Structure
 ```bash
-├── BuildScripts </br>           | build scripts
-│   ├── CMake</br>               | CMake helper scripts
-│   └── Docker</br>              | Shell scripts which invoke CMake
-├── CoreFunctions</br>           | This project
-│   └── Library</br>             | Bounded types defined here.
-├── Documentation</br>           | Empty for now. 
-├── GoogleTests</br>             | Test cases.
-│   ├── NegativeTest</br>        | Test for stuff that should happen.
-│   └── PositiveTests</br>       | Test for stuff that should not happen.
-├── Requirements</br>            | Empty for now.
-└── Tools</br>                   | Useful for development using remote containers. 
+├── BuildScripts                 | build scripts
+│   ├── CMake                    | CMake helper scripts
+│   └── Docker                   | Shell scripts which invoke CMake
+├── CoreFunctions                | This project
+│   └── Library                  | Bounded types defined here.
+├── Documentation                | Empty for now. 
+├── GoogleTests                  | Test cases.
+│   ├── NegativeTest             | Test for stuff that should happen.
+│   └── PositiveTests            | Test for stuff that should not happen.
+├── Requirements                 | Empty for now.
+└── Tools                        | Useful for development using remote containers. 
     └── DockerBasedDevelopment
 ```
 ## Brief Approach
