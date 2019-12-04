@@ -112,17 +112,17 @@ namespace RomanoViolet
     return this->_value;
   }  // getValue
 
-  template < int NumeratorForMinBound,
-             int DenominatorForMinBound,
-             int NumeratorForMaxBound,
-             int DenominatorForMaxBound >
-  SafeType< NumeratorForMinBound,
-            DenominatorForMinBound,
-            NumeratorForMaxBound,
-            DenominatorForMaxBound >::operator float( ) const
-  {
-    return ( this->_value );
-  }
+  // template < int NumeratorForMinBound,
+  //            int DenominatorForMinBound,
+  //            int NumeratorForMaxBound,
+  //            int DenominatorForMaxBound >
+  // SafeType< NumeratorForMinBound,
+  //           DenominatorForMinBound,
+  //           NumeratorForMaxBound,
+  //           DenominatorForMaxBound >::operator float( ) const
+  // {
+  //   return ( this->_value );
+  // }
 
   template < int NumeratorForMinBound,
              int DenominatorForMinBound,
@@ -171,7 +171,41 @@ namespace RomanoViolet
             NumeratorForMaxBound,
             DenominatorForMaxBound >::operator+( const SafeType &other )
   {
-    this->_value += other._value;
+    if ( ( this->_value + other._value < _max ) && ( this->_value + other._value > _min ) ) {
+      this->_value += other._value;
+    } else if ( this->_value + other._value > _max ) {
+      this->_value = _max;
+    } else if ( this->_value + other._value < _min ) {
+      this->_value = _min;
+    }
+
+    return *this;
+  }
+
+  template < int NumeratorForMinBound,
+             int DenominatorForMinBound,
+             int NumeratorForMaxBound,
+             int DenominatorForMaxBound >
+  SafeType< NumeratorForMinBound,
+            DenominatorForMinBound,
+            NumeratorForMaxBound,
+            DenominatorForMaxBound >
+  SafeType< NumeratorForMinBound,
+            DenominatorForMinBound,
+            NumeratorForMaxBound,
+            DenominatorForMaxBound >::operator-( const SafeType &other )
+  {
+    // The following does not work since the new temporary is constrained by the same bounds are
+    // *this, therefore, negation may floor the value before subtraction leading to incorrect
+    // results. return ( this->operator+( SafeType( -1.0 * other._value ) ) );
+    if ( ( this->_value - other._value > _min ) && ( this->_value - other._value < _max ) ) {
+      this->_value -= other._value;
+    } else if ( this->_value - other._value > _max ) {
+      this->_value = _max;
+    } else if ( this->_value - other._value < _min ) {
+      this->_value = _min;
+    }
+
     return *this;
   }
 
@@ -195,11 +229,11 @@ namespace RomanoViolet
     return this->_value;
   }  // getValue
 
-  template < int NumeratorForMinBound, int NumeratorForMaxBound >
-  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::operator float( ) const
-  {
-    return ( this->_value );
-  }
+  // template < int NumeratorForMinBound, int NumeratorForMaxBound >
+  // SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::operator float( ) const
+  // {
+  //   return ( this->_value );
+  // }
 
   template < int NumeratorForMinBound, int NumeratorForMaxBound >
   SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::SafeType( const SafeType &other )
@@ -217,6 +251,38 @@ namespace RomanoViolet
     this->_min = other._min;
     this->_max = other._max;
     this->_value = other._value;
+    return *this;
+  }
+
+  template < int NumeratorForMinBound, int NumeratorForMaxBound >
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::operator+( const SafeType &other )
+  {
+    if ( ( this->_value + other._value < _max ) && ( this->_value + other._value > _min ) ) {
+      this->_value += other._value;
+    } else if ( this->_value + other._value > _max ) {
+      this->_value = _max;
+    } else if ( this->_value + other._value < _min ) {
+      this->_value = _min;
+    }
+    return *this;
+  }
+
+  template < int NumeratorForMinBound, int NumeratorForMaxBound >
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::operator-( const SafeType &other )
+  {
+    // The following does not work since the new temporary is constrained by the same bounds are
+    // *this, therefore, negation may floor the value before subtraction leading to incorrect
+    // results. return ( this->operator+( SafeType( -1.0 * other._value ) ) );
+    if ( ( this->_value - other._value > _min ) && ( this->_value - other._value < _max ) ) {
+      this->_value -= other._value;
+    } else if ( this->_value - other._value > _max ) {
+      this->_value = _max;
+    } else if ( this->_value - other._value < _min ) {
+      this->_value = _min;
+    }
+
     return *this;
   }
 }  // namespace RomanoViolet

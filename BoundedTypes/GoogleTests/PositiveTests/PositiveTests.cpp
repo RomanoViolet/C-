@@ -241,28 +241,34 @@ TEST( InstantationTest, CheckForCeiling_IntegerSpecialization )
   EXPECT_FLOAT_EQ( c.getValue( ), 5.0F );
 }
 
-TEST( InstantationTest, AssignmentToFloat )
-{
-  // Tests whether the value stored in the class can be assigned to a float (the type value is
-  // stored in the class)
-  //
-  // customType c = <some value>
-  // float x = c;
-  //         |_________ Test this.
-  //
+// The following test is disabled because operator float() is removed.
+// This operator allowed addition (and other operations) on unrelated types
+// since it will first extract the float value embedded in the object and pass it to the
+// operator such as +, which accepts a float.
+//
+// TEST( InstantationTest, AssignmentToFloat )
+// {
 
-  const int MinValueOfInt = -2;
-  const int MaxValueOfInt = 1;
+//   // Tests whether the value stored in the class can be assigned to a float (the type value is
+//   // stored in the class)
+//   //
+//   // customType c = <some value>
+//   // float x = c;
+//   //         |_________ Test this.
+//   //
 
-  float value = -0.73F;
-  using customType
-      = RomanoViolet::SafeType< Fraction( MinValueOfInt, 1 ), Fraction( MaxValueOfInt, 1 ) >;
-  customType c = value;
-  float cNew = c;  // this assignment is being tested.
+//   const int MinValueOfInt = -2;
+//   const int MaxValueOfInt = 1;
 
-  // Stored value will be ceiled to the upper bound
-  EXPECT_FLOAT_EQ( c.getValue( ), cNew );
-}
+//   float value = -0.73F;
+//   using customType
+//       = RomanoViolet::SafeType< Fraction( MinValueOfInt, 1 ), Fraction( MaxValueOfInt, 1 ) >;
+//   customType c = value;
+//   float cNew = c;  // this assignment is being tested.
+
+//   // Stored value will be ceiled to the upper bound
+//   EXPECT_FLOAT_EQ( c.getValue( ), cNew );
+// }
 
 TEST( InstantationTest, CopyConstructor )
 {
@@ -319,11 +325,29 @@ TEST( InstantationTest, AdditionWithAnotherFloat )
   EXPECT_FLOAT_EQ( c.getValue( ) + 1.3F, value + 1.3F );
 }
 
-// todo: customType c; customType d; customType e, test: e = c + d
 TEST( InstantationTest, AdditionOperator )
 {
-  // Test when value to be assigned is higher than upper bound, and is therefore expected to be
-  // ceiled to the upper bound.
+  // Test addition.
+
+  const int MinValueOfInt = 3;
+  const int MaxValueOfInt = 8;
+
+  float value = 1.5F;
+  using customType
+      = RomanoViolet::SafeType< Fraction( MinValueOfInt, 2 ), Fraction( MaxValueOfInt, 2 ) >;
+  customType c = value;
+
+  customType d = c;
+  d = 2;
+  customType e = d + c;
+
+  EXPECT_FLOAT_EQ( e.getValue( ), 3.5 );
+}
+
+TEST( InstantationTest, AdditionOperatorWithCeiling )
+{
+  // Test when value to be assigned after addition exceeds the upper bound.
+  // Expect that the value is ceiled to the upper bound.
 
   const int MinValueOfInt = 3;
   const int MaxValueOfInt = 5;
@@ -337,5 +361,42 @@ TEST( InstantationTest, AdditionOperator )
   customType e = d + c;
 
   // Stored value will be ceiled to the upper bound
-  EXPECT_FLOAT_EQ( e.getValue( ), 5.0 );
+  EXPECT_FLOAT_EQ( e.getValue( ), 2.5 );
+}
+
+TEST( InstantationTest, SubtractionOperator )
+{
+  const int MinValueOfInt = 1;
+  const int MaxValueOfInt = 5;
+
+  float value = 2.5;
+  using customType
+      = RomanoViolet::SafeType< Fraction( MinValueOfInt, 2 ), Fraction( MaxValueOfInt, 2 ) >;
+  customType d = value;  // 2.5
+
+  customType e = 0.F;
+  e = 1.5F;
+  customType f = d - e;  // 1.0
+
+  // Stored value will be ceiled to the upper bound
+  EXPECT_FLOAT_EQ( f.getValue( ), 1.0F );
+}
+
+TEST( InstantationTest, SubtractionOperatorWithFlooring )
+{
+  // the result of subtraction falls below the lower bound, and needs to be floored.
+  const int MinValueOfInt = 1;
+  const int MaxValueOfInt = 5;
+
+  float value = 2.5;
+  using customType
+      = RomanoViolet::SafeType< Fraction( MinValueOfInt, 2 ), Fraction( MaxValueOfInt, 2 ) >;
+  customType d = value;  // 2.5
+
+  customType e = 0.F;
+  e = 4.5F;
+  customType f = d - e;  // 1.0
+
+  // Stored value will be ceiled to the upper bound
+  EXPECT_FLOAT_EQ( f.getValue( ), 0.5F );
 }

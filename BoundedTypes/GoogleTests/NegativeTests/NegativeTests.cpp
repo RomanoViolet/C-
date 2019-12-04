@@ -37,22 +37,23 @@ TEST( InstantationTest, CheckForZeroDenominator )
 
 TEST( InstantationTest, VerifyThatTwoUnrelatedTypesCannotBeAdded )
 {
+  // GTEST_SKIP( );
+
   const int MinValueOfInt = 3;
   const int MaxValueOfInt = 5;
 
-  float value = 1.5F;
   using customType
       = RomanoViolet::SafeType< Fraction( MinValueOfInt, 2 ), Fraction( MaxValueOfInt, 2 ) >;
-  customType c = value;
 
   using differentCustomType = RomanoViolet::SafeType< Fraction( 2 * MinValueOfInt, 2 ),
                                                       Fraction( 2 * MaxValueOfInt, 2 ) >;
-  differentCustomType d = 2 * value;
 
-  customType e = c + d;
+  // customType e = c + d;
   //            -------
   //               |____ this should fail.
   //
-
-  EXPECT_FLOAT_EQ( e.getValue( ), 2.5F );
+  // TODO: Is this the correct approach?
+  EXPECT_FALSE( []( ) {
+    return ( std::is_constructible< customType, customType, differentCustomType >::value );
+  }( ) );
 }
