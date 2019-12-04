@@ -400,3 +400,12 @@ TEST( InstantationTest, SubtractionOperatorWithFlooring )
   // Stored value will be ceiled to the upper bound
   EXPECT_FLOAT_EQ( f.getValue( ), 0.5F );
 }
+
+TEST( InstantationTest, Demo )
+{
+  // Lower bound: 1/2 = 0.5F. Upper bound: 3/4 = 0.75F
+  VelocityType v = 0.5F;
+
+  VelocityType w = v.getValue( ) + 0.20F;
+  EXPECT_FLOAT_EQ( w.getValue( ), 0.70F );
+}
