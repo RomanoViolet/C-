@@ -35,14 +35,24 @@ TEST( InstantationTest, CheckForZeroDenominator )
 #endif
 }
 
-TEST( InstantationTest, CheckForOverLowerBoundOverflow )
+TEST( InstantationTest, VerifyThatTwoUnrelatedTypesCannotBeAdded )
 {
-  // Setting lower bound to std::numeric_limits< int >::min( ) is not allowed.
+  const int MinValueOfInt = 3;
+  const int MaxValueOfInt = 5;
 
-  EXPECT_FALSE( []( ) {
-    const int MinValueOfInt = std::numeric_limits< int >::min( );
-    return (
-        std::is_constructible< RomanoViolet::SafeType< Fraction( 2, MinValueOfInt ),
-                                                       Fraction( 1, MinValueOfInt ) > >::value );
-  }( ) );
+  float value = 1.5F;
+  using customType
+      = RomanoViolet::SafeType< Fraction( MinValueOfInt, 2 ), Fraction( MaxValueOfInt, 2 ) >;
+  customType c = value;
+
+  using differentCustomType = RomanoViolet::SafeType< Fraction( 2 * MinValueOfInt, 2 ),
+                                                      Fraction( 2 * MaxValueOfInt, 2 ) >;
+  differentCustomType d = 2 * value;
+
+  customType e = c + d;
+  //            -------
+  //               |____ this should fail.
+  //
+
+  EXPECT_FLOAT_EQ( e.getValue( ), 2.5F );
 }

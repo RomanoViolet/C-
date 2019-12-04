@@ -158,6 +158,23 @@ namespace RomanoViolet
     return *this;
   }
 
+  template < int NumeratorForMinBound,
+             int DenominatorForMinBound,
+             int NumeratorForMaxBound,
+             int DenominatorForMaxBound >
+  SafeType< NumeratorForMinBound,
+            DenominatorForMinBound,
+            NumeratorForMaxBound,
+            DenominatorForMaxBound >
+  SafeType< NumeratorForMinBound,
+            DenominatorForMinBound,
+            NumeratorForMaxBound,
+            DenominatorForMaxBound >::operator+( const SafeType &other )
+  {
+    this->_value += other._value;
+    return *this;
+  }
+
   template < int NumeratorForMinBound, int NumeratorForMaxBound >
   SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::SafeType( float value )
       : _min( NumeratorForMinBound ), _max( NumeratorForMaxBound )

@@ -24,6 +24,9 @@ namespace RomanoViolet
     // assignment operator
     SafeType &operator=( const SafeType &other );
 
+    // addition operator
+    SafeType operator+( const SafeType &other );
+
     // allows: float x = Object.
     operator float( ) const;
 

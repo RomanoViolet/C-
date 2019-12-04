@@ -320,3 +320,22 @@ TEST( InstantationTest, AdditionWithAnotherFloat )
 }
 
 // todo: customType c; customType d; customType e, test: e = c + d
+TEST( InstantationTest, AdditionOperator )
+{
+  // Test when value to be assigned is higher than upper bound, and is therefore expected to be
+  // ceiled to the upper bound.
+
+  const int MinValueOfInt = 3;
+  const int MaxValueOfInt = 5;
+
+  float value = 10.F;
+  using customType
+      = RomanoViolet::SafeType< Fraction( MinValueOfInt, 2 ), Fraction( MaxValueOfInt, 2 ) >;
+  customType c = value;
+
+  customType d = c;
+  customType e = d + c;
+
+  // Stored value will be ceiled to the upper bound
+  EXPECT_FLOAT_EQ( e.getValue( ), 5.0 );
+}
