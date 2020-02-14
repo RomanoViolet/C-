@@ -3,8 +3,14 @@
 
 #include <iostream>
 
+class AbstractInputInterface
+{
+public:
+  virtual ~AbstractInputInterface( ) = default;
+};
+
 template < typename T >
-class InputInterface final
+class InputInterface : public AbstractInputInterface
 {
 public:
   InputInterface( ) : _thisInterface( T( ) )
@@ -14,7 +20,12 @@ public:
   void setValue( const T a )
   {
     _thisInterface = a;
-  };
+  }
+
+  const T getValue( ) const
+  {
+    return _thisInterface;
+  }
 
 private:
   T _thisInterface;
