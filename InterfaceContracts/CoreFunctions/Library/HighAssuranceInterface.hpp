@@ -4,21 +4,14 @@
 #include <Type_InputInterface.hpp>
 #include <vector>
 
-namespace RomanoViolet
+class HighAssuranceInputInterface
 {
-  class HighAssuranceInterface
-  {
-  public:
-    template < typename T >
-    void addInputInterface( T &interface )
-    {
-      this->_allInputInterfaces.emplace_back(
-          static_cast< AbstractInputInterface * >( &interface ) );
-    }
+public:
+  HighAssuranceInputInterface( ) = default;
+  virtual ~HighAssuranceInputInterface( ) = default;
+  virtual void preprocessInputs( ) = 0;
 
-  private:
-    std::vector< AbstractInputInterface * > _allInputInterfaces;
-  };
-}  // namespace RomanoViolet
+private:
+};
 
 #endif

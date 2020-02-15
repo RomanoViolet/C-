@@ -1,17 +1,9 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
-#include <Library/HighAssuranceInterface.hpp>
 #include <Library/Type_InputInterface.hpp>
 
 TEST( DummyTest, 1 )
 {
-  float a{1.956F};
-  InputInterface< float > A;
-  A.setValue( a );
-
-  RomanoViolet::HighAssuranceInterface interface;
-  interface.addInputInterface( A );
-
   /**
    * @brief What is needed
    *
@@ -25,5 +17,25 @@ TEST( DummyTest, 1 )
    *
    */
 
+  class MyInterface
+  {
+  public:
+    MyInterface( ) = default;
+
+  private:
+    InputInterface< short > i1;
+    InputInterface< double > i2;
+    void i1.preprocessInputs( ) override
+    {
+      // something here/
+    }
+
+    void i2.preprocessInputs( ) override
+    {
+      // something here.
+    }
+  };
+
+  MyInterface interface;
   EXPECT_TRUE( true );
 }
