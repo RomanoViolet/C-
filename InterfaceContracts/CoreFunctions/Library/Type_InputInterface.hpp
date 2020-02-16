@@ -30,7 +30,7 @@ public:
     return _thisInterface;
   }
 
-  void preprocessInputs( );
+  virtual void preprocessInputs( );
 
 private:
   T _thisInterface;
