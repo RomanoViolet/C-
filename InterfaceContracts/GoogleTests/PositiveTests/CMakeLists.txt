@@ -20,13 +20,8 @@ if(TEST_SRC)
   target_include_directories(
     ${ThisGoogleTestDirectory}_GoogleTest
     PUBLIC
-      $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/CoreFunctions/Interfaces> # All data
-                                                                        # types used
-                                                                        # in the
-                                                                        # definition
-                                                                        # of core-
-                                                                        # functions.
       $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/CoreFunctions/Library> # Safe Type
+      $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/CoreFunctions> # Component
   )
 
   set_target_properties(${ThisGoogleTestDirectory}_GoogleTest
@@ -42,6 +37,7 @@ if(TEST_SRC)
     gtest_main
     gtest
     gmock
+    CPPProject
     Library)
 
   # target_link_libraries(${ThisGoogleTestDirectory}_GoogleTest DemoLibrary

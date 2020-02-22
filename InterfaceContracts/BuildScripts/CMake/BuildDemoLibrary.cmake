@@ -2,19 +2,13 @@
 function(buildCPPProject)
 
   # tell CMake where to find all headers required by the sources.
-  include_directories(
-    ${PROJECT_SOURCE_DIR}/CoreFunctions/Interfaces # Interfaces required for
-                                                   # components
-  )
 
   file(GLOB_RECURSE CPPProject_SOURCES
-       ${PROJECT_SOURCE_DIR}/CoreFunctions/Implementation/*.cpp)
-  message("CPPProject_Sources: " ${CPPProject_SOURCES})
+       ${PROJECT_SOURCE_DIR}/CoreFunctions/Application/*.cpp)
+  message("CPPProject Sources: " ${CPPProject_SOURCES})
 
   # Library dependencies
-  include_directories(${PROJECT_SOURCE_DIR}/CoreFunctions/Library
-                      ${PROJECT_SOURCE_DIR}/CoreFunctions)
-                      
+  include_directories(${PROJECT_SOURCE_DIR}/CoreFunctions)
   add_subdirectory(${PROJECT_SOURCE_DIR}/CoreFunctions/Library)
 
   add_library(CPPProject "${CPPProject_SOURCES}")

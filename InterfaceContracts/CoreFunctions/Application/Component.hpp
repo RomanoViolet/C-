@@ -11,9 +11,7 @@ namespace RomanoViolet
   public:
     Component( ) = default;
     TypeInputInterface< InterfaceA > a;
-    void doPreconditionCheck( )
-    {
-    }
+    void doPreconditionCheck( );
   };
 }  // namespace RomanoViolet
 
