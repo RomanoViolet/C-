@@ -10,6 +10,7 @@ namespace RomanoViolet
     TypeInputInterface( ) = default;
     void setValue( const T &value );
     T getValue( ) const;
+    void doPreconditionCheck( );
 
   private:
     T _value;
