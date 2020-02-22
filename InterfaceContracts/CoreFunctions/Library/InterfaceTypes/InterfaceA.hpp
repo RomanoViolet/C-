@@ -11,12 +11,13 @@ namespace RomanoViolet
   {
   public:
     InterfaceA( ) = default;
+
     RomanoViolet::SafeType< 1, 4 > minWithIntegerBounds{2.F};
     VelocityType velocity{0.51F};
-    void doPreconditionCheck( )
-    {
-      // something to be done here.
-    }
+
+    void doPreconditionCheck( );
+
+  private:
   };
 }  // namespace RomanoViolet
 

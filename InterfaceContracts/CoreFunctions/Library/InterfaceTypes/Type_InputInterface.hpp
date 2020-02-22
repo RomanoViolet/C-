@@ -16,4 +16,6 @@ namespace RomanoViolet
   };
 }  // namespace RomanoViolet
 
+#include "Type_InputInterface.inl"
+
 #endif  // TYPE_INPUT_INTERFACE_HPP_
