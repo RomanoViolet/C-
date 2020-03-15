@@ -6,4 +6,9 @@ namespace RomanoViolet
   {
     ( void )this->a;
   }
+
+  void Component::doPostConditionCheck( )
+  {
+    // nothing till now.
+  }
 }  // namespace RomanoViolet

@@ -6,6 +6,7 @@ class TypeHighAssuranceComponent
 public:
   TypeHighAssuranceComponent( ) = default;
   virtual void doPreconditionCheck( ) = 0;
+  virtual void doPostConditionCheck( ) = 0;
   virtual ~TypeHighAssuranceComponent( ) = default;
 };
 
