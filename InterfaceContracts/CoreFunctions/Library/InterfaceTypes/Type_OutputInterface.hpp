@@ -9,6 +9,12 @@ namespace RomanoViolet
   public:
     TypeOutputInterface( ) = default;
     T getValue( ) const;
+
+  protected:
+    // T is required to be of bounded type. Need a way to ensure this.
+    void setValue( const T &value );
+
+    // likely not required on a per interface basis due to usage of bounded types.
     void doPostConditionCheck( );
 
   private:

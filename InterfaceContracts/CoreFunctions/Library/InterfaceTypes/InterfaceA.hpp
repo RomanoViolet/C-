@@ -7,15 +7,13 @@
 
 namespace RomanoViolet
 {
-  class InterfaceA : public TypeHighAssuranceInterface
+  class InterfaceA
   {
   public:
     InterfaceA( ) = default;
 
     RomanoViolet::SafeType< 1, 4 > minWithIntegerBounds{2.F};
     VelocityType velocity{0.51F};
-
-    void doPreconditionCheck( );
 
   private:
   };

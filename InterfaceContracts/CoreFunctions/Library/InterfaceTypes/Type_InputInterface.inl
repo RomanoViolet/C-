@@ -4,7 +4,7 @@
 namespace RomanoViolet
 {
   template < typename T >
-  T TypeInputInterface< T >::getValue( ) const
+  T &TypeInputInterface< T >::getValue( ) const
   {
     // dummy return
     return ( T( ) );

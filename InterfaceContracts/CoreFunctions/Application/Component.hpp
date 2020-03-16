@@ -11,11 +11,13 @@ namespace RomanoViolet
   {
   public:
     Component( ) = default;
-    TypeInputInterface< InterfaceA > a;
+    TypeInputInterface< InterfaceA > a_in;
     TypeOutputInterface< InterfaceA > a_out;
 
     void doPreconditionCheck( );
     void doPostConditionCheck( );
+    void initialize( );
+    void compute( );
   };
 }  // namespace RomanoViolet
 

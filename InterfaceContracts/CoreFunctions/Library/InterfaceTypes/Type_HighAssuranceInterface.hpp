@@ -8,7 +8,6 @@ namespace RomanoViolet
   public:
     TypeHighAssuranceInterface( ) = default;
     virtual void doPreconditionCheck( ) = 0;
-    void setValue( const T &value );
     virtual ~TypeHighAssuranceInterface( ) = default;
   };
 }  // namespace RomanoViolet
