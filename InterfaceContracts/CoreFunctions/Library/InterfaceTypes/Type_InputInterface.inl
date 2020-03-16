@@ -4,10 +4,10 @@
 namespace RomanoViolet
 {
   template < typename T >
-  T &TypeInputInterface< T >::getValue( ) const
+  const T &TypeInputInterface< T >::getValue( ) const
   {
     // dummy return
-    return ( T( ) );
+    return ( this->_value );
   }
 
   template < typename T >
@@ -16,10 +16,5 @@ namespace RomanoViolet
     this->_value = value;
   }
 
-  template < typename T >
-  void TypeInputInterface< T >::doPreconditionCheck( )
-  {
-    this->_value.doPreconditionCheck( );
-  }
 }  // namespace RomanoViolet
 #endif  // TYPE_INPUT_INTERFACE_INL_

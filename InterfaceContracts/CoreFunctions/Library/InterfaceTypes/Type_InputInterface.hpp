@@ -9,12 +9,11 @@ namespace RomanoViolet
   public:
     TypeInputInterface( ) = default;
     void setValue( const T &value );
+    const T &getValue( ) const;
 
   protected:
-    T &getValue( ) const;
-
     // likely not required on a per interface basis due to usage of bounded types.
-    void doPreconditionCheck( );
+    // void doPreconditionCheck( );
 
   private:
     T _value;
