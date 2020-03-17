@@ -1,5 +1,5 @@
-#ifndef INTERFACE_A_HPP_
-#define INTERFACE_A_HPP_
+#ifndef INTERFACE_B_HPP_
+#define INTERFACE_B_HPP_
 
 #include <Library/BoundedTypes/CustomTypes.hpp>
 #include <Library/BoundedTypes/SafeTypes.hpp>
@@ -7,17 +7,16 @@
 
 namespace RomanoViolet
 {
-  class InterfaceA
+  class InterfaceB
   {
   public:
-    InterfaceA( ) = default;
+    InterfaceB( ) = default;
 
-    // TODO Type should return an error message too.
     RomanoViolet::SafeType< 1, 4 > minWithIntegerBounds{2.F};
     VelocityType velocity{0.51F};
 
   private:
-  };
+  };  // namespace InterfaceB
 }  // namespace RomanoViolet
 
-#endif  // INTERFACE_A_HPP_
+#endif  // INTERFACE_B_HPP_

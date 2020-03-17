@@ -3,6 +3,7 @@
 
 #include <Library/ComponentTypes/Type_HighAssuranceComponent.hpp>
 #include <Library/InterfaceTypes/InterfaceA.hpp>
+#include <Library/InterfaceTypes/InterfaceB.hpp>
 #include <Library/InterfaceTypes/Type_InputInterface.hpp>
 #include <Library/InterfaceTypes/Type_OutputInterface.hpp>
 namespace RomanoViolet
@@ -10,14 +11,17 @@ namespace RomanoViolet
   class Component : public TypeHighAssuranceComponent
   {
   public:
-    Component( ) = default;
+    Component( )
+        : a_in( TypeInputInterface< InterfaceA >( ) ), b_out( TypeOutputInterface< InterfaceB >( ) )
+    {
+    }
     TypeInputInterface< InterfaceA > a_in;
-    TypeOutputInterface< InterfaceA > a_out;
+    TypeOutputInterface< InterfaceB > b_out;
 
-    void doPreconditionCheck( );
-    void doPostConditionCheck( );
     void initialize( );
+    void doPreconditionCheck( );
     void compute( );
+    void doPostConditionCheck( );
   };
 }  // namespace RomanoViolet
 

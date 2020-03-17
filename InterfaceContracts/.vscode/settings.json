@@ -116,5 +116,5 @@
     "clang-format.style": "file",
     "files.insertFinalNewline": true,
     "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
-    "terminal.integrated.cwd": "${workspaceFolder}"
+    "terminal.integrated.cwd": "."
 }

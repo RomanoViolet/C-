@@ -10,7 +10,9 @@ TEST( DummyTest, 1 )
   a.minWithIntegerBounds = 0.37F;
   a.velocity = 0.63F;
   c.a_in.setValue( a );
-  ( void )c.a_out.getValue( );
+  c.initialize( );
+  c.compute( );
+  ( void )c.b_out.getValue( );
   ( void )c;
   EXPECT_TRUE( true );
 }
