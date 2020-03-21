@@ -80,10 +80,13 @@ namespace RomanoViolet
     // min and max bounds are correct.
     if ( value < _min ) {
       _value = _min;
+      _errorCode = SafeTypeErrorCode::UNDERFLOW;
     } else if ( value > _max ) {
       _value = _max;
+      _errorCode = SafeTypeErrorCode::OVERFLOW;
     } else {
       _value = value;
+      _errorCode = SafeTypeErrorCode::NO_ERROR;
     }
 
   }  // end of constructor
@@ -98,6 +101,18 @@ namespace RomanoViolet
                   DenominatorForMaxBound >::getMinValue( )
   {
     return this->_min;
+  }  // getMinValue
+
+  template < int NumeratorForMinBound,
+             int DenominatorForMinBound,
+             int NumeratorForMaxBound,
+             int DenominatorForMaxBound >
+  SafeTypeErrorCode SafeType< NumeratorForMinBound,
+                              DenominatorForMinBound,
+                              NumeratorForMaxBound,
+                              DenominatorForMaxBound >::getErrorCode( ) const
+  {
+    return this->_errorCode;
   }  // getMinValue
 
   template < int NumeratorForMinBound,
@@ -136,6 +151,7 @@ namespace RomanoViolet
     this->_min = other._min;
     this->_max = other._max;
     this->_value = other._value;
+    this->_errorCode = other._errorCode;
   }
 
   // assignment operator
@@ -155,6 +171,7 @@ namespace RomanoViolet
     this->_min = other._min;
     this->_max = other._max;
     this->_value = other._value;
+    this->_errorCode = other._errorCode;
     return *this;
   }
 
@@ -173,10 +190,13 @@ namespace RomanoViolet
   {
     if ( ( this->_value + other._value < _max ) && ( this->_value + other._value > _min ) ) {
       this->_value += other._value;
+      _errorCode = SafeTypeErrorCode::NO_ERROR;
     } else if ( this->_value + other._value > _max ) {
       this->_value = _max;
+      _errorCode = SafeTypeErrorCode::OVERFLOW;
     } else if ( this->_value + other._value < _min ) {
       this->_value = _min;
+      _errorCode = SafeTypeErrorCode::UNDERFLOW;
     }
 
     return *this;
@@ -200,10 +220,13 @@ namespace RomanoViolet
     // results. return ( this->operator+( SafeType( -1.0 * other._value ) ) );
     if ( ( this->_value - other._value > _min ) && ( this->_value - other._value < _max ) ) {
       this->_value -= other._value;
+      _errorCode = SafeTypeErrorCode::NO_ERROR;
     } else if ( this->_value - other._value > _max ) {
       this->_value = _max;
+      _errorCode = SafeTypeErrorCode::OVERFLOW;
     } else if ( this->_value - other._value < _min ) {
       this->_value = _min;
+      _errorCode = SafeTypeErrorCode::UNDERFLOW;
     }
 
     return *this;
@@ -216,10 +239,13 @@ namespace RomanoViolet
     // min and max bounds are correct.
     if ( value < _min ) {
       _value = _min;
+      _errorCode = SafeTypeErrorCode::UNDERFLOW;
     } else if ( value > _max ) {
       _value = _max;
+      _errorCode = SafeTypeErrorCode::OVERFLOW;
     } else {
       _value = value;
+      _errorCode = SafeTypeErrorCode::NO_ERROR;
     }
   }  // constructor
 
@@ -227,6 +253,13 @@ namespace RomanoViolet
   float SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::getValue( )
   {
     return this->_value;
+  }  // getValue
+
+  template < int NumeratorForMinBound, int NumeratorForMaxBound >
+  SafeTypeErrorCode
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::getErrorCode( ) const
+  {
+    return this->_errorCode;
   }  // getValue
 
   // template < int NumeratorForMinBound, int NumeratorForMaxBound >
@@ -241,6 +274,7 @@ namespace RomanoViolet
     this->_min = other._min;
     this->_max = other._max;
     this->_value = other._value;
+    this->_errorCode = other._errorCode;
   }
 
   // assignment operator
@@ -251,6 +285,7 @@ namespace RomanoViolet
     this->_min = other._min;
     this->_max = other._max;
     this->_value = other._value;
+    this->_errorCode = other._errorCode;
     return *this;
   }
 
@@ -260,10 +295,13 @@ namespace RomanoViolet
   {
     if ( ( this->_value + other._value < _max ) && ( this->_value + other._value > _min ) ) {
       this->_value += other._value;
+      _errorCode = SafeTypeErrorCode::NO_ERROR;
     } else if ( this->_value + other._value > _max ) {
       this->_value = _max;
+      _errorCode = SafeTypeErrorCode::OVERFLOW;
     } else if ( this->_value + other._value < _min ) {
       this->_value = _min;
+      _errorCode = SafeTypeErrorCode::UNDERFLOW;
     }
     return *this;
   }
@@ -277,10 +315,13 @@ namespace RomanoViolet
     // results. return ( this->operator+( SafeType( -1.0 * other._value ) ) );
     if ( ( this->_value - other._value > _min ) && ( this->_value - other._value < _max ) ) {
       this->_value -= other._value;
+      _errorCode = SafeTypeErrorCode::NO_ERROR;
     } else if ( this->_value - other._value > _max ) {
       this->_value = _max;
+      _errorCode = SafeTypeErrorCode::OVERFLOW;
     } else if ( this->_value - other._value < _min ) {
       this->_value = _min;
+      _errorCode = SafeTypeErrorCode::UNDERFLOW;
     }
 
     return *this;

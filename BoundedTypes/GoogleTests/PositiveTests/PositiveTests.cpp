@@ -409,3 +409,39 @@ TEST( InstantationTest, Demo )
   VelocityType w = v.getValue( ) + 0.20F;
   EXPECT_FLOAT_EQ( w.getValue( ), 0.70F );
 }
+
+TEST( ErrorCodes, Underflow )
+{
+  // Lower bound: 1/2 = 0.5F. Upper bound: 3/4 = 0.75F
+  VelocityType v = 0.4F;
+  EXPECT_FLOAT_EQ( v.getValue( ), 0.5F );
+  EXPECT_EQ( v.getErrorCode( ), RomanoViolet::SafeTypeErrorCode::UNDERFLOW );
+}
+
+TEST( ErrorCodes, Overflow )
+{
+  // Lower bound: 1/2 = 0.5F. Upper bound: 3/4 = 0.75F
+  VelocityType v = 0.8F;
+  EXPECT_FLOAT_EQ( v.getValue( ), 0.75F );
+  EXPECT_EQ( v.getErrorCode( ), RomanoViolet::SafeTypeErrorCode::OVERFLOW );
+}
+
+TEST( InstantationTest, OverflowCausedByOperation )
+{
+  // Lower bound: 1/2 = 0.5F. Upper bound: 3/4 = 0.75F
+  VelocityType v = 0.5F;
+
+  VelocityType w = v.getValue( ) + 0.30F;
+  EXPECT_FLOAT_EQ( w.getValue( ), 0.75F );
+  EXPECT_EQ( w.getErrorCode( ), RomanoViolet::SafeTypeErrorCode::OVERFLOW );
+}
+
+TEST( InstantationTest, UnderflowCausedByOperation )
+{
+  // Lower bound: 1/2 = 0.5F. Upper bound: 3/4 = 0.75F
+  VelocityType v = 0.5F;
+
+  VelocityType w = v.getValue( ) - 0.30F;
+  EXPECT_FLOAT_EQ( w.getValue( ), 0.50F );
+  EXPECT_EQ( w.getErrorCode( ), RomanoViolet::SafeTypeErrorCode::UNDERFLOW );
+}

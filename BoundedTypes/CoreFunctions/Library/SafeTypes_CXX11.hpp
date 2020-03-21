@@ -4,6 +4,8 @@
 #include <cstdint>
 namespace RomanoViolet
 {
+  enum class SafeTypeErrorCode : short { NO_ERROR = 0U, UNDERFLOW = 1U, OVERFLOW = 2U };
+
   // It would be convenient to have a custom type as a template parameter, but see
   // https://stackoverflow.com/q/15896579
   // https://godbolt.org/z/sSCqs7
@@ -17,6 +19,7 @@ namespace RomanoViolet
     SafeType( float value );
     float getMinValue( );
     float getValue( );
+    SafeTypeErrorCode getErrorCode( ) const;
 
     // copy constructor
     SafeType( const SafeType &other );
@@ -37,13 +40,17 @@ namespace RomanoViolet
     float _min;
     float _max;
     float _value;
+    SafeTypeErrorCode _errorCode;
   };
+
+  // Fixed-type implementation.
   template < int NumeratorForMinBound, int NumeratorForMaxBound >
   class SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >
   {
   public:
     SafeType( float value );
     float getValue( );
+    SafeTypeErrorCode getErrorCode( ) const;
 
     // copy constructor
     SafeType( const SafeType &other );
@@ -64,6 +71,7 @@ namespace RomanoViolet
     int _min;
     int _max;
     float _value;
+    SafeTypeErrorCode _errorCode;
 
     // define temporary data structure to hold new numerators and denominators if these need to be
     // transformed.

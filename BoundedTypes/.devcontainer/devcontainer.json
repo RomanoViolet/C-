@@ -1,6 +1,6 @@
 {
     "name": "C++",
-    "image": "cppdevelopmentimage:latest",
+    "dockerFile": "Dockerfile",
     "runArgs": [
         "-u",
         "dockeruser",
