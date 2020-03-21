@@ -3,6 +3,7 @@
 ## Objective
 Demonstrates the concept of _bounded types_ wherein a type's maximum and minimum values are provided at compile time.
 Useful in applications where in a symbol's range must be restricted to a pre-computed (design) range.
+A predefined error-code is available in case a value to be assigned does underflows or overflows.
 
 ## Tools, Etc.
 | Tool | Version Tested |
@@ -24,7 +25,9 @@ using VelocityType = RomanoViolet::SafeType< Fraction( 1, 2 ), Fraction( 3, 4 ) 
   VelocityType v = 0.5F;
 
   VelocityType w = v.getValue( ) + 0.20F;
-  // ...
+
+  // query error code
+  RomanoViolet::SafeTypeErrorCode errorCode = w.getErrorCode( );
 ```
 3. Build 
 ```bash 
@@ -74,6 +77,14 @@ It is expected that both upper and lower bounds are to be specified as a rationa
 Numerator/Denominator 
 ```
 where both `Numerator` and `Denominator` are integers.
+
+The errorcodes are defined like so, in the SafetTypes_CXX**MN** header:
+
+```
+enum class SafeTypeErrorCode : short { NO_ERROR = 0U, UNDERFLOW = 1U, OVERFLOW = 2U };
+
+```
+
 
 ### Sugar 
 A convenience wrapper has been provided in `CoreFunctions/Library/CustomTypes.hpp` which allows the developer to wrap a safetype like so:
