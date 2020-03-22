@@ -11,7 +11,7 @@ get_filename_component(ThisGoogleTestDirectory ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 
 # Add Local sources
 file(GLOB TEST_SRC ${CMAKE_CURRENT_LIST_DIR}/*.cpp)
-message("Google Implementation Test CPP Sources:" ${TEST_SRC})
+
 if(TEST_SRC)
 
   # Lib includes

@@ -1,8 +1,8 @@
 #ifndef INTERFACE_B_HPP_
 #define INTERFACE_B_HPP_
 
-#include <Library/BoundedTypes/CustomTypes.hpp>
-#include <Library/BoundedTypes/SafeTypes.hpp>
+#include <BoundedTypes/CustomTypes.hpp>
+#include <BoundedTypes/SafeTypes.hpp>
 #include <Library/InterfaceTypes/Type_HighAssuranceInterface.hpp>
 
 namespace RomanoViolet

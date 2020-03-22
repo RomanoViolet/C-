@@ -4,7 +4,7 @@ include(ExternalProject)
 # project.
 function(ProvideBoundedTypes)
 
-  set(BoundedTypesWorkingDirectory ${PATH_TO_COPY_BOUNDEDTYPES_SOURCES}/src)
+  set(BoundedTypesWorkingDirectory ${PATH_TO_COPY_BOUNDEDTYPES_SOURCES})
 
   # set_directory_properties(PROPERTIES EP_BASE
   # ${CMAKE_CURRENT_BINARY_DIR}/ExternalSources)
@@ -15,13 +15,15 @@ function(ProvideBoundedTypes)
     # https://github.com/RomanoViolet/FancySquareRoot.git GIT_TAG
     # ${FancySquareRoot_Commit_Hash} UPDATE_DISCONNECTED 1 Download from a local
     # folder instead of cloning from GitHub
-    URL ${PROJECT_SOURCE_DIR}/../BoundedTypes/CoreFunctions/Library
-    # UPDATE_COMMAND # Not required if a specific commit is asked for.
-    # ${GIT_EXECUTABLE} pull
+    URL ${PROJECT_SOURCE_DIR}/../BoundedTypes/CoreFunctions/Library/
+    #
+    # UPDATE_COMMAND file (RENAME ${BoundedTypesWorkingDirectory}/Library
+    # ${BoundedTypesWorkingDirectory}/BoundedTypes)
+    #
     PATCH_COMMAND ""
     BUILD_ALWAYS TRUE
     CONFIGURE_COMMAND ""
-    SOURCE_DIR ${BoundedTypesWorkingDirectory}/src/Library
+    SOURCE_DIR ${BoundedTypesWorkingDirectory}/BoundedTypes/
     INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}/LocalInstalls
     CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR> # prefix needs to be
                                                     # specified if INSTALL_DIR
@@ -32,10 +34,10 @@ function(ProvideBoundedTypes)
       <INSTALL_DIR>
     #
     CONFIGURE_COMMAND ${CMAKE_COMMAND}
-                      ${BoundedTypesWorkingDirectory}/src/Library
+                      ${BoundedTypesWorkingDirectory}/BoundedTypes/
     #
     BUILD_BYPRODUCTS
-      ${BoundedTypesWorkingDirectory}/src/BoundedTypes_project-build/libBoundedTypes.a
+      ${BoundedTypesWorkingDirectory}/BoundedTypes_project-build/libBoundedTypes.a
   )
 
   ExternalProject_Get_Property(BoundedTypes_project INSTALL_DIR)

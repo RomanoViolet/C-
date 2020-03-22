@@ -12,7 +12,8 @@
                 "${workspaceFolder}/CoreFunctions",
                 "${workspaceFolder}/CoreFunctions/Library",
                 "/usr/include/c++/7",
-                "/usr/include"
+                "/usr/include",
+                "${workspaceFolder}/build/BoundedTypes"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang++",
