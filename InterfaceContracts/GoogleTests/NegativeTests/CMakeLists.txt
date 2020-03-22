@@ -11,7 +11,6 @@ get_filename_component(ThisGoogleTestDirectory ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 
 # Add Local sources
 file(GLOB TEST_SRC ${CMAKE_CURRENT_LIST_DIR}/*.cpp)
-message("Google Implementation Test CPP Sources:" ${TEST_SRC})
 if(TEST_SRC)
 
   # Lib includes
@@ -27,6 +26,7 @@ if(TEST_SRC)
                                                                         # of core-
                                                                         # functions.
       $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/CoreFunctions/Library> # Safe Type
+      $<BUILD_INTERFACE:${PATH_TO_COPY_BOUNDEDTYPES_SOURCES}> # Component
   )
 
   set_target_properties(${ThisGoogleTestDirectory}_GoogleTest
@@ -42,7 +42,8 @@ if(TEST_SRC)
     gtest_main
     gtest
     gmock
-    Library)
+    Library
+    BoundedTypes)
 
   # target_link_libraries(${ThisGoogleTestDirectory}_GoogleTest DemoLibrary
   # gtest gtest_main gmock gmock_main pthread)
