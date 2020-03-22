@@ -42,7 +42,7 @@ if(TEST_SRC)
     gtest_main
     gtest
     gmock
-    Library)
+    BoundedTypes)
 
   # target_link_libraries(${ThisGoogleTestDirectory}_GoogleTest DemoLibrary
   # gtest gtest_main gmock gmock_main pthread)
