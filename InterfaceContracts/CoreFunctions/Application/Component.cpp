@@ -6,8 +6,8 @@ namespace RomanoViolet
   {
     // do something clever
     InterfaceA a;
-    a = this->a_in.getValue( );
-    ( void )a;
+    if ( this->a_in.getErrorCode( ) )
+      ( void )a;
   }
 
   void Component::doPostConditionCheck( )

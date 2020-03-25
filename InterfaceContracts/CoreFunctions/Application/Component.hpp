@@ -11,6 +11,8 @@ namespace RomanoViolet
   class Component : public TypeHighAssuranceComponent
   {
   public:
+    enum class ErrorCode : short { NO_ERROR = 0U, BAD_INPUT_DATA = 1U };
+
     Component( )
         : a_in( TypeInputInterface< InterfaceA >( ) ), b_out( TypeOutputInterface< InterfaceB >( ) )
     {
@@ -22,6 +24,9 @@ namespace RomanoViolet
     void doPreconditionCheck( );
     void compute( );
     void doPostConditionCheck( );
+
+  private:
+    ErrorCode _error;
   };
 }  // namespace RomanoViolet
 

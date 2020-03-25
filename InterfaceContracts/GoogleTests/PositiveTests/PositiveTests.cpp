@@ -8,7 +8,7 @@ TEST( DummyTest, 1 )
   RomanoViolet::InterfaceA a;
   // a.doPreconditionCheck( );
   a.minWithIntegerBounds = 0.37F;
-  a.velocity = 0.63F;
+  a.velocity = 0.93F;
   c.a_in.setValue( a );
   c.initialize( );
   c.compute( );
