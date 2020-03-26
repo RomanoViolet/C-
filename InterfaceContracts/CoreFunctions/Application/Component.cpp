@@ -6,8 +6,12 @@ namespace RomanoViolet
   {
     // do something clever
     InterfaceA a;
-    if ( this->a_in.getErrorCode( ) )
-      ( void )a;
+    a = this->a_in.getValue( );
+    if ( this->a_in.getValue( ).velocity.getErrorCode( )
+         == RomanoViolet::SafeTypeErrorCode::OVERFLOW ) {
+      a.velocity = 0.4F;
+    }
+    ( void )a;
   }
 
   void Component::doPostConditionCheck( )

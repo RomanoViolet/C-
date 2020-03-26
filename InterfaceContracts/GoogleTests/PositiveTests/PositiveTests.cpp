@@ -13,6 +13,7 @@ TEST( DummyTest, 1 )
   c.initialize( );
   c.compute( );
   ( void )c.b_out.getValue( );
+  c.doPreconditionCheck( );
   ( void )c;
   EXPECT_TRUE( true );
 }
