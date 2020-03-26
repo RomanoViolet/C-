@@ -1,10 +1,13 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 #include <Application/BaseComponent.hpp>
+#include <Application/VariantBase.hpp>
+#include <Application/Variant_AdditionInterface.hpp>
 
 TEST( DummyTest, 1 )
 {
-  RomanoViolet::BaseComponent c;
+  RomanoViolet::Variant< RomanoViolet::BaseComponent::SuportedVariants::WITH_ADDITIONAL_INTERFACES >
+      c;
   RomanoViolet::InterfaceA a;
   // a.doPreconditionCheck( );
   a.minWithIntegerBounds = 0.37F;

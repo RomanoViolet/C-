@@ -1,8 +1,9 @@
-#include <Application/BaseComponent.hpp>
+#include <Application/Variant_AdditionInterface.hpp>
 
 namespace RomanoViolet
 {
-  void BaseComponent::doPreconditionCheck( )
+  void
+  Variant< BaseComponent::SuportedVariants::WITH_ADDITIONAL_INTERFACES >::doPreconditionCheck( )
   {
     // do something clever
     InterfaceA a;
@@ -15,15 +16,16 @@ namespace RomanoViolet
     ( void )a;
   }
 
-  void BaseComponent::doPostConditionCheck( )
+  void
+  Variant< BaseComponent::SuportedVariants::WITH_ADDITIONAL_INTERFACES >::doPostConditionCheck( )
   {
     // nothing till now.
   }
 
-  void BaseComponent::initialize( )
+  void Variant< BaseComponent::SuportedVariants::WITH_ADDITIONAL_INTERFACES >::initialize( )
   {
   }
-  void BaseComponent::compute( )
+  void Variant< BaseComponent::SuportedVariants::WITH_ADDITIONAL_INTERFACES >::compute( )
   {
   }
 }  // namespace RomanoViolet

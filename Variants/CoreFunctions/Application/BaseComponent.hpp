@@ -12,20 +12,25 @@ namespace RomanoViolet
   {
   public:
     enum class ErrorCode : short { NO_ERROR = 0U, BAD_INPUT_DATA = 1U };
-
+    enum class SuportedVariants : short {
+      WITH_ADDITIONAL_INTERFACES = 0U,
+      WITH_IDENTICAL_INTERFACES = 1U
+    };
     BaseComponent( )
-        : a_in( TypeInputInterface< InterfaceA >( ) ), b_out( TypeOutputInterface< InterfaceB >( ) )
+        : a_in( TypeInputInterface< InterfaceA >( ) )
+        , b_out( TypeOutputInterface< InterfaceB >( ) )
+        , _error( ErrorCode::NO_ERROR )
     {
     }
     TypeInputInterface< InterfaceA > a_in;
     TypeOutputInterface< InterfaceB > b_out;
 
-    void initialize( );
-    void doPreconditionCheck( );
-    void compute( );
-    void doPostConditionCheck( );
+    // void initialize( );
+    // void doPreconditionCheck( );
+    // void compute( );
+    // void doPostConditionCheck( );
 
-  private:
+  protected:
     ErrorCode _error;
   };
 }  // namespace RomanoViolet
