@@ -12,7 +12,6 @@ namespace RomanoViolet
   public:
     InterfaceA( ) = default;
 
-    // TODO Type should return an error message too.
     RomanoViolet::SafeType< 1, 4 > minWithIntegerBounds{2.F};
     VelocityType velocity{0.51F};
 
