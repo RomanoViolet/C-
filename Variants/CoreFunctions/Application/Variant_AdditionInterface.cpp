@@ -14,6 +14,10 @@ namespace RomanoViolet
       this->_error = BaseComponent::ErrorCode::BAD_INPUT_DATA;
     }
     ( void )a;
+
+    InterfaceC c;
+    c = this->c_in.getValue( );
+    ( void )c;
   }
 
   void
