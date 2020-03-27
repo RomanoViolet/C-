@@ -2,6 +2,7 @@
 #define COMPONENT_VARIANT_ADDITIONAL_INTERFACE_HPP_
 #include <Application/BaseComponent.hpp>
 #include <Application/VariantBase.hpp>
+#include <Application/Variant_AdditionInterface.hpp>
 #include <Library/InterfaceTypes/InterfaceC.hpp>
 #include <Library/InterfaceTypes/InterfaceD.hpp>
 namespace RomanoViolet

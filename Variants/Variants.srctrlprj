@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+    <source_groups>
+        <source_group_e353f78d-c550-4fdd-af6d-f218c1b3760b>
+            <compiler_flags>
+                <compiler_flag>-std=c++11</compiler_flag>
+            </compiler_flags>
+            <cpp_standard>c++11</cpp_standard>
+            <cross_compilation>
+                <target>
+                    <abi>gnuabi64</abi>
+                    <arch>x86_64</arch>
+                    <sys>linux</sys>
+                    <vendor>amd</vendor>
+                </target>
+                <target_options_enabled>0</target_options_enabled>
+            </cross_compilation>
+            <name>C++ Source Group</name>
+            <pch_flags>
+                <use_compiler_flags>1</use_compiler_flags>
+            </pch_flags>
+            <source_extensions>
+                <source_extension>.cpp</source_extension>
+                <source_extension>.cxx</source_extension>
+                <source_extension>.cc</source_extension>
+                <source_extension>.inl</source_extension>
+            </source_extensions>
+            <source_paths>
+                <source_path>CoreFunctions</source_path>
+                <source_path>build/BoundedTypes/BoundedTypes</source_path>
+            </source_paths>
+            <status>enabled</status>
+            <type>C++ Source Group</type>
+        </source_group_e353f78d-c550-4fdd-af6d-f218c1b3760b>
+    </source_groups>
+    <version>8</version>
+</config>
