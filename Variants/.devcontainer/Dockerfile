@@ -71,6 +71,8 @@ RUN \
   apt-get install -qqy lldb-8 && \
   apt-get install -qqy python-clang-8 && \
   apt-get install -qqy python-lldb-8 && \
+  apt-get install -qqy graphviz  && \
+  apt-get install -qqy python-pydot python3-pydot python-pygraphviz python3-pygraphviz && \
   #
   # Google Test. Thanks: https://github.com/coenvl/googletest-docker/blob/master/Dockerfile
   #
