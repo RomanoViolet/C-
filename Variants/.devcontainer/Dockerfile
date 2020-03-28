@@ -45,6 +45,7 @@ RUN \
   apt-get install -qqy xz-utils && \
   apt-get install -qqy apt-transport-https && \
   apt-get install -qqy python3 python3-pip && \
+  apt-get install -qqy python3 python-pip && \
   apt-get install -qqy python3-jinja2 && \
   apt-get install -qqy libboost-system-dev && \
   apt-get install -qqy libboost-thread-dev && \
@@ -81,6 +82,9 @@ RUN \
   #
   # Install PEP8 for Python formatting.
   pip3 install --upgrade autopep8 pylint && \
+  #
+  # Now for python2
+  pip install --upgrade autopep8 pylint && \
   #
   # Install Python-Clang bindings
   pip3 install --upgrade clang && \

@@ -13,7 +13,10 @@ clang.cindex.Config.set_library_file(find_library('clang'))
 index = clang.cindex.Index.create()
 dotGenerator = DotGenerator()
 
-
+# References: https://stackoverflow.com/questions/37336867/how-to-get-class-method-definitions-using-clang-python-bindings
+#             https://devblogs.microsoft.com/cppblog/exploring-clang-tooling-part-3-rewriting-code-with-clang-tidy/
+#             https://llvm.org/devmtg/2012-11/Gribenko_CommentParsing.
+#             https://clang.llvm.org/docs/LibASTMatchersTutorial.html
 def findFilesInDir(rootDir, patterns):
     """ Searches for files in rootDir which file names mathes the given pattern. Returns
     a list of file paths of found files"""
