@@ -6,9 +6,10 @@ import os
 import logging
 import argparse
 import fnmatch
-
+from ctypes.util import find_library
 from DotGenerator import *
 
+clang.cindex.Config.set_library_file(find_library('clang'))
 index = clang.cindex.Index.create()
 dotGenerator = DotGenerator()
 

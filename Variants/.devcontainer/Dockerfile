@@ -98,26 +98,27 @@ RUN \
   update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-8 100 && \
   update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-8 100 && \
   update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-8 100 && \
+  ln -s /usr/lib/x86_64-linux-gnu/libclang-3.8.so.1 /usr/lib/x86_64-linux-gnu/libclang.so && \
   #
   # Setup locales
   sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
   dpkg-reconfigure --frontend=noninteractive locales && \
   update-locale LANG=en_US.UTF-8 && \
-#
-# Add non-admin user
+  #
+  # Add non-admin user
   groupadd --gid $USER_GID $USERNAME && \
   useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME && \
   echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
   chmod 0440 /etc/sudoers.d/$USERNAME && \
-#
-# Add files for convenience.
-#ADD root/.bashrc /home/dockeruser/.bashrc
-#ADD root/.scripts /home/dockeruser/.scripts
-#
-#
-# Make sure that all file in /home/dockeruser are owned by dockeruser
+  #
+  # Add files for convenience.
+  #ADD root/.bashrc /home/dockeruser/.bashrc
+  #ADD root/.scripts /home/dockeruser/.scripts
+  #
+  #
+  # Make sure that all file in /home/dockeruser are owned by dockeruser
   chown -R dockeruser /home/dockeruser
-  #ENV HOME /home/dockeruser && \
+#ENV HOME /home/dockeruser && \
 #
 
 # Add default home for the non-admin user

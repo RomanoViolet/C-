@@ -1,3 +1,5 @@
 
 BoundedTypes/build/
 BoundedTypes/compile_commands.json
+
+*.pyc

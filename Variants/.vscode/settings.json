@@ -116,5 +116,6 @@
     "clang-format.style": "file",
     "files.insertFinalNewline": true,
     "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
-    "terminal.integrated.cwd": "."
+    "terminal.integrated.cwd": ".",
+    "python.pythonPath": "/usr/bin/python2.7"
 }

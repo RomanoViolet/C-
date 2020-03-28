@@ -2,6 +2,22 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: CodeDependencyVisualizer",
+            "type": "python",
+            "pythonPath": "/usr/bin/python2",
+            "request": "launch",
+            "program": "${workspaceFolder}/Tools/DependencyAnalysis/CodeDependencyVisualizer.py",
+            "console": "integratedTerminal",
+            "args": [
+                "-aipP",
+                "--verbose",
+                "-d",
+                "${workspaceFolder}/CoreFunctions/",
+                "-I",
+                "${workspaceFolder}/build/BoundedTypes/BoundedTypes"
+            ]
+        },
+        {
             "name": "Debug Negative Tests",
             "type": "cppdbg",
             "request": "launch",
