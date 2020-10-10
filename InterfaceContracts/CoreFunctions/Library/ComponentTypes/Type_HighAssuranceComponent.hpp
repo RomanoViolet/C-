@@ -12,4 +12,13 @@ public:
   virtual ~TypeHighAssuranceComponent( ) = default;
 };
 
+enum class SILLevels { QM = 0U, A = 1U, B = 2U, C = 3U, D = 4U };
+
+template < SILLevels SILLevel >
+class SIL
+{
+public:
+  int a;
+};
+
 #endif  // TYPE_HIGH_ASSURANCE_COMPONENT
