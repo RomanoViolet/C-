@@ -18,15 +18,7 @@ if(TEST_SRC)
 
   target_include_directories(
     ${ThisGoogleTestDirectory}_GoogleTest
-    PUBLIC
-      $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/CoreFunctions/Interfaces> # All data
-                                                                        # types used
-                                                                        # in the
-                                                                        # definition
-                                                                        # of core-
-                                                                        # functions.
-      $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/CoreFunctions/Library> # Safe Type
-      $<BUILD_INTERFACE:${PATH_TO_COPY_BOUNDEDTYPES_SOURCES}> # Component
+    PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}Library> # Operators
   )
 
   set_target_properties(${ThisGoogleTestDirectory}_GoogleTest
@@ -42,8 +34,7 @@ if(TEST_SRC)
     gtest_main
     gtest
     gmock
-    Library
-    BoundedTypes)
+    OverloadOperators)
 
   # target_link_libraries(${ThisGoogleTestDirectory}_GoogleTest DemoLibrary
   # gtest gtest_main gmock gmock_main pthread)

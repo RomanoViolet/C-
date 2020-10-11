@@ -14,7 +14,7 @@ setbuildchainspecifications(CompilerChain ${COMPILER} LanguageStandard
 # The name of the project
 project(
   CPPApplication
-  VERSION 0.3
+  VERSION 0.9
   LANGUAGES CXX)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -23,10 +23,6 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/ToolCompliance.cmake)
 
 # For setting global variables, such as required directories
 include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/SetGlobalVariables.cmake)
-
-# Source an external dependency, "Bounded Types"
-include(
-  ${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/ProvideBoundedTypes.cmake)
 
 # Function to build DemoApplication as a library. Not everything is linked yet.
 include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/BuildDemoLibrary.cmake)
@@ -49,9 +45,6 @@ ensuretoolcompliance(Git 2.17)
 # Set Global variables such as the commit-hash of the FancySquareRoot library
 # that must be used.
 setglobalvariables(Location_of_GoogleTests "${PROJECT_SOURCE_DIR}/GoogleTests")
-
-# Get the dependencies
-provideboundedtypes()
 
 # Build CPPProject as a library, but is not yet linked to external dependencies,
 # as FancySquareRoot library

@@ -4,16 +4,16 @@
             "name": "Docker Properties",
             "browse": {
                 "path": [
-                    "${workspaceFolder}/CoreFunctions",
-                    "/usr/include/c++/7",
-                    "/usr/lib/llvm-11/include"
+                    "${workspaceFolder}/Library/**",
+                    "/usr/include/c++/9/**",
+                    "/usr/lib/llvm-10/include/**"
                 ]
             },
             "includePath": [
-                "${workspaceFolder}/CoreFunctions",
-                "/usr/include/c++/7",
-                "/usr/include",
-                "/usr/lib/llvm-11/include"
+                "${workspaceFolder}/Library/**",
+                "/usr/include/c++/9/**",
+                "/usr/include/**",
+                "/usr/lib/llvm-10/include/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang++",

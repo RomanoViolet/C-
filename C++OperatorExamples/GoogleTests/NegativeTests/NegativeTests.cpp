@@ -3,7 +3,7 @@
 
 #include <limits>
 
-TEST( DummyTest, 1 )
+TEST( DummyNegativeTest, Dummy )
 {
   EXPECT_TRUE( true );
 }

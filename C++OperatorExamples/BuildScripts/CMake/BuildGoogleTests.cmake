@@ -39,8 +39,7 @@ function(ProvideGoogleTest)
     )
     enable_testing()
     find_package(GTest REQUIRED)
-    add_custom_target(AllGoogleTests ALL DEPENDS ${UNIT_TEST_TARGETS}
-                                                 BoundedTypes)
+    add_custom_target(AllGoogleTests ALL DEPENDS ${UNIT_TEST_TARGETS})
     add_subdirectory("${LocationOfGoogleTests}")
   endif(NOT GTEST_FOUND)
 endfunction(ProvideGoogleTest)
@@ -127,7 +126,7 @@ function(BuildGoogleTestsFromSource)
   add_dependencies(${GMOCK_MAIN_LIBRARY} ${GTEST_LIBRARY})
 
   add_custom_target(AllGoogleTests ALL DEPENDS ${UNIT_TEST_TARGETS}
-                                               BoundedTypes)
+                                               OverloadOperators)
 
   add_subdirectory("${LocationOfGoogleTests}")
 
