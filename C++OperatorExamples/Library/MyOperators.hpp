@@ -1,12 +1,19 @@
 #ifndef MY_OPERATORS_INCLUDED
 #define MY_OPERATORS_INCLUDED
+#include <assert.h>
 #include <string>
 #include <type_traits>
 
 /// @see https://en.cppreference.com/w/cpp/types/enable_if
+template < typename T >
+struct always_false : std::false_type {
+};
+
 template < typename T, class Enable = void >
 class MyOperators
 {
+  static_assert( always_false< T >::value,
+                 "Class for the specified template parameter does not exist" );
 };
 
 template < typename T >

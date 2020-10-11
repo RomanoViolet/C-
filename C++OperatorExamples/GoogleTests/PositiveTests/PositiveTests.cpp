@@ -46,5 +46,6 @@ TEST( Operators, StringTypeAcceptance )
   // https://godbolt.org/z/9bP9bd
   // https://godbolt.org/z/cEYx65 (With std::string not part of MyOperators signature)
   // https://godbolt.org/z/jas87z
+  // https://stackoverflow.com/questions/31607928/is-it-possible-to-assert-does-not-compile-with-gtest
   ASSERT_DEATH( testFrame( ), "error:" );
 }
