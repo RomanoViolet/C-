@@ -1,2 +1,4 @@
 
 build
+C++OperatorExamples/.clangd
+C++OperatorExamples/compile_commands.json

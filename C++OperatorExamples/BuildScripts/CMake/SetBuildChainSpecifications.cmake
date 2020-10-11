@@ -45,7 +45,9 @@ macro(setBuildChainSpecifications)
                                     -D_FORTIFY_SOURCE=2 \
                                     -Werror=unused \
                                     -fprofile-arcs \
-                                    -ftest-coverage")
+                                    -ftest-coverage \
+                                    -Werror=conversion\
+                                    -Werror")
 
   set(CMAKE_CXX_FLAGS_CLANG_DEBUG
       "-march=native \
@@ -75,7 +77,9 @@ macro(setBuildChainSpecifications)
                                     -Werror=unused-value \
                                     -Wno-c++98-compat \
                                     -Werror=invalid-constexpr \
-                                    -Werror=unused-variable")
+                                    -Werror=unused-variable \
+                                    -Werror=conversion \
+                                    -Werror")
 
   set(CMAKE_CXX_FLAGS_GCC_RELEASE
       "-march=native \
@@ -98,7 +102,9 @@ macro(setBuildChainSpecifications)
                                     -D_FORTIFY_SOURCE=2 \
                                     -Werror=unused-local-typedefs \
                                     -Werror=unused-value \
-                                    -Werror=unused")
+                                    -Werror=unused \
+                                    -Werror=conversion \
+                                    -Werror")
 
   set(CMAKE_CXX_FLAGS_CLANG_RELEASE
       "-march=native \
@@ -122,7 +128,9 @@ macro(setBuildChainSpecifications)
                                     -Werror=unused-value \
                                     -Wno-c++98-compat \
                                     -Werror=invalid-constexpr \
-                                    -Werror=unused-variable")
+                                    -Werror=unused-variable \
+                                    -Werror=conversion \
+                                    -Werror")
 
   if("${CompilerChain_alllowerCase}" STREQUAL "gcc")
     set(CMAKE_CXX_FLAGS_RELEASE

@@ -10,14 +10,14 @@ struct always_false : std::false_type {
 };
 
 template < typename T, class Enable = void >
-class MyOperators
+class TypeAsOperator
 {
   static_assert( always_false< T >::value,
                  "Class for the specified template parameter does not exist" );
 };
 
 template < typename T >
-class MyOperators<
+class TypeAsOperator<
     T,
     typename std::enable_if< std::is_floating_point< T >::value || std::is_integral< T >::value
                              || std::is_arithmetic< T >::value
@@ -26,7 +26,7 @@ class MyOperators<
     final
 {
 public:
-  MyOperators( const T value ) : _value( value )
+  TypeAsOperator( const T value ) : _value( value )
   {
   }
   operator float( )
