@@ -1,8 +1,8 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
-#include <Library/CustomTypes.hpp>
-#include <Library/SafeTypes.hpp>
+#include <CustomTypes.hpp>
+#include <SafeTypes.hpp>
 #include <limits>
 #include <type_traits>
 

@@ -5,14 +5,16 @@
             "browse": {
                 "path": [
                     "${workspaceFolder}/CoreFunctions",
-                    "/usr/include/c++/7"
+                    "/usr/include/c++/9/**",
+                    "/usr/lib/llvm-10/include/**"
                 ]
             },
             "includePath": [
                 "${workspaceFolder}/CoreFunctions",
                 "${workspaceFolder}/CoreFunctions/Library",
-                "/usr/include/c++/7",
-                "/usr/include"
+                "/usr/include/c++/9/**",
+                "/usr/include/**",
+                "/usr/lib/llvm-10/include/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang++",

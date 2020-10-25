@@ -16,18 +16,10 @@ if(TEST_SRC)
 
   # Lib includes
   add_executable(${ThisGoogleTestDirectory}_GoogleTest "${TEST_SRC}")
-
+  include_directories(${PROJECT_SOURCE_DIR}/Library)
   target_include_directories(
     ${ThisGoogleTestDirectory}_GoogleTest
-    PUBLIC
-      $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/CoreFunctions/Interfaces> # All data
-                                                                        # types used
-                                                                        # in the
-                                                                        # definition
-                                                                        # of core-
-                                                                        # functions.
-      $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/CoreFunctions/Library> # Safe Type
-  )
+    PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/Library>)
 
   set_target_properties(${ThisGoogleTestDirectory}_GoogleTest
                         PROPERTIES LINKER_LANGUAGE CXX)

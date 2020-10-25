@@ -5,12 +5,12 @@
 # https://blobfolio.com/2018/12/using-docker-as-a-build-environment/
 
 # Pull base image.
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 # On single RUN command: https://coderwall.com/p/4g8znw/things-i-learned-while-writing-a-dockerfile
-LABEL CPPDocker.version="0.1-beta"
+LABEL CPPDocker.version="0.2"
 LABEL vendor="Devendra Rai, rai.devendra@yahoo.co.uk"
-LABEL CPPDocker.release-date="2019-10-03"
+LABEL CPPDocker.release-date="2020-10-10"
 LABEL CPPDocker.version.is-production="No"
 
 ARG GTESTCOMMITID=cad3bc46c2ba8ec0bd7bb252d7279fe791140fbf
@@ -30,6 +30,8 @@ RUN \
   apt-get install -y build-essential && \
   apt-get install -y software-properties-common && \
   apt-get install -y sudo && \
+  apt-get install -qqy libz-dev && \
+  apt-get install -qqy gnupg && \
   apt-get install -qqy curl && \
   apt-get install -qqy net-tools && \
   apt-get install -qqy wget && \
@@ -60,17 +62,33 @@ RUN \
   cd /googletest/build  && \
   cmake .. && make && make install  && \
   cd / && rm -rf /googletest && \
-  apt-get install -qqy clang-8 && \
-  apt-get install -qqy clang-format-8 && \
-  apt-get install -qqy clang-tidy-8 && \
-  apt-get install -qqy clang-tools-8 && \
-  apt-get install -qqy libclang-8-dev && \
-  apt-get install -qqy libclang-common-8-dev && \
-  apt-get install -qqy libclang1-8 && \
-  apt-get install -qqy liblldb-8 && \
-  apt-get install -qqy lldb-8 && \
-  apt-get install -qqy python-clang-8 && \
-  apt-get install -qqy python-lldb-8 && \
+  #
+  # LLVM Repository
+  wget -O - 'http://apt.llvm.org/llvm-snapshot.gpg.key' | apt-key add - \
+  && echo 'deb http://apt.llvm.org/focal/ llvm-toolchain-focal-11 main' \
+  >> /etc/apt/sources.list \
+  && echo 'deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-11 main' \
+  >> /etc/apt/sources.list && \
+  apt-get update && \
+  #
+  apt-get install -qqy clang-format && \
+  apt-get install -qqy clang-tidy && \
+  apt-get install -qqy clang-tools && \
+  apt-get install -qqy clang && \
+  apt-get install -qqy clangd && \
+  apt-get install -qqy libc++-dev && \
+  apt-get install -qqy libc++1 && \
+  apt-get install -qqy libc++abi-dev && \
+  apt-get install -qqy libc++abi1 && \
+  apt-get install -qqy libclang-dev && \
+  apt-get install -qqy libclang1 && \
+  apt-get install -qqy liblldb-dev && \
+  apt-get install -qqy lld && \
+  apt-get install -qqy lldb && \
+  apt-get install -qqy llvm-dev && \
+  apt-get install -qqy llvm-runtime && \
+  apt-get install -qqy llvm && \
+  apt-get install -qqy python-clang && \
   #
   # Google Test. Thanks: https://github.com/coenvl/googletest-docker/blob/master/Dockerfile
   #
@@ -92,30 +110,30 @@ RUN \
   apt-get autoremove -y && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
-  update-alternatives --install /usr/bin/clang clang /usr/bin/clang-8 100 && \
-  update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-8 100 && \
-  update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-8 100 && \
-  update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-8 100 && \
+  #update-alternatives --install /usr/bin/clang clang /usr/bin/clang-8 100 && \
+  #update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-8 100 && \
+  #update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-8 100 && \
+  #update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-8 100 && \
   #
   # Setup locales
   sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
   dpkg-reconfigure --frontend=noninteractive locales && \
   update-locale LANG=en_US.UTF-8 && \
-#
-# Add non-admin user
+  #
+  # Add non-admin user
   groupadd --gid $USER_GID $USERNAME && \
   useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME && \
   echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
   chmod 0440 /etc/sudoers.d/$USERNAME && \
-#
-# Add files for convenience.
-#ADD root/.bashrc /home/dockeruser/.bashrc
-#ADD root/.scripts /home/dockeruser/.scripts
-#
-#
-# Make sure that all file in /home/dockeruser are owned by dockeruser
+  #
+  # Add files for convenience.
+  #ADD root/.bashrc /home/dockeruser/.bashrc
+  #ADD root/.scripts /home/dockeruser/.scripts
+  #
+  #
+  # Make sure that all file in /home/dockeruser are owned by dockeruser
   chown -R dockeruser /home/dockeruser
-  #ENV HOME /home/dockeruser && \
+#ENV HOME /home/dockeruser && \
 #
 
 # Add default home for the non-admin user
@@ -137,9 +155,9 @@ USER dockeruser
 RUN \
   chmod +x /home/dockeruser/.bashrc && \
   chmod +x /home/dockeruser/git-completion.sh && \
-  chmod +x /home/dockeruser/git-prompt.sh && \
-  echo 'export PATH=/clang_8/bin:$PATH' >> ~/.bashrc && \
-  echo 'export LD_LIBRARY_PATH=/clang_8/lib:/usr/local/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+  chmod +x /home/dockeruser/git-prompt.sh
+#echo 'export PATH=/clang_8/bin:$PATH' >> ~/.bashrc && \
+#echo 'export LD_LIBRARY_PATH=/clang_8/lib:/usr/local/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 
 
 # Define default command.
