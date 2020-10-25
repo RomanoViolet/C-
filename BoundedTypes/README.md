@@ -12,6 +12,7 @@ A predefined error-code is available in case a value to be assigned does underfl
 | GCC   | 7.4.0-1 |
 | Clang   | 8.0.0.3 |
 | C++ Standard   | 11, 14, 17 |
+
 ## Quick Start 
 1. Declare a type and bounds:
 ```c++
