@@ -445,3 +445,17 @@ TEST( InstantationTest, UnderflowCausedByOperation )
   EXPECT_FLOAT_EQ( w.getValue( ), 0.50F );
   EXPECT_EQ( w.getErrorCode( ), RomanoViolet::SafeTypeErrorCode::UNDERFLOW );
 }
+
+TEST( InstantationTest, UnderflowCausedByOperationUsingFloatOperator )
+{
+  // Lower bound: 1/2 = 0.5F. Upper bound: 3/4 = 0.75F
+  VelocityType v = 0.5F;
+
+  VelocityType w = v - 0.30F;
+  EXPECT_FLOAT_EQ( w, 0.50F );
+
+  float _v = w;
+  EXPECT_FLOAT_EQ( _v, 0.50F );
+
+  EXPECT_EQ( w.getErrorCode( ), RomanoViolet::SafeTypeErrorCode::UNDERFLOW );
+}

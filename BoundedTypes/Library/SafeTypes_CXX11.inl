@@ -244,6 +244,33 @@ namespace RomanoViolet
     return *this;
   }
 
+  template < int NumeratorForMinBound,
+             int DenominatorForMinBound,
+             int NumeratorForMaxBound,
+             int DenominatorForMaxBound >
+  SafeType< NumeratorForMinBound,
+            DenominatorForMinBound,
+            NumeratorForMaxBound,
+            DenominatorForMaxBound >
+  SafeType< NumeratorForMinBound,
+            DenominatorForMinBound,
+            NumeratorForMaxBound,
+            DenominatorForMaxBound >::operator-( const float other )
+  {
+    if ( ( this->_value - other > _min ) && ( this->_value - other < _max ) ) {
+      this->_value -= other;
+      _errorCode = SafeTypeErrorCode::NO_ERROR;
+    } else if ( this->_value - other > _max ) {
+      this->_value = _max;
+      _errorCode = SafeTypeErrorCode::OVERFLOW;
+    } else if ( this->_value - other < _min ) {
+      this->_value = _min;
+      _errorCode = SafeTypeErrorCode::UNDERFLOW;
+    }
+
+    return *this;
+  }
+
   template < int NumeratorForMinBound, int NumeratorForMaxBound >
   SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::SafeType( float value )
       : _min( NumeratorForMinBound ), _max( NumeratorForMaxBound )
@@ -338,6 +365,27 @@ namespace RomanoViolet
       this->_value = _max;
       _errorCode = SafeTypeErrorCode::OVERFLOW;
     } else if ( this->_value - other._value < _min ) {
+      this->_value = _min;
+      _errorCode = SafeTypeErrorCode::UNDERFLOW;
+    }
+
+    return *this;
+  }
+
+  template < int NumeratorForMinBound, int NumeratorForMaxBound >
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::operator-( const float other )
+  {
+    // The following does not work since the new temporary is constrained by the same bounds are
+    // *this, therefore, negation may floor the value before subtraction leading to incorrect
+    // results. return ( this->operator+( SafeType( -1.0 * other._value ) ) );
+    if ( ( this->_value - other > _min ) && ( this->_value - other < _max ) ) {
+      this->_value -= other;
+      _errorCode = SafeTypeErrorCode::NO_ERROR;
+    } else if ( this->_value - other > _max ) {
+      this->_value = _max;
+      _errorCode = SafeTypeErrorCode::OVERFLOW;
+    } else if ( this->_value - other < _min ) {
       this->_value = _min;
       _errorCode = SafeTypeErrorCode::UNDERFLOW;
     }

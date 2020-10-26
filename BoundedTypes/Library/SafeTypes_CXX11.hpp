@@ -32,6 +32,7 @@ namespace RomanoViolet
 
     // subtraction operator
     SafeType operator-( const SafeType &other );
+    SafeType operator-( const float other );
 
     // allows: float x = Object.
     operator float( ) const;
@@ -63,6 +64,7 @@ namespace RomanoViolet
 
     // subtraction operator
     SafeType operator-( const SafeType &other );
+    SafeType operator-( const float other );
 
     // allows: float x = Object.
     operator float( ) const;
