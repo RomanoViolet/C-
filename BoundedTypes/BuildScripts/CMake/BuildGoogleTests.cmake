@@ -125,7 +125,8 @@ function(BuildGoogleTestsFromSource)
                "INTERFACE_INCLUDE_DIRECTORIES" "${GMOCK_INCLUDE_DIRS}")
   add_dependencies(${GMOCK_MAIN_LIBRARY} ${GTEST_LIBRARY})
 
-  add_custom_target(AllGoogleTests ALL DEPENDS ${UNIT_TEST_TARGETS})
+  add_custom_target(AllGoogleTests ALL DEPENDS ${UNIT_TEST_TARGETS}
+                                               BoundedTypes)
 
   add_subdirectory("${LocationOfGoogleTests}")
 

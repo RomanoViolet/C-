@@ -16,13 +16,16 @@ if(TEST_SRC)
 
   # Lib includes
   add_executable(${ThisGoogleTestDirectory}_GoogleTest "${TEST_SRC}")
-  include_directories(${PROJECT_SOURCE_DIR}/Library)
+
+  # include_directories(${PROJECT_SOURCE_DIR}/Library)
+
   target_include_directories(
     ${ThisGoogleTestDirectory}_GoogleTest
     PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/Library>)
 
   set_target_properties(${ThisGoogleTestDirectory}_GoogleTest
                         PROPERTIES LINKER_LANGUAGE CXX)
+
   target_link_libraries(
     ${ThisGoogleTestDirectory}_GoogleTest
     ${GMOCK_LIBRARY}
@@ -39,7 +42,8 @@ if(TEST_SRC)
   # target_link_libraries(${ThisGoogleTestDirectory}_GoogleTest DemoLibrary
   # gtest gtest_main gmock gmock_main pthread)
 
-  add_dependencies(AllGoogleTests ${ThisGoogleTestDirectory}_GoogleTest)
+  add_dependencies(AllGoogleTests ${ThisGoogleTestDirectory}_GoogleTest
+                   BoundedTypes)
   set(UNIT_TEST_TARGETS
       ${UNIT_TEST_TARGETS} ${ThisGoogleTestDirectory}_GoogleTest
       PARENT_SCOPE)
