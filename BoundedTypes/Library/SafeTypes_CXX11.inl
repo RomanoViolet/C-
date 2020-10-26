@@ -119,6 +119,18 @@ namespace RomanoViolet
              int DenominatorForMinBound,
              int NumeratorForMaxBound,
              int DenominatorForMaxBound >
+  SafeType< NumeratorForMinBound,
+            DenominatorForMinBound,
+            NumeratorForMaxBound,
+            DenominatorForMaxBound >::operator float( ) const
+  {
+    return static_cast< float >( this->_value );
+  }  // getValue
+
+  template < int NumeratorForMinBound,
+             int DenominatorForMinBound,
+             int NumeratorForMaxBound,
+             int DenominatorForMaxBound >
   float SafeType< NumeratorForMinBound,
                   DenominatorForMinBound,
                   NumeratorForMaxBound,
@@ -248,6 +260,12 @@ namespace RomanoViolet
       _errorCode = SafeTypeErrorCode::NO_ERROR;
     }
   }  // constructor
+
+  template < int NumeratorForMinBound, int NumeratorForMaxBound >
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::operator float( ) const
+  {
+    return static_cast< float >( this->_value );
+  }  // operator float()
 
   template < int NumeratorForMinBound, int NumeratorForMaxBound >
   float SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::getValue( )

@@ -65,7 +65,7 @@ namespace RomanoViolet
     SafeType operator-( const SafeType &other );
 
     // allows: float x = Object.
-    // operator float( ) const;
+    operator float( ) const;
 
   private:
     int _min;
