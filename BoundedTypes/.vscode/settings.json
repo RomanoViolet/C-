@@ -16,6 +16,7 @@
     "C_Cpp.loggingLevel": "Debug",
     "C_Cpp.exclusionPolicy": "checkFilesAndFolders",
     "C_Cpp.default.includePath": [
+        "${workspaceFolder}/**",
         "${workspaceFolder}/Library/**"
     ],
     "C_Cpp.default.cppStandard": "c++11",
