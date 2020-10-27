@@ -51,8 +51,8 @@ TEST( InstantationTest, OverflowCheck )
   const int MaxValueOfInt = std::numeric_limits< int >::max( );
   using customType
       = RomanoViolet::SafeType< Fraction( 1, MaxValueOfInt ), Fraction( 2, MaxValueOfInt ) >;
-  customType c = 1.0F / MaxValueOfInt;
-  EXPECT_FLOAT_EQ( c.getValue( ), 1.0F / MaxValueOfInt );
+  customType c{ 1.0F / MaxValueOfInt };
+  EXPECT_FLOAT_EQ( c, 1.0F / MaxValueOfInt );
 }
 
 TEST( InstantationTest, OverflowCheck_2 )
@@ -71,8 +71,8 @@ TEST( InstantationTest, OverflowCheck_2 )
   const int MaxValueOfInt = std::numeric_limits< int >::max( );
   using customType = RomanoViolet::SafeType< Fraction( MaxValueOfInt - 1, MaxValueOfInt ),
                                              Fraction( MaxValueOfInt, 1 ) >;
-  customType c = ( float( MaxValueOfInt ) - 1.0F ) / MaxValueOfInt;
-  EXPECT_FLOAT_EQ( c.getValue( ), ( float( MaxValueOfInt ) - 1.0F ) / MaxValueOfInt );
+  customType c{ ( float( MaxValueOfInt ) - 1.0F ) / MaxValueOfInt };
+  EXPECT_FLOAT_EQ( c, ( float( MaxValueOfInt ) - 1.0F ) / MaxValueOfInt );
 }
 
 TEST( InstantationTest, CheckForSignRobustness )
@@ -107,8 +107,8 @@ TEST( InstantationTest, CheckForSignRobustness )
   const int MaxValueOfInt = std::numeric_limits< int >::max( );
   using customType = RomanoViolet::SafeType< Fraction( MaxValueOfInt - 1, -MaxValueOfInt ),
                                              Fraction( MaxValueOfInt, 1 ) >;
-  customType c = ( MaxValueOfInt * 1.0F - MaxValueOfInt ) / MaxValueOfInt;
-  EXPECT_FLOAT_EQ( c.getValue( ), ( MaxValueOfInt * 1.0F - MaxValueOfInt ) / -MaxValueOfInt );
+  customType c{ ( MaxValueOfInt * 1.0F - MaxValueOfInt ) / MaxValueOfInt };
+  EXPECT_FLOAT_EQ( c, ( MaxValueOfInt * 1.0F - MaxValueOfInt ) / -MaxValueOfInt );
 }
 
 TEST( InstantationTest, CheckForAllNegativeBounds_1 )
@@ -119,20 +119,20 @@ TEST( InstantationTest, CheckForAllNegativeBounds_1 )
   const int MinValueOfInt = std::numeric_limits< int >::min( ) + 1;
   using customType
       = RomanoViolet::SafeType< Fraction( 2, MinValueOfInt ), Fraction( 1, MinValueOfInt ) >;
-  customType c = 1.5F / MinValueOfInt;
-  EXPECT_FLOAT_EQ( c.getValue( ), 1.5F / MinValueOfInt );
+  customType c{ 1.5F / MinValueOfInt };
+  EXPECT_FLOAT_EQ( c, 1.5F / MinValueOfInt );
 }
 
 TEST( InstantationTest, CheckForAllNegativeBounds_2 )
 {
-  // Test when bound lower and upper bounds are negative.
+  // Test when lower and upper bounds are negative.
   // https://gcc.godbolt.org/z/NEm_DK
 
   const int MaxValueOfInt = std::numeric_limits< int >::max( );
   using customType
       = RomanoViolet::SafeType< Fraction( -2, MaxValueOfInt ), Fraction( -1, MaxValueOfInt ) >;
-  customType c = -1.5F / MaxValueOfInt;
-  EXPECT_FLOAT_EQ( c.getValue( ), -1.5F / MaxValueOfInt );
+  customType c{ -1.5F / MaxValueOfInt };
+  EXPECT_FLOAT_EQ( c, -1.5F / MaxValueOfInt );
 }
 
 TEST( InstantationTest, CheckForNegativeAndPositiveBounds )
@@ -158,8 +158,8 @@ TEST( InstantationTest, CheckForNegativeAndPositiveBounds )
   //       exepected to be of type int
   using customType
       = RomanoViolet::SafeType< Fraction( MinValueOfInt, 1 ), Fraction( MaxValueOfInt, 1 ) >;
-  customType c = value;
-  EXPECT_FLOAT_EQ( c.getValue( ), value );
+  customType c{ value };
+  EXPECT_FLOAT_EQ( c, value );
 }
 
 TEST( InstantationTest, CheckForResolution )
@@ -181,8 +181,8 @@ TEST( InstantationTest, CheckForResolution )
         * ( ( ( 1.0F / MaxValueOfInt ) - ( 1.0F / MinValueOfInt ) ) / ( range_from - range_to ) );
   using customType
       = RomanoViolet::SafeType< Fraction( 1, MinValueOfInt ), Fraction( 1, MaxValueOfInt ) >;
-  customType c = value;
-  EXPECT_FLOAT_EQ( c.getValue( ), value );
+  customType c{ value };
+  EXPECT_FLOAT_EQ( c, value );
 }
 
 TEST( InstantationTest, CheckForFlooring )
@@ -201,10 +201,10 @@ TEST( InstantationTest, CheckForFlooring )
   //       denominators are exepected to be of type int
   using customType
       = RomanoViolet::SafeType< Fraction( 1, MinValueOfInt ), Fraction( 1, MaxValueOfInt ) >;
-  customType c = value;
+  customType c{ value };
 
   // Stored value will be floored to the lower bound.
-  EXPECT_FLOAT_EQ( c.getValue( ), -1.0F / 3.F );
+  EXPECT_FLOAT_EQ( c, -1.0F / 3.F );
 }
 
 TEST( InstantationTest, CheckForCeiling_FloatSpecialization )
@@ -218,10 +218,10 @@ TEST( InstantationTest, CheckForCeiling_FloatSpecialization )
   float value = 10.F;
   using customType
       = RomanoViolet::SafeType< Fraction( MinValueOfInt, 2 ), Fraction( MaxValueOfInt, 2 ) >;
-  customType c = value;
+  customType c{ value };
 
   // Stored value will be ceiled to the upper bound
-  EXPECT_FLOAT_EQ( c.getValue( ), 5.0 / 2.0F );
+  EXPECT_FLOAT_EQ( c, 5.0 / 2.0F );
 }
 
 TEST( InstantationTest, CheckForCeiling_IntegerSpecialization )
@@ -235,10 +235,10 @@ TEST( InstantationTest, CheckForCeiling_IntegerSpecialization )
   float value = 10.F;
   using customType
       = RomanoViolet::SafeType< Fraction( MinValueOfInt, 1 ), Fraction( MaxValueOfInt, 1 ) >;
-  customType c = value;
+  customType c{ value };
 
   // Stored value will be ceiled to the upper bound
-  EXPECT_FLOAT_EQ( c.getValue( ), 5.0F );
+  EXPECT_FLOAT_EQ( c, 5.0F );
 }
 
 // The following test is disabled because operator float() is removed.
@@ -267,7 +267,7 @@ TEST( InstantationTest, CheckForCeiling_IntegerSpecialization )
 //   float cNew = c;  // this assignment is being tested.
 
 //   // Stored value will be ceiled to the upper bound
-//   EXPECT_FLOAT_EQ( c.getValue( ), cNew );
+//   EXPECT_FLOAT_EQ( c, cNew );
 // }
 
 TEST( InstantationTest, CopyConstructor )
@@ -280,12 +280,12 @@ TEST( InstantationTest, CopyConstructor )
   float value = -0.73F;
   using customType
       = RomanoViolet::SafeType< Fraction( MinValueOfInt, 1 ), Fraction( MaxValueOfInt, 1 ) >;
-  customType c = value;
+  customType c{ value };
 
   customType newObject = c;
 
   // Stored value will be ceiled to the upper bound
-  EXPECT_FLOAT_EQ( c.getValue( ), newObject.getValue( ) );
+  EXPECT_FLOAT_EQ( c, newObject );
 }
 
 TEST( InstantationTest, AssignmentOperator )
@@ -298,14 +298,14 @@ TEST( InstantationTest, AssignmentOperator )
   float value = -0.73F;
   using customType
       = RomanoViolet::SafeType< Fraction( MinValueOfInt, 1 ), Fraction( MaxValueOfInt, 1 ) >;
-  customType c = value;
+  customType c{ value };
 
-  customType c_other = 0.995;  // as long as it is within the bounds of the customType
+  customType c_other{ 0.995 };  // as long as it is within the bounds of the customType
 
   c_other = c;  // This is being tested.
 
   // Stored value will be ceiled to the upper bound
-  EXPECT_FLOAT_EQ( c.getValue( ), c_other.getValue( ) );
+  EXPECT_FLOAT_EQ( c, c_other );
 }
 
 TEST( InstantationTest, AdditionWithAnotherFloat )
@@ -319,10 +319,10 @@ TEST( InstantationTest, AdditionWithAnotherFloat )
   float value = -0.73F;
   using customType
       = RomanoViolet::SafeType< Fraction( MinValueOfInt, 1 ), Fraction( MaxValueOfInt, 1 ) >;
-  customType c = value;
+  customType c{ value };
 
   // Stored value will be ceiled to the upper bound
-  EXPECT_FLOAT_EQ( c.getValue( ) + 1.3F, value + 1.3F );
+  EXPECT_FLOAT_EQ( c + 1.3F, value + 1.3F );
 }
 
 TEST( InstantationTest, AdditionOperator )
@@ -335,13 +335,12 @@ TEST( InstantationTest, AdditionOperator )
   float value = 1.5F;
   using customType
       = RomanoViolet::SafeType< Fraction( MinValueOfInt, 2 ), Fraction( MaxValueOfInt, 2 ) >;
-  customType c = value;
+  customType c{ value };
 
   customType d = c;
-  d = 2;
   customType e = d + c;
 
-  EXPECT_FLOAT_EQ( e.getValue( ), 3.5 );
+  EXPECT_FLOAT_EQ( e, 3.0 );
 }
 
 TEST( InstantationTest, AdditionOperatorWithCeiling )
@@ -355,13 +354,13 @@ TEST( InstantationTest, AdditionOperatorWithCeiling )
   float value = 10.F;
   using customType
       = RomanoViolet::SafeType< Fraction( MinValueOfInt, 2 ), Fraction( MaxValueOfInt, 2 ) >;
-  customType c = value;
+  customType c{ value };
 
   customType d = c;
   customType e = d + c;
 
   // Stored value will be ceiled to the upper bound
-  EXPECT_FLOAT_EQ( e.getValue( ), 2.5 );
+  EXPECT_FLOAT_EQ( e, 2.5 );
 }
 
 TEST( InstantationTest, SubtractionOperator )
@@ -372,14 +371,13 @@ TEST( InstantationTest, SubtractionOperator )
   float value = 2.5;
   using customType
       = RomanoViolet::SafeType< Fraction( MinValueOfInt, 2 ), Fraction( MaxValueOfInt, 2 ) >;
-  customType d = value;  // 2.5
+  customType d{ value };  // 2.5
 
-  customType e = 0.F;
-  e = 1.5F;
+  customType e{ 1.5F };
   customType f = d - e;  // 1.0
 
   // Stored value will be ceiled to the upper bound
-  EXPECT_FLOAT_EQ( f.getValue( ), 1.0F );
+  EXPECT_FLOAT_EQ( f, 1.0F );
 }
 
 TEST( InstantationTest, SubtractionOperatorWithFlooring )
@@ -391,67 +389,67 @@ TEST( InstantationTest, SubtractionOperatorWithFlooring )
   float value = 2.5;
   using customType
       = RomanoViolet::SafeType< Fraction( MinValueOfInt, 2 ), Fraction( MaxValueOfInt, 2 ) >;
-  customType d = value;  // 2.5
+  customType d{ value };  // 2.5
 
-  customType e = 0.F;
-  e = 4.5F;
+  customType e{ 4.5F };
+  // e = 4.5F;
   customType f = d - e;  // 1.0
 
   // Stored value will be ceiled to the upper bound
-  EXPECT_FLOAT_EQ( f.getValue( ), 0.5F );
+  EXPECT_FLOAT_EQ( f, 0.5F );
 }
 
 TEST( InstantationTest, Demo )
 {
   // Lower bound: 1/2 = 0.5F. Upper bound: 3/4 = 0.75F
-  VelocityType v = 0.5F;
+  VelocityType v{ 0.5F };
 
-  VelocityType w = v.getValue( ) + 0.20F;
-  EXPECT_FLOAT_EQ( w.getValue( ), 0.70F );
+  VelocityType w{ v + 0.20F };
+  EXPECT_FLOAT_EQ( w, 0.70F );
 }
 
 TEST( ErrorCodes, Underflow )
 {
   // Lower bound: 1/2 = 0.5F. Upper bound: 3/4 = 0.75F
-  VelocityType v = 0.4F;
-  EXPECT_FLOAT_EQ( v.getValue( ), 0.5F );
+  VelocityType v{ 0.4F };
+  EXPECT_FLOAT_EQ( v, 0.5F );
   EXPECT_EQ( v.getErrorCode( ), RomanoViolet::SafeTypeErrorCode::UNDERFLOW );
 }
 
 TEST( ErrorCodes, Overflow )
 {
   // Lower bound: 1/2 = 0.5F. Upper bound: 3/4 = 0.75F
-  VelocityType v = 0.8F;
-  EXPECT_FLOAT_EQ( v.getValue( ), 0.75F );
+  VelocityType v{ 0.8F };
+  EXPECT_FLOAT_EQ( v, 0.75F );
   EXPECT_EQ( v.getErrorCode( ), RomanoViolet::SafeTypeErrorCode::OVERFLOW );
 }
 
 TEST( InstantationTest, OverflowCausedByOperation )
 {
   // Lower bound: 1/2 = 0.5F. Upper bound: 3/4 = 0.75F
-  VelocityType v = 0.5F;
+  VelocityType v{ 0.5F };
 
-  VelocityType w = v.getValue( ) + 0.30F;
-  EXPECT_FLOAT_EQ( w.getValue( ), 0.75F );
+  VelocityType w{ v + 0.30F };
+  EXPECT_FLOAT_EQ( w, 0.75F );
   EXPECT_EQ( w.getErrorCode( ), RomanoViolet::SafeTypeErrorCode::OVERFLOW );
 }
 
 TEST( InstantationTest, UnderflowCausedByOperation )
 {
   // Lower bound: 1/2 = 0.5F. Upper bound: 3/4 = 0.75F
-  VelocityType v = 0.5F;
+  VelocityType v{ 0.5F };
 
-  VelocityType w = v.getValue( ) - 0.30F;
-  EXPECT_FLOAT_EQ( w.getValue( ), 0.50F );
+  VelocityType w{ v - 0.30F };
+  EXPECT_FLOAT_EQ( w, 0.50F );
   EXPECT_EQ( w.getErrorCode( ), RomanoViolet::SafeTypeErrorCode::UNDERFLOW );
 }
 
 TEST( InstantationTest, UnderflowCausedByOperationUsingFloatOperator )
 {
   // Lower bound: 1/2 = 0.5F. Upper bound: 3/4 = 0.75F
-  VelocityType v = 0.5F;
+  VelocityType v{ 0.5F };
 
-  VelocityType w = v - 0.30F;
+  VelocityType w{ v - 0.30F };
   EXPECT_FLOAT_EQ( w, 0.50F );
 
   float _v = w;

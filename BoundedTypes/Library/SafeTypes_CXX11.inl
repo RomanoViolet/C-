@@ -32,10 +32,10 @@ namespace RomanoViolet
     // assert that denominators are not zero.
     static_assert( DenominatorForMinBound != 0, "Denominator for lower bound cannot be zero." );
     static_assert( DenominatorForMaxBound != 0, "Denominator for upper bound cannot be zero." );
-    static_assert( DenominatorForMinBound > std::numeric_limits< int >::min( ),
+    static_assert( DenominatorForMinBound >= std::numeric_limits< int >::min( ),
                    "Minimum value of denominator is std::numeric_limits<int>::min() + 1" );
-    static_assert( DenominatorForMaxBound > std::numeric_limits< int >::min( ),
-                   "Minimum value of denominator is std::numeric_limits<int>::min() + 1" );
+    static_assert( DenominatorForMaxBound <= std::numeric_limits< int >::max( ),
+                   "Maximum value of denominator is std::numeric_limits<int>::max()" );
 
     if ( ( DenominatorForMinBound < 0 ) && ( NumeratorForMinBound > 0 )
          && ( DenominatorForMaxBound < 0 ) && ( NumeratorForMaxBound > 0 ) ) {
@@ -139,18 +139,6 @@ namespace RomanoViolet
     return this->_value;
   }  // getValue
 
-  // template < int NumeratorForMinBound,
-  //            int DenominatorForMinBound,
-  //            int NumeratorForMaxBound,
-  //            int DenominatorForMaxBound >
-  // SafeType< NumeratorForMinBound,
-  //           DenominatorForMinBound,
-  //           NumeratorForMaxBound,
-  //           DenominatorForMaxBound >::operator float( ) const
-  // {
-  //   return ( this->_value );
-  // }
-
   template < int NumeratorForMinBound,
              int DenominatorForMinBound,
              int NumeratorForMaxBound,
@@ -207,6 +195,33 @@ namespace RomanoViolet
       this->_value = _max;
       _errorCode = SafeTypeErrorCode::OVERFLOW;
     } else if ( this->_value + other._value < _min ) {
+      this->_value = _min;
+      _errorCode = SafeTypeErrorCode::UNDERFLOW;
+    }
+
+    return *this;
+  }
+
+  template < int NumeratorForMinBound,
+             int DenominatorForMinBound,
+             int NumeratorForMaxBound,
+             int DenominatorForMaxBound >
+  SafeType< NumeratorForMinBound,
+            DenominatorForMinBound,
+            NumeratorForMaxBound,
+            DenominatorForMaxBound >
+  SafeType< NumeratorForMinBound,
+            DenominatorForMinBound,
+            NumeratorForMaxBound,
+            DenominatorForMaxBound >::operator+( const float other )
+  {
+    if ( ( this->_value + other < _max ) && ( this->_value + other > _min ) ) {
+      this->_value += other;
+      _errorCode = SafeTypeErrorCode::NO_ERROR;
+    } else if ( this->_value + other > _max ) {
+      this->_value = _max;
+      _errorCode = SafeTypeErrorCode::OVERFLOW;
+    } else if ( this->_value + other < _min ) {
       this->_value = _min;
       _errorCode = SafeTypeErrorCode::UNDERFLOW;
     }
@@ -331,6 +346,23 @@ namespace RomanoViolet
     this->_max = other._max;
     this->_value = other._value;
     this->_errorCode = other._errorCode;
+    return *this;
+  }
+
+  template < int NumeratorForMinBound, int NumeratorForMaxBound >
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >
+  SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >::operator+( const float other )
+  {
+    if ( ( this->_value + other < _max ) && ( this->_value + other > _min ) ) {
+      this->_value += other;
+      _errorCode = SafeTypeErrorCode::NO_ERROR;
+    } else if ( this->_value + other > _max ) {
+      this->_value = _max;
+      _errorCode = SafeTypeErrorCode::OVERFLOW;
+    } else if ( this->_value + other < _min ) {
+      this->_value = _min;
+      _errorCode = SafeTypeErrorCode::UNDERFLOW;
+    }
     return *this;
   }
 
