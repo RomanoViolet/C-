@@ -14,9 +14,9 @@ namespace RomanoViolet
   class SafeType
   {
   public:
-    SafeType( float value );
+    explicit SafeType( float value );
     float getMinValue( );
-    float getValue( );
+
     SafeTypeErrorCode getErrorCode( ) const;
 
     // copy constructor
@@ -27,12 +27,14 @@ namespace RomanoViolet
 
     // addition operator
     SafeType operator+( const SafeType &other );
+    SafeType operator+( const float other );
 
     // subtraction operator
     SafeType operator-( const SafeType &other );
+    SafeType operator-( const float other );
 
     // allows: float x = Object.
-    // operator float( ) const;
+    operator float( ) const;
 
   private:
     float _min;
@@ -59,8 +61,7 @@ namespace RomanoViolet
   class SafeType< NumeratorForMinBound, 1, NumeratorForMaxBound, 1 >
   {
   public:
-    SafeType( float value );
-    float getValue( );
+    explicit SafeType( float value );
     SafeTypeErrorCode getErrorCode( ) const;
 
     // copy constructor
@@ -71,9 +72,13 @@ namespace RomanoViolet
 
     // addition operator
     SafeType operator+( const SafeType &other );
+    SafeType operator+( const float other );
 
     // subtraction operator
     SafeType operator-( const SafeType &other );
+    SafeType operator-( const float other );
+
+    operator float( ) const;
 
   private:
     int _min;
