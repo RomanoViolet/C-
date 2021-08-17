@@ -45,7 +45,6 @@ RUN \
   apt-get install -qqy xz-utils && \
   apt-get install -qqy apt-transport-https && \
   apt-get install -qqy python3 python3-pip && \
-  apt-get install -qqy python3 python-pip && \
   apt-get install -qqy python3-jinja2 && \
   apt-get install -qqy libboost-system-dev && \
   apt-get install -qqy libboost-thread-dev && \
@@ -64,7 +63,7 @@ RUN \
   apt-get install -qqy python-clang-8 && \
   apt-get install -qqy python-lldb-8 && \
   apt-get install -qqy graphviz  && \
-  apt-get install -qqy python-pydot python3-pydot python-pygraphviz python3-pygraphviz && \
+  apt-get install -qqy python3-pydot python3-pygraphviz && \
   #
   # LLVM Repository
   wget -O - 'http://apt.llvm.org/llvm-snapshot.gpg.key' | apt-key add - \
@@ -116,11 +115,11 @@ RUN \
   apt-get autoremove -y && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
-  update-alternatives --install /usr/bin/clang clang /usr/bin/clang-12 100 && \
-  update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-12 100 && \
-  update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-12 100 && \
-  update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100 && \
-  ln -s /usr/lib/x86_64-linux-gnu/libclang-3.8.so.1 /usr/lib/x86_64-linux-gnu/libclang.so && \
+  #update-alternatives --install /usr/bin/clang clang /usr/bin/clang-12 100 && \
+  #update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-12 100 && \
+  #update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-12 100 && \
+  #update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100 && \
+  #ln -s /usr/lib/x86_64-linux-gnu/libclang-3.8.so.1 /usr/lib/x86_64-linux-gnu/libclang.so && \
   #
   # Setup locales
   sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
