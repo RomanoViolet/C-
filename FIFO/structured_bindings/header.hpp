@@ -2,17 +2,15 @@
 #define HEADER_HPP_INCLUDED
 #include <cstdint>
 #include <type_traits>
-template < typename T, uint8_t C > class RingBuffer
+template < typename T, uint8_t C > class CircularBuffer
 {
    public:
-    explicit RingBuffer ( uint8_t initialFill ) = default;
-    {
-
-    };
-
-   protected:
-   private:
-    const uint8_t capacity_;
+    CircularBuffer ( ) = default;
 };
+
+template < typename T > class CircularBuffer< T, 0U > : std::false_type
+{
+};
+
 
 #endif
