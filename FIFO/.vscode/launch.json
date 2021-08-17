@@ -1,0 +1,59 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: CodeDependencyVisualizer",
+            "type": "python",
+            "pythonPath": "/usr/bin/python2",
+            "request": "launch",
+            "program": "${workspaceFolder}/Tools/DependencyAnalysis/CodeDependencyVisualizer.py",
+            "console": "integratedTerminal",
+            "args": [
+                "-aipP",
+                "--verbose",
+                "-d",
+                "${workspaceFolder}/CoreFunctions/",
+                "-I",
+                "${workspaceFolder}/build/BoundedTypes/BoundedTypes"
+            ]
+        },
+        {
+            "name": "Debug Negative Tests",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/GoogleTests/NegativeTests/NegativeTests_GoogleTest",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Debug Positive Tests",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/GoogleTests/PositiveTests/PositiveTests_GoogleTest",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
