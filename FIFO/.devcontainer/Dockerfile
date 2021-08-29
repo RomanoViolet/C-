@@ -17,7 +17,7 @@ ARG GTESTCOMMITID=cad3bc46c2ba8ec0bd7bb252d7279fe791140fbf
 ARG USERNAME=dockeruser
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
-
+ARG LLVM_VERSION=13
 # Tell debian that we are running non-interactively
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -64,33 +64,48 @@ RUN \
   apt-get install -qqy python-lldb-8 && \
   apt-get install -qqy graphviz  && \
   apt-get install -qqy python3-pydot python3-pygraphviz && \
-  #
-  # LLVM Repository
-  wget -O - 'http://apt.llvm.org/llvm-snapshot.gpg.key' | apt-key add - \
-  && echo 'deb http://apt.llvm.org/focal/ llvm-toolchain-focal-12 main' \
-  >> /etc/apt/sources.list \
-  && echo 'deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-12 main' \
-  >> /etc/apt/sources.list && \
-  apt-get update && \
-  #
-  apt-get install -qqy clang-format && \
-  apt-get install -qqy clang-tidy && \
-  apt-get install -qqy clang-tools && \
-  apt-get install -qqy clang && \
-  apt-get install -qqy clangd && \
-  apt-get install -qqy libc++-dev && \
-  apt-get install -qqy libc++1 && \
-  apt-get install -qqy libc++abi-dev && \
-  apt-get install -qqy libc++abi1 && \
-  apt-get install -qqy libclang-dev && \
-  apt-get install -qqy libclang1 && \
-  apt-get install -qqy liblldb-dev && \
-  apt-get install -qqy lld && \
-  apt-get install -qqy lldb && \
-  apt-get install -qqy llvm-dev && \
-  apt-get install -qqy llvm-runtime && \
-  apt-get install -qqy llvm && \
-  apt-get install -qqy python-clang && \
+#
+#RUN \
+  bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)" && \
+  apt-get install -qqy clang-format-$LLVM_VERSION && \
+  apt-get install -qqy clang-tidy-$LLVM_VERSION && \
+  apt-get install -qqy clangd-$LLVM_VERSION && \
+  apt-get install -qqy libclang-$LLVM_VERSION-dev && \
+  apt-get install -qqy llvm-$LLVM_VERSION-dev && \
+  apt-get install -qqy python3-clang-$LLVM_VERSION && \
+  apt-get install -qqy python3-lldb-$LLVM_VERSION && \
+  apt-get install -qqy clang-tools-$LLVM_VERSION && \
+#
+#
+# LLVM Repository
+#RUN \
+#  wget -O - 'http://apt.llvm.org/llvm-snapshot.gpg.key' | apt-key add - \
+#  && echo 'deb http://apt.llvm.org/focal/ llvm-toolchain-focal main' \
+#  >> /etc/apt/sources.list \
+#  && echo 'deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal main' \
+#  >> /etc/apt/sources.list && \
+#  apt-get update && \
+#
+#  apt-get install -qqy clang-format && \
+#  apt-get install -qqy clang-tidy && \
+#  apt-get install -qqy clang-tools && \
+#  apt-get install -qqy clang && \
+#  apt-get install -qqy clangd && \
+#  apt-get install -qqy libc++-dev && \
+#  apt-get install -qqy libc++1 && \
+#  apt-get install -qqy libc++abi-dev && \
+#  apt-get install -qqy libc++abi1 && \
+#  apt-get install -qqy libclang-dev && \
+#  apt-get install -qqy libclang1 && \
+#  apt-get install -qqy liblldb-dev && \
+#  apt-get install -qqy lld && \
+#  apt-get install -qqy lldb && \
+#  apt-get install -qqy llvm-dev && \
+#  apt-get install -qqy llvm-runtime && \
+#  apt-get install -qqy llvm && \
+#  apt-get install -qqy python-clang
+#
+#RUN \
   #
   # Google Test. Thanks: https://github.com/coenvl/googletest-docker/blob/master/Dockerfile
   #
