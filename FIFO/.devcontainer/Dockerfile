@@ -130,11 +130,12 @@ RUN \
   apt-get autoremove -y && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
-  #update-alternatives --install /usr/bin/clang clang /usr/bin/clang-12 100 && \
-  #update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-12 100 && \
-  #update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-12 100 && \
-  #update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100 && \
-  #ln -s /usr/lib/x86_64-linux-gnu/libclang-3.8.so.1 /usr/lib/x86_64-linux-gnu/libclang.so && \
+  update-alternatives --install /usr/bin/clang clang /usr/bin/clang-13 100 && \
+  update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-13 100 && \
+  update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-13 100 && \
+  update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-13 100 && \
+  update-alternatives --install /usr/bin/clang-tidy clang-tody /usr/bin/clang-tidy-13 100 && \
+  ln -s /usr/lib/x86_64-linux-gnu/libclang-13.so /usr/lib/x86_64-linux-gnu/libclang.so && \
   #
   # Setup locales
   sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
