@@ -11,6 +11,6 @@ fi
 mkdir ./build
 cd ./build
 reset && \
-cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF -DCMAKE_BUILD_TYPE=Release -DCOMPILER=GCC -DSTANDARD=17 ..  && \
+cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF -DCMAKE_BUILD_TYPE=Release -DCOMPILER=GCC -DSTANDARD=20 ..  && \
 make && \
 cp ./compile_commands.json ../
