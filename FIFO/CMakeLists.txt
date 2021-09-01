@@ -18,4 +18,4 @@ project(
   LANGUAGES CXX)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-include_directories(${PROJECT_SOURCE_DIR}/CircularBuffer)
+add_subdirectory(${PROJECT_SOURCE_DIR}/CircularBuffer)
