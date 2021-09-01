@@ -33,5 +33,6 @@ class CircularBuffer
     uint8_t _extractPoint;
 };
 
+#include "CircularBuffer.inl"
 
 #endif
