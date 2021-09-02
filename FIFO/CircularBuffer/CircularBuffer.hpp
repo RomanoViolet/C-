@@ -1,6 +1,7 @@
 #ifndef CIRCULAR_BUFFER_HPP_INCLUDED
 #define CIRCULAR_BUFFER_HPP_INCLUDED
 
+#include <array>
 #include <concepts>
 #include <cstdint>
 #include <type_traits>
@@ -12,26 +13,26 @@
 // https://stackoverflow.com/a/63952541
 // https://godbolt.org/z/a9MTce17E
 
-template < typename T, uint8_t C >
-concept NonZeroCapacityOfBuffer = C >
+template < typename T, uint8_t C > concept NonZeroCapacityOfBuffer = C >
 0U;
 
 template < typename T, uint8_t C >
 requires NonZeroCapacityOfBuffer< T, C >
 class CircularBuffer
 {
-   public:
-    CircularBuffer ( T fillValue );
+  public:
+    CircularBuffer ( const T fillValue );
     CircularBuffer ( ) = default;
     auto pop ( uint8_t n = 1 ) -> void;
     auto push ( const T value ) -> void;
 
-   protected:
-   private:
-    uint8_t _capacity { C };
-    T _values[ C ] { };
-    uint8_t _insertPoint;
-    uint8_t _extractPoint;
+  protected:
+  private:
+    uint8_t capacity_ { C };
+    std::array< T, C > values_ { };
+    //T values_[ C ] { };
+    uint8_t insertPoint_;
+    uint8_t extractPoint_;
 };
 
 //#include "CircularBuffer.inl"

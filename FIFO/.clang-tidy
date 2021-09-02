@@ -4,7 +4,6 @@
 
 # Configure clang-tidy for this project.
 
-
 Checks: >
   -*,
   cppcoreguidelines-*,

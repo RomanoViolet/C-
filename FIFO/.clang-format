@@ -1,5 +1,5 @@
 ---
-BasedOnStyle: Google
+BasedOnStyle: LLVM
 AlignAfterOpenBracket: Align
 AlignConsecutiveMacros: 'true'
 AlignConsecutiveAssignments: 'true'
@@ -70,5 +70,6 @@ SpacesInParentheses: 'true'
 SpacesInSquareBrackets: 'true'
 Standard: Auto
 UseTab: Never
+BreakBeforeConceptDeclarations: 'false'
 
 ...
