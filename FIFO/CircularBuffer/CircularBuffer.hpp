@@ -1,5 +1,6 @@
 #ifndef CIRCULAR_BUFFER_HPP_INCLUDED
 #define CIRCULAR_BUFFER_HPP_INCLUDED
+
 #include <concepts>
 #include <cstdint>
 #include <type_traits>
@@ -33,6 +34,6 @@ class CircularBuffer
     uint8_t _extractPoint;
 };
 
-#include "CircularBuffer.inl"
+//#include "CircularBuffer.inl"
 
 #endif

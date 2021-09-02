@@ -13,5 +13,4 @@ cd ./build
 reset && \
 echo "In Directory: "`pwd`
 cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF -DCMAKE_BUILD_TYPE=Release -DCOMPILER=LLVM -DSTANDARD=20 ..  && \
-make && \
-cp ./compile_commands.json ../
+make

@@ -4,16 +4,14 @@
             "name": "Docker Properties",
             "browse": {
                 "path": [
-                    "${workspaceFolder}/CoreFunctions",
+                    "${workspaceFolder}/CircularBuffer",
                     "/usr/include/c++/9"
                 ]
             },
             "includePath": [
-                "${workspaceFolder}/CoreFunctions",
-                "${workspaceFolder}/CoreFunctions/Library",
+                "${workspaceFolder}/CircularBuffer",
                 "/usr/include/c++/9",
-                "/usr/include",
-                "${workspaceFolder}/build/BoundedTypes"
+                "/usr/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang++",
