@@ -25,6 +25,7 @@ auto pop ( uint8_t n = 1 ) -> void
 
 auto push ( const T value ) -> void
 {
+    // insert at write  head
 }
 
 #endif
