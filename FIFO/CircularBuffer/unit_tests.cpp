@@ -1,9 +1,10 @@
+#include "CircularBuffer.hpp"
+
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
-#include "CircularBuffer.hpp"
-
-TEST ( ShouldCompile, Test1 )  // NOLINT
+TEST ( ShouldCompile, ZeroCapacityFIFO ) // NOLINT
 {
+    CircularBuffer< int, 0U > f;
     EXPECT_TRUE ( true );
 }
