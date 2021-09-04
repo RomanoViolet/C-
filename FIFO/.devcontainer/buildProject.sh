@@ -4,7 +4,7 @@
 #              https://stackoverflow.com/a/42449998 (bold typeface printout)
 # defaults, unless overridden
 CC="GCC"
-STANDARD="17"
+STANDARD="20"
 BUILDTYPE="Release"
 
 chosenCompiler=''
@@ -40,8 +40,10 @@ case $key in
         STANDARD="14"
     elif [[ "$chosenStandard" =~ ^(17)$ ]]; then
     STANDARD="17"
+    elif [[ "$chosenStandard" =~ ^(20)$ ]]; then
+    STANDARD="20"
     else
-        echo "Acceptable choices for C++ standard are 11, 14, or 17. Defaulting to C++11."
+        echo "Acceptable choices for C++ standard are 11, 14, 17, or 20. Defaulting to C++11."
         STANDARD="11"
     fi
     shift # past argument
@@ -64,7 +66,7 @@ case $key in
     ;;
     --default)
     CC="GCC"
-    STANDARD="17"
+    STANDARD="20"
     BUILDTYPE="Release"
     shift # past argument
     ;;
