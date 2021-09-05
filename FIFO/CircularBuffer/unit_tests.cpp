@@ -9,6 +9,7 @@ TEST ( ClassDeathTest, ZeroCapacityFIFO ) // NOLINT
     static_assert ( ! NonZeroCapacityOfBuffer< int, 0 > );
     EXPECT_TRUE ( true );
     // https://godbolt.org/z/5z19b74oz
+    //https://godbolt.org/z/sxoojKnTo
     ASSERT_DEATH (
         {
             CircularBuffer< int, 0 > b { };
