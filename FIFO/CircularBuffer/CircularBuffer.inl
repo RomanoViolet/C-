@@ -28,7 +28,7 @@ auto pop ( ) -> T
     //         Therefore, write is refused when read head and write head
     //         are at the same position.
     if ( this->insertPoint_ == this->extractPoint_ ) {
-        this->e_ = ErrorCode::EMPTY;
+        this->e_ = ErrorCode::kEMPTY;
         return;
     }
 
@@ -39,7 +39,7 @@ auto pop ( ) -> T
         this->extractPoint_ = 0U;
     }
 
-    this->e_ = ErrorCode::OK;
+    this->e_ = ErrorCode : kOK;
     return ( value_ );
 }
 
@@ -56,7 +56,7 @@ auto push ( const T value ) -> void
     //        R       W
     // insert, then move the insert point forward.
     if ( this->insertPoint_ == this->extractPoint_ ) {
-        this->e_ = ErrorCode::FULL;
+        this->e_ = ErrorCode::kFULL;
         return;
     }
 
@@ -67,7 +67,7 @@ auto push ( const T value ) -> void
         this->insertPoint_ = 0U;
     }
 
-    this->e_ = ErrorCode::OK;
+    this->e_ = ErrorCode::kOK;
 
     //
     // Case 2

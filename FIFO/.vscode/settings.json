@@ -82,5 +82,11 @@
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
     "python.linting.pylintPath": "/usr/local/bin/pylint",
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "clang-tidy.compilerArgsBefore": [
+        "-std=c++20"
+    ],
+    "clang-tidy.lintOnSave": true,
+    "clang-tidy.fixOnSave": true,
+    "clang-tidy.buildPath": "${workspaceFolder}/build"
 }

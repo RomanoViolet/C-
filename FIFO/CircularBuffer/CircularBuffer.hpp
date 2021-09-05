@@ -21,17 +21,17 @@ requires NonZeroCapacityOfBuffer< T, C >
 class CircularBuffer
 {
   public:
-    enum class ErrorCode : uint8_t { OK = 0U, FULL = 1U, EMPTY = 2U };
-    CircularBuffer ( const T fillValue );
+    enum class ErrorCode : uint8_t { kOK = 0U, kFULL = 1U, kEMPTY = 2U };
+    explicit CircularBuffer ( T fillValue );
     CircularBuffer ( ) = default;
     auto pop ( ) -> T;
-    auto push ( const T value ) -> void;
+    auto push ( T value ) -> void;
 
   protected:
   private:
     std::array< T, C > values_ { };
-    uint8_t insertPoint_;
-    uint8_t extractPoint_;
+    uint8_t insertPoint_ { };
+    uint8_t extractPoint_ { };
     ErrorCode e_ { ErrorCode::OK };
 };
 
