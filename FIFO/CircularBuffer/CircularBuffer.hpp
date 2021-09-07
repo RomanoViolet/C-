@@ -40,23 +40,15 @@ class Buffer : std::false_type
 {
 };
 
-template < uint8_t C > struct Is_NonZero {
-    bool value;
-    Is_NonZero ( ) { C > 0 ? value = true : value = false; }
+template < uint8_t C > struct IsNonZero {
+    static bool value_;
+    IsNonZero ( ) { C > 0 ? value_ = true : value_ = false; }
 };
 
-constexpr auto IsNonZero ( uint8_t C ) -> bool
-{
-    if ( C > 0 ) {
-        return true;
-    } else {
-        return false;
-    }
-}
 // https://cpppatterns.com/patterns/class-template-sfinae.html
 // notice the partial template specialization.
 template < typename T, uint8_t C >
-class Buffer< T, C, std::enable_if_t< std::is_integral_v< C > > >
+class Buffer< T, C, std::enable_if_t< IsNonZero< C >::value > >
 {
 };
 
