@@ -5,6 +5,7 @@
 #include <concepts>
 #include <cstdint>
 #include <type_traits>
+#include <iostream>
 // https://akrzemi1.wordpress.com/2020/01/29/requires-expression/
 // https://akrzemi1.wordpress.com/2017/12/02/your-own-type-predicate/
 // https://godbolt.org/z/9z83P4a17
@@ -35,21 +36,26 @@ class CircularBuffer
     ErrorCode e_ { ErrorCode::OK };
 };
 
-template < typename T, uint8_t C, typename Exists = void >
-class Buffer : std::false_type
+template < typename T, unsigned C, typename Enable = void >
+class Buffer
 {
+public:
+    Buffer()
+    {
+        std::cout << " Not Supported" << std::endl;
+    }
 };
-
-template < uint8_t C > struct IsNonZero {
-    static bool value_;
-    IsNonZero ( ) { C > 0 ? value_ = true : value_ = false; }
-};
-
 // https://cpppatterns.com/patterns/class-template-sfinae.html
+// https://stackoverflow.com/a/10017728
 // notice the partial template specialization.
-template < typename T, uint8_t C >
-class Buffer< T, C, std::enable_if_t< IsNonZero< C >::value > >
+template < typename T, unsigned C >
+class Buffer< T, C, std::enable_if_t< (C > 0)>>
 {
+    public:
+    Buffer()
+    {
+        std::cout << " Supported" << std::endl;
+    }
 };
 
 //#include "CircularBuffer.inl"
