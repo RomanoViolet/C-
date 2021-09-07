@@ -35,6 +35,31 @@ class CircularBuffer
     ErrorCode e_ { ErrorCode::OK };
 };
 
+template < typename T, uint8_t C, typename Exists = void >
+class Buffer : std::false_type
+{
+};
+
+template < uint8_t C > struct Is_NonZero {
+    bool value;
+    Is_NonZero ( ) { C > 0 ? value = true : value = false; }
+};
+
+constexpr auto IsNonZero ( uint8_t C ) -> bool
+{
+    if ( C > 0 ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// https://cpppatterns.com/patterns/class-template-sfinae.html
+// notice the partial template specialization.
+template < typename T, uint8_t C >
+class Buffer< T, C, std::enable_if_t< std::is_integral_v< C > > >
+{
+};
+
 //#include "CircularBuffer.inl"
 
 #endif

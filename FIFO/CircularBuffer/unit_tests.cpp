@@ -10,10 +10,4 @@ TEST ( ClassDeathTest, ZeroCapacityFIFO ) // NOLINT
     EXPECT_TRUE ( true );
     // https://godbolt.org/z/5z19b74oz
     //https://godbolt.org/z/sxoojKnTo
-    ASSERT_DEATH (
-        {
-            CircularBuffer< int, 0 > b { };
-            ( void ) b;
-        },
-        "error:" );
 }
