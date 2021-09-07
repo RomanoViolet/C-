@@ -5,23 +5,24 @@
             "browse": {
                 "path": [
                     "${workspaceFolder}/CircularBuffer",
-                    "/usr/include/c++/10",
-                    "/usr/include",
-                    "/usr/local/include"
+                    "/usr/include/c++/10/**",
+                    "/usr/include/**",
+                    "/usr/local/include/**"
                 ]
             },
             "includePath": [
-                "${workspaceFolder}/CircularBuffer",
-                "/usr/include/c++/10",
-                "/usr/include",
-                "/usr/local/include"
+                "${workspaceFolder}/CircularBuffer/**",
+                "/usr/include/c++/10/**",
+                "/usr/include/**",
+                "/usr/local/include/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang++",
             "cStandard": "c11",
             "cppStandard": "c++20",
             "intelliSenseMode": "clang-x64",
-            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "configurationProvider": "ms-vscode.cmake-tools"
         }
     ],
     "version": 4

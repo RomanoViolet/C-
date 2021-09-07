@@ -88,5 +88,6 @@
     ],
     "clang-tidy.lintOnSave": true,
     "clang-tidy.fixOnSave": true,
-    "clang-tidy.buildPath": "${workspaceFolder}/build"
+    "clang-tidy.buildPath": "${workspaceFolder}/build",
+    "C_Cpp.intelliSenseEngine": "Default"
 }
