@@ -47,6 +47,7 @@ public:
 };
 // https://cpppatterns.com/patterns/class-template-sfinae.html
 // https://stackoverflow.com/a/10017728
+// https://godbolt.org/z/KcerdTeo8
 // notice the partial template specialization.
 template < typename T, unsigned C >
 class Buffer< T, C, std::enable_if_t< (C > 0)>>
@@ -61,3 +62,9 @@ class Buffer< T, C, std::enable_if_t< (C > 0)>>
 //#include "CircularBuffer.inl"
 
 #endif
+
+// Next: detect if a type exists
+// https://en.cppreference.com/w/cpp/types/void_t
+// https://devblogs.microsoft.com/oldnewthing/20190710-00/?p=102678
+// https://godbolt.org/z/fPaezKTvP
+// https://stackoverflow.com/a/27688405
