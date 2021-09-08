@@ -42,14 +42,7 @@ namespace cpp20_concepts
 namespace cpp_17
 {
     template < typename T, unsigned C, typename Enable = void >
-    class Buffer
-    {
-    public:
-        Buffer()
-        {
-            std::cout << " Not Supported" << std::endl;
-        }
-    };
+    class Buffer;
     // https://cpppatterns.com/patterns/class-template-sfinae.html
     // https://stackoverflow.com/a/10017728
     // https://godbolt.org/z/KcerdTeo8
