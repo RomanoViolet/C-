@@ -14,50 +14,57 @@
 // https://stackoverflow.com/a/63952541
 // https://godbolt.org/z/a9MTce17E
 
-template < typename T, uint8_t C > concept NonZeroCapacityOfBuffer = C >
-0U;
-
-template < typename T, uint8_t C >
-requires NonZeroCapacityOfBuffer< T, C >
-class CircularBuffer
+namespace cpp20_concepts
 {
-  public:
-    enum class ErrorCode : uint8_t { kOK = 0U, kFULL = 1U, kEMPTY = 2U };
-    explicit CircularBuffer ( T fillValue );
-    CircularBuffer ( ) = default;
-    auto pop ( ) -> T;
-    auto push ( T value ) -> void;
+    template < typename T, uint8_t C > concept NonZeroCapacityOfBuffer = C >
+    0U;
 
-  protected:
-  private:
-    std::array< T, C > values_ { };
-    uint8_t insertPoint_ { };
-    uint8_t extractPoint_ { };
-    ErrorCode e_ { ErrorCode::OK };
-};
-
-template < typename T, unsigned C, typename Enable = void >
-class Buffer
-{
-public:
-    Buffer()
+    template < typename T, uint8_t C >
+    requires NonZeroCapacityOfBuffer< T, C >
+    class CircularBuffer
     {
-        std::cout << " Not Supported" << std::endl;
-    }
-};
-// https://cpppatterns.com/patterns/class-template-sfinae.html
-// https://stackoverflow.com/a/10017728
-// https://godbolt.org/z/KcerdTeo8
-// notice the partial template specialization.
-template < typename T, unsigned C >
-class Buffer< T, C, std::enable_if_t< (C > 0)>>
-{
     public:
-    Buffer()
+        enum class ErrorCode : uint8_t { kOK = 0U, kFULL = 1U, kEMPTY = 2U };
+        explicit CircularBuffer ( T fillValue );
+        CircularBuffer ( ) = default;
+        auto pop ( ) -> T;
+        auto push ( T value ) -> void;
+
+    protected:
+    private:
+        std::array< T, C > values_ { };
+        uint8_t insertPoint_ { };
+        uint8_t extractPoint_ { };
+        ErrorCode e_ { ErrorCode::OK };
+    };
+} // namespace cpp20_concepts
+
+namespace cpp_17
+{
+    template < typename T, unsigned C, typename Enable = void >
+    class Buffer
     {
-        std::cout << " Supported" << std::endl;
-    }
-};
+    public:
+        Buffer()
+        {
+            std::cout << " Not Supported" << std::endl;
+        }
+    };
+    // https://cpppatterns.com/patterns/class-template-sfinae.html
+    // https://stackoverflow.com/a/10017728
+    // https://godbolt.org/z/KcerdTeo8
+    // notice the partial template specialization.
+    template < typename T, unsigned C >
+    class Buffer< T, C, std::enable_if_t< (C > 0)>>
+    {
+        public:
+        Buffer()
+        {
+            std::cout << " Supported" << std::endl;
+        }
+    };
+} // namespace cpp_17
+
 
 //#include "CircularBuffer.inl"
 
