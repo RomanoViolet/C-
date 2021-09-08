@@ -26,13 +26,17 @@ function(add_sources)
 endfunction(add_sources)
 
 function(add_unittests)
-
+  enable_testing()
   get_filename_component(this_directory ${CMAKE_PARENT_LIST_FILE} DIRECTORY)
   get_filename_component(this_folder ${this_directory} NAME)
   set(name_of_test_executable ${this_folder}_tests)
   add_executable(${name_of_test_executable})
-  gtest_discover_tests(${name_of_test_executable})
   target_sources(${name_of_test_executable} PRIVATE ${ARGN})
+  set_target_properties(${name_of_test_executable} PROPERTIES LINKER_LANGUAGE
+                                                              CXX)
+  message("Added unit test: ${name_of_test_executable} with source: ${ARGN}")
+
+  gtest_discover_tests(${name_of_test_executable})
   target_link_libraries(
     ${name_of_test_executable}
     ${this_folder}

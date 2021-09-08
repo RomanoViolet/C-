@@ -23,7 +23,7 @@ mkdir ./build
 cd ./build
 cmake .. 
 make >> result.log 2>&1
-if grep -F "static_assert" result.log
+if grep -F "error: template constraint failure" result.log
 then
-    echo "static_assert"
+    echo "constraint_error"
 fi
