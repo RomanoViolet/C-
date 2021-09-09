@@ -59,23 +59,21 @@ function(add_compile_abort_unittests shellScript errorString)
   get_filename_component(this_directory ${CMAKE_PARENT_LIST_FILE} DIRECTORY)
   get_filename_component(this_folder ${this_directory} NAME)
 
-  message("1")
   set(name_of_test_executable ${this_folder}_compile_abort_tests)
 
   if(TARGET ${name_of_test_executable})
-    message("2")
+
   else()
-    message("3: ${name_of_test_executable}")
 
     add_test(
       NAME ${name_of_test_executable}
       WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
       COMMAND ${shellScript})
-    message("4:")
+
     set_tests_properties(
       ${name_of_test_executable}
       PROPERTIES WILL_FAIL
       PROPERTIES PASS_REGULAR_EXPRESSION ${errorString})
   endif()
-  message("5:")
+
 endfunction(add_compile_abort_unittests)
