@@ -9,7 +9,7 @@ function(add_headers)
 
   # message("ARGN: " ${ARGN})
 
-  add_library(${this_folder})
+  add_library(${this_folder} INTERFACE)
   message("New Library: " ${this_folder})
   target_sources(${this_folder} INTERFACE ${ARGN})
 
@@ -70,7 +70,7 @@ function(add_compile_abort_unittests shellScript errorString)
     add_test(
       NAME ${name_of_test_executable}
       WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-      COMMAND ${CMAKE_CURRENT_LIST_DIR}/${shellScript})
+      COMMAND ${shellScript})
     message("4:")
     set_tests_properties(
       ${name_of_test_executable}
