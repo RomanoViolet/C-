@@ -4,6 +4,7 @@
 find_package(GTest REQUIRED)
 
 enable_testing()
+
 add_executable(UnitTestExecutable ${CMAKE_CURRENT_LIST_DIR}/unit_tests.cpp)
 
 gtest_discover_tests(UnitTestExecutable)
