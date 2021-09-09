@@ -1,6 +1,11 @@
-# include(convenience_functions) add_headers(CircularBuffer.hpp)
-# add_sources(main.cpp) add_unittests(unit_tests.cpp)
+include(convenience_functions)
+add_headers(CircularBuffer.hpp)
+# add_sources(main.cpp)
+add_unittests(unit_tests.cpp)
+add_compile_abort_unittests(
+  ${CMAKE_CURRENT_LIST_DIR}/runNegativeCompilerTests.sh "constraint_error")
 
+#[[
 find_package(GTest REQUIRED)
 
 enable_testing()
@@ -24,3 +29,4 @@ set_tests_properties(
 
 target_link_libraries(UnitTestExecutable ${GTEST_LIBRARY} ${GTEST_MAIN_LIBRARY}
                       pthread gtest_main)
+]]
