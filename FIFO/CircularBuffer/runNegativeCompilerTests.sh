@@ -23,7 +23,13 @@ mkdir ./build
 cd ./build
 cmake .. 
 make >> result.log 2>&1
+
 if grep -F "error: template constraint failure" result.log
+then
+    echo "constraint_error"
+fi
+
+if grep -F "error: constraints not satisfied" result.log
 then
     echo "constraint_error"
 fi
