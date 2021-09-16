@@ -1,17 +1,12 @@
 find_package(GTest REQUIRED)
 
 function(add_headers)
-  # message("CMAKE_PARENT_LIST_FILE: " ${CMAKE_PARENT_LIST_FILE})
+
   message("CMAKE_CURRENT_LIST_FILE: " ${CMAKE_CURRENT_LIST_FILE})
   get_filename_component(this_directory ${CMAKE_PARENT_LIST_FILE} DIRECTORY)
-  # message("Calling Directory: " ${this_directory})
   get_filename_component(this_folder ${this_directory} NAME)
-
-  # message("ARGN: " ${ARGN})
-
-  add_library(${this_folder} INTERFACE)
-  message("New Library: " ${this_folder})
-  target_sources(${this_folder} INTERFACE ${ARGN})
+  add_library(${this_folder} ${ARGN})
+  message("New Library: " ${this_folder} " with: " ${ARGN})
 
 endfunction(add_headers)
 
@@ -20,8 +15,9 @@ function(add_sources)
   get_filename_component(this_directory ${CMAKE_PARENT_LIST_FILE} DIRECTORY)
   get_filename_component(this_folder ${this_directory} NAME)
   target_sources(${this_folder} PRIVATE ${ARGN})
+  # target_sources(${this_folder} PUBLIC ${ARGN})
   set_target_properties(${this_folder} PROPERTIES LINKER_LANGUAGE "CXX")
-  message("Added source: ${ARGN}")
+  message("Added source: ${ARGN} to library ${this_folder}")
 
 endfunction(add_sources)
 

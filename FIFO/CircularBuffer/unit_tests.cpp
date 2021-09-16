@@ -26,3 +26,11 @@ TEST ( ExistenceTests, TypeDoesNotExist ) // NOLINT
     EXPECT_FALSE ( does_exist );
 }
 
+
+TEST ( CPP20_FunctionalTests, PushToken ) // NOLINT
+{
+    cpp20_concepts::CircularBuffer<int,10U> b{};
+    b.push(1U);
+    int v = b.pop();
+    EXPECT_EQ(1U, v);
+}

@@ -35,7 +35,7 @@ namespace cpp20_concepts
         std::array< T, C > values_ { };
         uint8_t insertPoint_ { };
         uint8_t extractPoint_ { };
-        ErrorCode e_ { ErrorCode::OK };
+        ErrorCode e_ { ErrorCode::kOK };
     };
 }  // namespace cpp20_concepts
 
