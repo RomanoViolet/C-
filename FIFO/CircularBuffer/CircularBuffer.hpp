@@ -4,8 +4,8 @@
 #include <array>
 #include <concepts>
 #include <cstdint>
-#include <type_traits>
 #include <iostream>
+#include <type_traits>
 // https://akrzemi1.wordpress.com/2020/01/29/requires-expression/
 // https://akrzemi1.wordpress.com/2017/12/02/your-own-type-predicate/
 // https://godbolt.org/z/9z83P4a17
@@ -23,40 +23,49 @@ namespace cpp20_concepts
     requires NonZeroCapacityOfBuffer< T, C >
     class CircularBuffer
     {
-    public:
+       public:
         enum class ErrorCode : uint8_t { kOK = 0U, kFULL = 1U, kEMPTY = 2U };
         explicit CircularBuffer ( T fillValue );
         CircularBuffer ( ) = default;
         auto pop ( ) -> T;
         auto push ( T value ) -> void;
 
-    protected:
-    private:
+       protected:
+       private:
         std::array< T, C > values_ { };
         uint8_t insertPoint_ { };
         uint8_t extractPoint_ { };
         ErrorCode e_ { ErrorCode::OK };
     };
-} // namespace cpp20_concepts
+}  // namespace cpp20_concepts
 
 namespace cpp_17
 {
-    template < typename T, unsigned C, typename Enable = void >
-    class Buffer;
+    //template < typename T, unsigned C, typename Enable = void >
+    template < typename T, unsigned C, typename = void >
+    class CircularBuffer;
     // https://cpppatterns.com/patterns/class-template-sfinae.html
     // https://stackoverflow.com/a/10017728
     // https://godbolt.org/z/KcerdTeo8
     // notice the partial template specialization.
     template < typename T, unsigned C >
-    class Buffer< T, C, std::enable_if_t< (C > 0)>>
+    class CircularBuffer< T, C, std::enable_if_t< ( C > 0 ) > >
     {
-        public:
-        Buffer()
-        {
-            std::cout << " Supported" << std::endl;
-        }
+       public:
+        enum class ErrorCode : uint8_t { kOK = 0U, kFULL = 1U, kEMPTY = 2U };
+        explicit CircularBuffer ( T fillValue );
+        CircularBuffer ( ) = default;
+        auto pop ( ) -> T;
+        auto push ( T value ) -> void;
+
+       protected:
+       private:
+        std::array< T, C > values_ { };
+        uint8_t insertPoint_ { };
+        uint8_t extractPoint_ { };
+        ErrorCode e_ { ErrorCode::OK };
     };
-} // namespace cpp_17
+}  // namespace cpp_17
 
 
 //#include "CircularBuffer.inl"

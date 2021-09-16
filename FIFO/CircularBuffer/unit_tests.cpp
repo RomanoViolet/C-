@@ -12,17 +12,17 @@ TEST ( ClassDeathTest, ZeroCapacityFIFO ) // NOLINT
 }
 
 
-TEST ( ExistenceTests, Exists ) // NOLINT
+TEST ( ExistenceTests, TypeExists ) // NOLINT
 {
-    bool does_exist = TypeExists<cpp_17::Buffer<int,10>>::value; // NOLINT
+    bool does_exist = TypeExists<cpp_17::CircularBuffer<int,10>>::value; // NOLINT
     
     EXPECT_TRUE(does_exist);
     //EXPECT_TRUE ( TypeExists<Buffer<int,10>>::value );
 }
 
-TEST ( ExistenceTests, DoesNotExists ) // NOLINT
+TEST ( ExistenceTests, TypeDoesNotExist ) // NOLINT
 {
-    bool does_exist = TypeExists<cpp_17::Buffer<int,0>>::value;
+    bool does_exist = TypeExists<cpp_17::CircularBuffer<int,0>>::value;
     EXPECT_FALSE ( does_exist );
 }
 

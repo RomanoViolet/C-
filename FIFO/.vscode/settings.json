@@ -15,7 +15,7 @@
     "C_Cpp.loggingLevel": "Debug",
     "C_Cpp.exclusionPolicy": "checkFilesAndFolders",
     "C_Cpp.default.includePath": [
-        "${workspaceFolder}/CoreFunctions/**"
+        "CircularBuffer/**"
     ],
     "C_Cpp.default.cppStandard": "c++20",
     "C_Cpp.inactiveRegionBackgroundColor": "gray",
@@ -74,9 +74,10 @@
     "files.eol": "\n",
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
+    "clang-format.language.cpp.enable": true,
     "clang-format.style": "file",
     "files.insertFinalNewline": true,
-    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+    "C_Cpp.default.compileCommands": "build/compile_commands.json",
     "terminal.integrated.cwd": ".",
     "python.pythonPath": "/usr/bin/python3",
     "python.linting.pylintEnabled": true,
@@ -88,6 +89,6 @@
     ],
     "clang-tidy.lintOnSave": true,
     "clang-tidy.fixOnSave": true,
-    "clang-tidy.buildPath": "${workspaceFolder}/build",
+    "clang-tidy.buildPath": "build",
     "C_Cpp.intelliSenseEngine": "Default"
 }
