@@ -7,7 +7,7 @@ then
 fi
 
 mkdir ${project_root}/../build/negative-compiler-tests
-cp -r ./NegativeCompilerTests.cpp ./*.hpp ./*.inl ${project_root}/../build/negative-compiler-tests/
+cp -r ./NegativeCompilerTests.cpp ./*.hpp ${project_root}/../build/negative-compiler-tests/
 rm -rf ${project_root}/../build/negative-compiler-tests/CMakeLists.txt
 touch ${project_root}/../build/negative-compiler-tests/CMakeLists.txt
 

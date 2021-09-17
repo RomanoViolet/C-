@@ -5,7 +5,7 @@ function(add_headers)
   message("CMAKE_CURRENT_LIST_FILE: " ${CMAKE_CURRENT_LIST_FILE})
   get_filename_component(this_directory ${CMAKE_PARENT_LIST_FILE} DIRECTORY)
   get_filename_component(this_folder ${this_directory} NAME)
-  add_library(${this_folder} ${ARGN})
+  add_library(${this_folder} STATIC ${ARGN})
   message("New Library: " ${this_folder} " with: " ${ARGN})
 
 endfunction(add_headers)
@@ -14,10 +14,11 @@ function(add_sources)
 
   get_filename_component(this_directory ${CMAKE_PARENT_LIST_FILE} DIRECTORY)
   get_filename_component(this_folder ${this_directory} NAME)
+  message("Added source: ${ARGN} to library ${this_folder}")
   target_sources(${this_folder} PRIVATE ${ARGN})
   # target_sources(${this_folder} PUBLIC ${ARGN})
   set_target_properties(${this_folder} PROPERTIES LINKER_LANGUAGE "CXX")
-  message("Added source: ${ARGN} to library ${this_folder}")
+  # message("Added source: ${ARGN} to library ${this_folder}")
 
 endfunction(add_sources)
 

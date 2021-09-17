@@ -18,4 +18,5 @@ project(
   LANGUAGES CXX)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 enable_testing()
+# add_subdirectory(${PROJECT_SOURCE_DIR}/CircularBuffer_Simplified)
 add_subdirectory(${PROJECT_SOURCE_DIR}/CircularBuffer)
