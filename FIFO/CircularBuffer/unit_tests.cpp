@@ -34,3 +34,29 @@ TEST ( CPP20_FunctionalTests, PushToken ) // NOLINT
     int v = b.pop();
     EXPECT_EQ(1U, v);
 }
+
+TEST ( CPP20_FunctionalTests, MultipleSuccessfulPushes ) // NOLINT
+{
+    // a write phase fills up the complete buffer before a read is requested.
+    cpp20_concepts::CircularBuffer<int,3U> b{};
+    b.push(1U);
+    b.push(2U);
+    b.push(3U);
+    EXPECT_EQ(1U, b.pop());
+    EXPECT_EQ(2U, b.pop());
+    EXPECT_EQ(3U, b.pop());
+}
+
+TEST ( CPP20_FunctionalTests, BufferOverflow ) // NOLINT
+{
+    // a write phase fills up the complete buffer before a read is requested.
+    cpp20_concepts::CircularBuffer<int,3U> b{};
+    b.push(1U);
+    b.push(2U);
+    b.push(3U);
+    b.push(4U);
+    EXPECT_EQ(cpp20_concepts::CircularBuffer::ErrorCode::kFULL, b.getErrorCode());
+    EXPECT_EQ(1U, b.pop());
+    EXPECT_EQ(2U, b.pop());
+    EXPECT_EQ(3U, b.pop());
+}

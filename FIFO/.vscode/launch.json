@@ -40,7 +40,7 @@
             "name": "Debug Positive Tests",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/GoogleTests/PositiveTests/PositiveTests_GoogleTest",
+            "program": "${workspaceFolder}/build/CircularBuffer/CircularBuffer_tests",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",

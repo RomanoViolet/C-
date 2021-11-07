@@ -32,8 +32,8 @@ namespace cpp20_concepts
         // Safety: Write head must never cross the Read head
         //         Therefore, write is refused when read head and write head
         //         are at the same position.
-        if ( this->insertPoint_ == this->extractPoint_ ) {
-            this->e_ = ErrorCode::kEMPTY;
+        if ( this->e_ == ErrorCode::kEMPTY ) {
+            // error code remains the same
             return T();
         }
 
@@ -45,7 +45,16 @@ namespace cpp20_concepts
             this->extractPoint_ = 0U;
         }
 
-        this->e_ = ErrorCode :: kOK;
+        if (this->extractPoint_ == this->insertPoint_)
+        {
+            this->e_ = ErrorCode :: kEMPTY;
+        }
+        else
+        {
+            this->e_ = ErrorCode :: kOK;
+        }
+
+        
         return ( value_ );
     }
 
@@ -63,8 +72,8 @@ namespace cpp20_concepts
         //[ |   |   |   |   ]
         //        R       W
         // insert, then move the insert point forward.
-        if ( this->insertPoint_ == this->extractPoint_ ) {
-            this->e_ = ErrorCode::kFULL;
+        if (this->e_ == ErrorCode::kFULL) {
+            return;
             
         }
 
@@ -76,7 +85,16 @@ namespace cpp20_concepts
             this->insertPoint_ = 0U;
         }
 
-        this->e_ = ErrorCode::kOK;
+        if (this->insertPoint_ == this->extractPoint_)
+        {
+            this->e_ = ErrorCode::kFULL;
+        }
+        else
+        {
+            this->e_ = ErrorCode::kOK;
+        }
+
+        
 
         //
         // Case 2
@@ -87,6 +105,13 @@ namespace cpp20_concepts
         //[ |   |   |   |   ]
         //    W       R
         // implementation same as above.
+    }
+
+    template < typename T, uint8_t C >
+    requires NonZeroCapacityOfBuffer< T, C >
+    auto getErrorCode() -> CircularBuffer<T,C>::ErrorCode const
+    {
+        return (this->e_);
     }
 }  // namespace cpp20_concepts
 

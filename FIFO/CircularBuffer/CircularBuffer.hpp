@@ -35,7 +35,8 @@ namespace cpp20_concepts
         std::array< T, C > values_ { };
         uint8_t insertPoint_ { };
         uint8_t extractPoint_ { };
-        ErrorCode e_ { ErrorCode::kOK };
+        ErrorCode e_ { ErrorCode::kEMPTY };
+        bool isBufferFull_ { false };
     };
 }  // namespace cpp20_concepts
 
@@ -57,6 +58,7 @@ namespace cpp_17
         explicit CircularBuffer ( );
         auto pop ( ) -> T;
         auto push ( T value ) -> void;
+        auto getErrorCode() -> ErrorCode const;
 
        protected:
        private:
@@ -64,6 +66,7 @@ namespace cpp_17
         uint8_t insertPoint_ { };
         uint8_t extractPoint_ { };
         ErrorCode e_ { ErrorCode::OK };
+        bool isBufferFull_ { false };
     };
 }  // namespace cpp_17
 
