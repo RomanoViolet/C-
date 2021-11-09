@@ -63,3 +63,74 @@ TEST ( CPP20_FunctionalTests, BufferOverflow ) // NOLINT
     EXPECT_EQ(3U, b.pop());
 }
 
+TEST ( CPP20_FunctionalTests, BufferUnderflow ) // NOLINT
+{
+    // a write phase fills up the complete buffer before a read is requested.
+    cpp20_concepts::CircularBuffer<int,3U> b{};
+    b.push(1U);
+    b.push(2U);
+    b.push(3U);
+    
+    EXPECT_EQ(1U, b.pop());
+    EXPECT_EQ(2U, b.pop());
+    EXPECT_EQ(3U, b.pop());
+
+    (void) b.pop();
+    cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode
+        e = cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode::kEMPTY;
+    EXPECT_EQ ( e, b.getErrorCode ( ) );
+
+    (void) b.pop();
+    EXPECT_EQ ( e, b.getErrorCode ( ) );
+}
+
+TEST ( CPP20_FunctionalTests, NormalOperation ) // NOLINT
+{
+    // a write phase fills up the complete buffer before a read is requested.
+    cpp20_concepts::CircularBuffer<int,3U> b{};
+    b.push(1U);
+    b.push(2U);
+    EXPECT_EQ(1U, b.pop());
+    EXPECT_EQ(2U, b.pop());
+    
+    (void) b.pop();
+    cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode
+        e = cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode::kEMPTY;
+    EXPECT_EQ ( e, b.getErrorCode ( ) );
+
+    b.push(3U);
+    b.push(4U);
+    b.push(5U);
+    EXPECT_EQ(3U, b.pop());
+    EXPECT_EQ(4U, b.pop());
+    EXPECT_EQ(5U, b.pop());
+    
+    b.push(6U);
+    b.push(7U);
+    b.push(8U);
+    b.push(9U);
+    e = cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode::kFULL;
+    EXPECT_EQ ( e, b.getErrorCode ( ) );
+}
+
+TEST ( CPP20_FunctionalTests, NormalOperation1TokenStorage ) // NOLINT
+{
+    // a write phase fills up the complete buffer before a read is requested.
+    cpp20_concepts::CircularBuffer<int,1U> b{};
+    b.push(1U);
+    EXPECT_EQ(1U, b.pop());
+    
+    
+    (void) b.pop();
+    cpp20_concepts::CircularBuffer< int, 1U >::ErrorCode
+        e = cpp20_concepts::CircularBuffer< int, 1U >::ErrorCode::kEMPTY;
+    EXPECT_EQ ( e, b.getErrorCode ( ) );
+
+    b.push(3U);
+    EXPECT_EQ(3U, b.pop());
+    
+    b.push(6U);
+    b.push(7U);
+    e = cpp20_concepts::CircularBuffer< int, 1U >::ErrorCode::kFULL;
+    EXPECT_EQ ( e, b.getErrorCode ( ) );
+}

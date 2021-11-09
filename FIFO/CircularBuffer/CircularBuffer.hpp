@@ -27,9 +27,9 @@ namespace cpp20_concepts
         enum class ErrorCode : uint8_t { kOK = 0U, kFULL = 1U, kEMPTY = 2U };
         explicit CircularBuffer ( T fillValue );
         explicit CircularBuffer ( );
-        auto pop ( ) -> T;
+        [[nodiscard]] auto pop ( ) -> T;
         auto push ( T value ) -> void;
-        auto getErrorCode() -> typename CircularBuffer<T,C>::ErrorCode const;
+        [[nodiscard]] auto getErrorCode() -> typename CircularBuffer<T,C>::ErrorCode const;
 
        protected:
        private:
@@ -57,9 +57,9 @@ namespace cpp_17
         enum class ErrorCode : uint8_t { kOK = 0U, kFULL = 1U, kEMPTY = 2U };
         explicit CircularBuffer ( T fillValue );
         explicit CircularBuffer ( );
-        auto pop ( ) -> T;
+        [[nodiscard]] auto pop ( ) -> T;
         auto push ( T value ) -> void;
-        auto getErrorCode() -> typename CircularBuffer<T,C>::ErrorCode const;
+        [[nodiscard]] auto getErrorCode() -> typename CircularBuffer<T,C>::ErrorCode const;
 
        protected:
        private:
