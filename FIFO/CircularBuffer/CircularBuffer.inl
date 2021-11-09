@@ -109,9 +109,9 @@ namespace cpp20_concepts
 
     template < typename T, uint8_t C >
     requires NonZeroCapacityOfBuffer< T, C >
-    auto getErrorCode() -> CircularBuffer<T,C>::ErrorCode const
+    auto CircularBuffer<T,C>::getErrorCode() -> typename CircularBuffer<T,C>::ErrorCode const
     {
-        return (this->e_);
+        return this->e_;
     }
 }  // namespace cpp20_concepts
 

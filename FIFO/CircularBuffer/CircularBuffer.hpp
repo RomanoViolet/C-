@@ -29,6 +29,7 @@ namespace cpp20_concepts
         explicit CircularBuffer ( );
         auto pop ( ) -> T;
         auto push ( T value ) -> void;
+        auto getErrorCode() -> typename CircularBuffer<T,C>::ErrorCode const;
 
        protected:
        private:
@@ -58,7 +59,7 @@ namespace cpp_17
         explicit CircularBuffer ( );
         auto pop ( ) -> T;
         auto push ( T value ) -> void;
-        auto getErrorCode() -> ErrorCode const;
+        auto getErrorCode() -> typename CircularBuffer<T,C>::ErrorCode const;
 
        protected:
        private:

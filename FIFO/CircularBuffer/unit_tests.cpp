@@ -55,8 +55,11 @@ TEST ( CPP20_FunctionalTests, BufferOverflow ) // NOLINT
     b.push(2U);
     b.push(3U);
     b.push(4U);
-    EXPECT_EQ(cpp20_concepts::CircularBuffer::ErrorCode::kFULL, b.getErrorCode());
+    cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode
+        e = cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode::kFULL;
+    EXPECT_EQ ( e, b.getErrorCode ( ) );
     EXPECT_EQ(1U, b.pop());
     EXPECT_EQ(2U, b.pop());
     EXPECT_EQ(3U, b.pop());
 }
+
