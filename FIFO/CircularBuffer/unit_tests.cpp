@@ -134,3 +134,11 @@ TEST ( CPP20_FunctionalTests, NormalOperation1TokenStorage ) // NOLINT
     e = _circularBufferErrorCode::kFULL;
     EXPECT_EQ ( e, b.getErrorCode ( ) );
 }
+
+TEST ( ExistenceTests, TypeDoesNotExists ) // NOLINT
+{
+    bool does_exist = TypeExists<cpp_17::CircularBuffer<int,0>>::value; // NOLINT
+    
+    EXPECT_FALSE(does_exist);
+    //EXPECT_TRUE ( TypeExists<Buffer<int,10>>::value );
+}

@@ -45,14 +45,14 @@ namespace cpp20_concepts
 namespace cpp_17
 {
     //template < typename T, unsigned C, typename Enable = void >
-    template < typename T, unsigned C, typename = void >
+    template < typename T, uint8_t C, typename = void >
     class CircularBuffer;
     // https://cpppatterns.com/patterns/class-template-sfinae.html
     // https://stackoverflow.com/a/10017728
     // https://godbolt.org/z/KcerdTeo8
     // notice the partial template specialization.
-    template < typename T, unsigned C >
-    class CircularBuffer< T, C, std::enable_if_t< ( C > 0 ) > >
+    template < typename T, uint8_t C >
+    class CircularBuffer< T, C, std::enable_if_t< ( C > 0 ) >>
     {
        public:
         enum class ErrorCode : uint8_t { kOK = 0U, kFULL = 1U, kEMPTY = 2U };
@@ -68,7 +68,7 @@ namespace cpp_17
         std::array< T, C > values_ { };
         uint8_t insertPoint_ { };
         uint8_t extractPoint_ { };
-        ErrorCode e_ { ErrorCode::OK };
+        ErrorCode e_ { ErrorCode::kEMPTY };
         bool isBufferFull_ { false };
     };
 }  // namespace cpp_17

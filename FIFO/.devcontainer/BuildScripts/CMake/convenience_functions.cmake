@@ -55,8 +55,10 @@ function(add_compile_abort_unittests shellScript errorString)
 
   get_filename_component(this_directory ${CMAKE_PARENT_LIST_FILE} DIRECTORY)
   get_filename_component(this_folder ${this_directory} NAME)
+  get_filename_component(this_negative_test ${shellScript} NAME_WE)
+  message("Name of negative test: ${this_negative_test}")
 
-  set(name_of_test_executable ${this_folder}_compile_abort_tests)
+  set(name_of_test_executable ${this_folder}_${this_negative_test})
 
   if(TARGET ${name_of_test_executable})
 

@@ -115,5 +115,15 @@ namespace cpp20_concepts
     }
 }  // namespace cpp20_concepts
 
+namespace cpp_17
+{
+    template < typename T, uint8_t C >
+    CircularBuffer<T, C,std::enable_if_t< ( C > 0 ) >>::CircularBuffer(): insertPoint_ ( 0U ), extractPoint_ ( 0U )
+    {
+        std::fill ( values_.begin ( ), values_.end ( ), T() );
+    }
+
+} // namespace cpp20_concepts
+
 
 #endif

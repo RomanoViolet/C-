@@ -13,3 +13,12 @@ namespace cpp20_concepts
     }
 } //namespace cpp20_concepts
 
+namespace cpp_17
+{
+    TEST(ShouldNotCompile, CircularBufferWithZeroCapacity)
+    {
+        cpp_17::CircularBuffer<int,0U> b{};
+        (void)b;
+    }
+}
+
