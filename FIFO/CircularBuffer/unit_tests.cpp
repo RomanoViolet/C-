@@ -51,12 +51,12 @@ TEST ( CPP20_FunctionalTests, BufferOverflow ) // NOLINT
 {
     // a write phase fills up the complete buffer before a read is requested.
     cpp20_concepts::CircularBuffer<int,3U> b{};
+    using _circularBufferErrorCode = cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode;
     b.push(1U);
     b.push(2U);
     b.push(3U);
     b.push(4U);
-    cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode
-        e = cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode::kFULL;
+    _circularBufferErrorCode e = _circularBufferErrorCode::kFULL;
     EXPECT_EQ ( e, b.getErrorCode ( ) );
     EXPECT_EQ(1U, b.pop());
     EXPECT_EQ(2U, b.pop());
@@ -67,6 +67,7 @@ TEST ( CPP20_FunctionalTests, BufferUnderflow ) // NOLINT
 {
     // a write phase fills up the complete buffer before a read is requested.
     cpp20_concepts::CircularBuffer<int,3U> b{};
+    using _circularBufferErrorCode = cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode;
     b.push(1U);
     b.push(2U);
     b.push(3U);
@@ -76,8 +77,7 @@ TEST ( CPP20_FunctionalTests, BufferUnderflow ) // NOLINT
     EXPECT_EQ(3U, b.pop());
 
     (void) b.pop();
-    cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode
-        e = cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode::kEMPTY;
+    _circularBufferErrorCode e = _circularBufferErrorCode::kEMPTY;
     EXPECT_EQ ( e, b.getErrorCode ( ) );
 
     (void) b.pop();
@@ -88,14 +88,14 @@ TEST ( CPP20_FunctionalTests, NormalOperation ) // NOLINT
 {
     // a write phase fills up the complete buffer before a read is requested.
     cpp20_concepts::CircularBuffer<int,3U> b{};
+    using _circularBufferErrorCode = cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode;
     b.push(1U);
     b.push(2U);
     EXPECT_EQ(1U, b.pop());
     EXPECT_EQ(2U, b.pop());
     
     (void) b.pop();
-    cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode
-        e = cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode::kEMPTY;
+    _circularBufferErrorCode e = _circularBufferErrorCode::kEMPTY;
     EXPECT_EQ ( e, b.getErrorCode ( ) );
 
     b.push(3U);
@@ -109,21 +109,21 @@ TEST ( CPP20_FunctionalTests, NormalOperation ) // NOLINT
     b.push(7U);
     b.push(8U);
     b.push(9U);
-    e = cpp20_concepts::CircularBuffer< int, 3U >::ErrorCode::kFULL;
+    e = _circularBufferErrorCode::kFULL;
     EXPECT_EQ ( e, b.getErrorCode ( ) );
 }
 
 TEST ( CPP20_FunctionalTests, NormalOperation1TokenStorage ) // NOLINT
 {
     // a write phase fills up the complete buffer before a read is requested.
+    using _circularBufferErrorCode = cpp20_concepts::CircularBuffer< int, 1U >::ErrorCode;
     cpp20_concepts::CircularBuffer<int,1U> b{};
     b.push(1U);
     EXPECT_EQ(1U, b.pop());
     
     
     (void) b.pop();
-    cpp20_concepts::CircularBuffer< int, 1U >::ErrorCode
-        e = cpp20_concepts::CircularBuffer< int, 1U >::ErrorCode::kEMPTY;
+    _circularBufferErrorCode e = _circularBufferErrorCode::kEMPTY;
     EXPECT_EQ ( e, b.getErrorCode ( ) );
 
     b.push(3U);
@@ -131,6 +131,6 @@ TEST ( CPP20_FunctionalTests, NormalOperation1TokenStorage ) // NOLINT
     
     b.push(6U);
     b.push(7U);
-    e = cpp20_concepts::CircularBuffer< int, 1U >::ErrorCode::kFULL;
+    e = _circularBufferErrorCode::kFULL;
     EXPECT_EQ ( e, b.getErrorCode ( ) );
 }

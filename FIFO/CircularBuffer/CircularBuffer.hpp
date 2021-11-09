@@ -30,6 +30,7 @@ namespace cpp20_concepts
         [[nodiscard]] auto pop ( ) -> T;
         auto push ( T value ) -> void;
         [[nodiscard]] auto getErrorCode() -> typename CircularBuffer<T,C>::ErrorCode const;
+        
 
        protected:
        private:
@@ -60,6 +61,7 @@ namespace cpp_17
         [[nodiscard]] auto pop ( ) -> T;
         auto push ( T value ) -> void;
         [[nodiscard]] auto getErrorCode() -> typename CircularBuffer<T,C>::ErrorCode const;
+        
 
        protected:
        private:
