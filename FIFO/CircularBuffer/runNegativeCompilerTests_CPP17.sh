@@ -24,7 +24,14 @@ cd ./build
 cmake .. 
 make >> result.log 2>&1
 
+# GCC
 if grep -F "initializer but incomplete type" result.log
+then
+    echo "incomplete type"
+fi
+
+# Clang
+if grep -F "implicit instantiation of undefined template" result.log
 then
     echo "incomplete type"
 fi
