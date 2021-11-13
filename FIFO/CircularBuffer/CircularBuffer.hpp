@@ -16,8 +16,8 @@
 
 namespace cpp20_concepts
 {
-    template < typename T, uint8_t C > concept NonZeroCapacityOfBuffer = C >
-    0U;
+    template < typename T, uint8_t C > 
+    concept NonZeroCapacityOfBuffer = C > 0U; //NOLINT
 
     template < typename T, uint8_t C >
     requires NonZeroCapacityOfBuffer< T, C >
