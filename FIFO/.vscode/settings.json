@@ -96,5 +96,7 @@
     "clang-tidy.lintOnSave": true,
     "clang-tidy.fixOnSave": true,
     "clang-tidy.buildPath": "build",
-    "C_Cpp.intelliSenseEngine": "Default"
+    "C_Cpp.intelliSenseEngine": "Default",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active"
 }

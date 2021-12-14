@@ -9,9 +9,10 @@ namespace cpp20_concepts
     template < typename T, uint8_t C >
     requires NonZeroCapacityOfBuffer< T, C >
     CircularBuffer<T,C>::CircularBuffer ( const T fillValue )
-        : insertPoint_ ( 0U ), extractPoint_ ( 0U )
+        : insertPoint_ ( C ), extractPoint_ ( C-1 )
     {
         std::fill ( values_.begin ( ), values_.end ( ), fillValue );
+        this->e_ = ErrorCode ::kFULL;
     }
 
     template < typename T, uint8_t C >
@@ -118,9 +119,10 @@ namespace cpp20_concepts
 namespace cpp_17
 {
     template < typename T, uint8_t C >
-    CircularBuffer<T, C,std::enable_if_t< ( C > 0 ) >>::CircularBuffer(): insertPoint_ ( 0U ), extractPoint_ ( 0U )
+    CircularBuffer<T, C,std::enable_if_t< ( C > 0 ) >>::CircularBuffer(): insertPoint_ ( C ), extractPoint_ ( C-1 )
     {
         std::fill ( values_.begin ( ), values_.end ( ), T() );
+        this->e_ = ErrorCode :: kFULL;
     }
 
 } // namespace cpp20_concepts

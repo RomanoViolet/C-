@@ -84,6 +84,14 @@ TEST ( CPP20_FunctionalTests, BufferUnderflow ) // NOLINT
     EXPECT_EQ ( e, b.getErrorCode ( ) );
 }
 
+TEST (CPP20_FunctionalTests, InitialValueTest)
+{
+    cpp20_concepts::CircularBuffer<int,3U> b{7U};
+    EXPECT_EQ(7U, b.pop());
+    EXPECT_EQ(7U, b.pop());
+    EXPECT_EQ(7U, b.pop());
+}
+
 TEST ( CPP20_FunctionalTests, NormalOperation ) // NOLINT
 {
     // a write phase fills up the complete buffer before a read is requested.

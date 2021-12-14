@@ -25,6 +25,7 @@ namespace cpp20_concepts
     {
        public:
         enum class ErrorCode : uint8_t { kOK = 0U, kFULL = 1U, kEMPTY = 2U };
+        
         explicit CircularBuffer ( T fillValue );
         explicit CircularBuffer ( );
         [[nodiscard]] auto pop ( ) -> T;
