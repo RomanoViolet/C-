@@ -113,11 +113,13 @@ RUN \
 
 # Add default home for the non-admin user
 WORKDIR /home/dockeruser
+RUN /home/dockeruser/.config
 ADD --chown=dockeruser Configurations/.gitconfig /home/dockeruser/.gitconfig
 ADD --chown=dockeruser Configurations/.bashrc /home/dockeruser/.bashrc
 ADD --chown=dockeruser Configurations/git-completion.sh /home/dockeruser/git-completion.sh
 ADD --chown=dockeruser Configurations/git-prompt.sh /home/dockeruser/git-prompt.sh
-
+ADD --chown=dockeruser Configurations/powerline-shell /home/dockeruser/.config/
+ADD --chown=dockeruser Configurations/themes /home/dockeruser/.config/
 #ADD --chown=dockeruser VSCodeExtensions/extensions /home/dockeruser/.vscode-server/extensions
 
 ENV LANG en_US.UTF-8
