@@ -1,24 +1,24 @@
 {
-    "name": "C++-v.22.06",
-    "dockerFile": "Dockerfile",
-    "runArgs": [
-        "-u",
-        "dockeruser",
-        "--cap-add=SYS_PTRACE",
-        "--security-opt",
-        "seccomp=unconfined",
-        "--network=host"
-    ],
-    "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash",
-        "http.proxyStrictSSL": false
-    },
-    "postCreateCommand": [
-        "/bin/bash",
-        "-c",
-        "./Tools/DockerBasedDevelopment/CodeInContainerStartScripts.sh"
-    ],
-    "extensions": [
+	"name": "C++-v.22.06",
+	"dockerFile": "Dockerfile",
+	"runArgs": [
+		"-u",
+		"dockeruser",
+		"--cap-add=SYS_PTRACE",
+		"--security-opt",
+		"seccomp=unconfined",
+		"--network=host"
+	],
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"http.proxyStrictSSL": false
+	},
+	"postCreateCommand": [
+		"/bin/bash",
+		"-c",
+		"./Tools/DockerBasedDevelopment/CodeInContainerStartScripts.sh"
+	],
+	"extensions": [
 		"ankalus.git-tools",
 		"arturock.gitstash",
 		"austin.code-gnu-global",
@@ -55,11 +55,11 @@
 		"waderyan.gitblame",
 		"wengerk.highlight-bad-chars",
 		"xaver.clang-format",
-		"llvm-vs-code-extensions.vscode-clangd",
+		//"llvm-vs-code-extensions.vscode-clangd",
 		"cschlosser.doxdocgen",
 		"ionutvmi.path-autocomplete",
 		"cheshirekow.cmake-format",
-		"llvm-vs-code-extensions.vscode-clangd",
+		//"llvm-vs-code-extensions.vscode-clangd",
 		"notskm.clang-tidy"
 	]
 }
