@@ -1,8 +1,6 @@
 #ifndef TYPE_INPUT_INTERFACE_INL_
 #define TYPE_INPUT_INTERFACE_INL_
 
-namespace RomanoViolet
-{
   template < typename T >
   const T &TypeInputInterface< T >::getValue( ) const
   {
@@ -16,5 +14,4 @@ namespace RomanoViolet
     this->_value = value;
   }
 
-}  // namespace RomanoViolet
 #endif  // TYPE_INPUT_INTERFACE_INL_

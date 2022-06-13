@@ -40,6 +40,8 @@ case $key in
         STANDARD="14"
     elif [[ "$chosenStandard" =~ ^(17)$ ]]; then
     STANDARD="17"
+    elif [[ "$chosenStandard" =~ ^(20)$ ]]; then
+    STANDARD="20"
     else
         echo "Acceptable choices for C++ standard are 11, 14, or 17. Defaulting to C++11."
         STANDARD="11"

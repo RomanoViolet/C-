@@ -1,17 +1,18 @@
-#ifndef COMPONENT_HPP_
-#define COMPONENT_HPP_
+#ifndef PRODUCER_HPP_
+#define PRODUCER_HPP_
 
-#include <Library/ComponentTypes/Type_HighAssuranceComponent.hpp>
-#include <Library/InterfaceTypes/InterfaceA.hpp>
-#include <Library/InterfaceTypes/InterfaceB.hpp>
-#include <Library/InterfaceTypes/Type_InputInterface.hpp>
-#include <Library/InterfaceTypes/Type_OutputInterface.hpp>
-  class Component : public TypeHighAssuranceComponent
+#include <ComponentTypes/Type_HighAssuranceComponent.hpp>
+#include <InterfaceTypes/InterfaceA.hpp>
+#include <InterfaceTypes/InterfaceB.hpp>
+#include <InterfaceTypes/Type_InputInterface.hpp>
+#include <InterfaceTypes/Type_OutputInterface.hpp>
+
+  class Producer : public TypeHighAssuranceComponent
   {
   public:
     enum class ErrorCode : short { NO_ERROR = 0U, BAD_INPUT_DATA = 1U };
 
-    Component( )
+    Producer( )
         : a_in( TypeInputInterface< InterfaceA >( ) ), b_out( TypeOutputInterface< InterfaceB >( ) )
     {
     }
@@ -27,4 +28,4 @@
     ErrorCode _error;
   };
 
-#endif  // COMPONENT_HPP_
+#endif  // PRODUCER_HPP_

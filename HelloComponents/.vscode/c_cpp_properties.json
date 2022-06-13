@@ -1,16 +1,17 @@
 {
     "configurations": [
         {
-            "name": "Docker Properties",
+            //"name": "Docker Properties",
+            "name": "C++ Properties",
             "browse": {
                 "path": [
-                    "${workspaceFolder}/CoreFunctions",
+                    "${workspaceFolder}/CoreFunctions/**",
                     "/usr/include/c++/11",
                     "/usr/lib/llvm-14/include"
                 ]
             },
             "includePath": [
-                "${workspaceFolder}/CoreFunctions",
+                "${workspaceFolder}/CoreFunctions/Library/**",
                 "/usr/include/c++/11",
                 "/usr/include",
                 "/usr/lib/llvm-14/include"

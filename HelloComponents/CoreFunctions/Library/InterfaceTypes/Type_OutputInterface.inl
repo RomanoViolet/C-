@@ -1,8 +1,7 @@
 #ifndef TYPE_OUTPUT_INTERFACE_INL_
 #define TYPE_OUTPUT_INTERFACE_INL_
 
-namespace RomanoViolet
-{
+
   template < typename T >
   T TypeOutputInterface< T >::getValue( ) const
   {
@@ -15,5 +14,4 @@ namespace RomanoViolet
   {
     this->_value.doPreconditionCheck( );
   }
-}  // namespace RomanoViolet
 #endif  // TYPE_OUTPUT_INTERFACE_INL_

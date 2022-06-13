@@ -11,8 +11,6 @@
 // For intellisense. The file will not get included twice.
 #include "SafeTypes.hpp"
 
-namespace RomanoViolet
-{
   template < int NumeratorForMinBound,
              int DenominatorForMinBound,
              int NumeratorForMaxBound,
@@ -193,6 +191,5 @@ namespace RomanoViolet
 
 #endif  // __cplusplus == 201402L
 
-}  // namespace RomanoViolet
-
+}
 #endif  //. #ifndef SAFETYPES_INL_

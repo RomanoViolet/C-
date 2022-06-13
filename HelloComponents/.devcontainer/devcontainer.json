@@ -55,11 +55,10 @@
 		"waderyan.gitblame",
 		"wengerk.highlight-bad-chars",
 		"xaver.clang-format",
-		//"llvm-vs-code-extensions.vscode-clangd",
 		"cschlosser.doxdocgen",
 		"ionutvmi.path-autocomplete",
 		"cheshirekow.cmake-format",
-		//"llvm-vs-code-extensions.vscode-clangd",
-		"notskm.clang-tidy"
+		"notskm.clang-tidy",
+		"ms-vscode.cmake-tools"
 	]
 }

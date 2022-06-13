@@ -1,8 +1,7 @@
 #ifndef TYPE_OUTPUT_INTERFACE_HPP_
 #define TYPE_OUTPUT_INTERFACE_HPP_
 
-namespace RomanoViolet
-{
+
   template < typename T >
   class TypeOutputInterface
   {
@@ -20,7 +19,6 @@ namespace RomanoViolet
   private:
     T _value;
   };
-}  // namespace RomanoViolet
 
 #include "Type_OutputInterface.inl"
 

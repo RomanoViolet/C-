@@ -5,7 +5,12 @@
             "label": "GCC Debug Build",
             "type": "shell",
             "linux": {
-                "command": "${workspaceFolder}/BuildScripts/Docker/GCC-Debug-Build"
+                "command": "${workspaceFolder}/.devcontainer/BuildScripts/Docker/GeneralBuild",
+                "args": [
+                    "debug",
+                    "GCC",
+                    "20"
+                ]
             },
             "windows": {
                 "command": "echo Configuration not complete for a Windows system."
@@ -19,7 +24,12 @@
             "label": "GCC Release Build",
             "type": "shell",
             "linux": {
-                "command": "${workspaceFolder}/BuildScripts/Docker/GCC-Release-Build"
+                "command": "${workspaceFolder}/.devcontainer/BuildScripts/Docker/GeneralBuild",
+                "args": [
+                    "release",
+                    "GCC",
+                    "20"
+                ]
             },
             "windows": {
                 "command": "echo Configuration not complete for a Windows system."
@@ -33,7 +43,12 @@
             "label": "LLVM Debug Build",
             "type": "shell",
             "linux": {
-                "command": "${workspaceFolder}/BuildScripts/Docker/LLVM-Debug-Build"
+                "command": "${workspaceFolder}/.devcontainer/BuildScripts/Docker/GeneralBuild",
+                "args": [
+                    "debug",
+                    "LLVM",
+                    "20"
+                ]
             },
             "windows": {
                 "command": "echo Configuration not complete for a Windows system."
@@ -47,7 +62,12 @@
             "label": "LLVM Release Build",
             "type": "shell",
             "linux": {
-                "command": "${workspaceFolder}/BuildScripts/Docker/LLVM-Release-Build"
+                "command": "${workspaceFolder}/.devcontainer/BuildScripts/Docker/GeneralBuild",
+                "args": [
+                    "release",
+                    "LLVM",
+                    "20"
+                ]
             },
             "windows": {
                 "command": "echo Configuration not complete for a Windows system."
@@ -61,7 +81,7 @@
             "label": "Generate Coverage Report",
             "type": "shell",
             "linux": {
-                "command": "${workspaceFolder}/BuildScripts/Docker/Generate-Coverage-from-UnitTests"
+                "command": "${workspaceFolder}/.devcontainer/BuildScripts/Docker/Generate-Coverage-from-UnitTests"
             },
             "group": "build",
             "problemMatcher": [

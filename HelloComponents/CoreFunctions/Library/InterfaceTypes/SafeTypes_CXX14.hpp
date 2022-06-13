@@ -1,9 +1,7 @@
-#ifndef SAFETYPES_CXX17_HPP_
-#define SAFETYPES_CXX17_HPP_
+#ifndef SAFETYPES_CXX14_HPP_
+#define SAFETYPES_CXX14_HPP_
 
 #include <cstdint>
-namespace RomanoViolet
-{
   enum class SafeTypeErrorCode : short { NO_ERROR = 0U, UNDERFLOW = 1U, OVERFLOW = 2U };
   // It would be convenient to have a custom type as a template parameter, but see
   // https://stackoverflow.com/q/15896579
@@ -83,17 +81,17 @@ namespace RomanoViolet
 
     // define temporary data structure to hold new numerators and denominators if these need to be
     // transformed.
+
     struct NewFraction {
       int numerator = 1;
       int denominator = 1;
     };
+
     constexpr NewFraction correctBound( int Numerator, int Denominator ) const;
   };
 
 #define Fraction( a, b ) a, b
 
-}  // namespace RomanoViolet
+#include "SafeTypes_CXX14.inl"
 
-#include "SafeTypes_CXX17.inl"
-
-#endif  // !SAFETYPES_CXX17_HPP_
+#endif  // !SAFETYPES_CXX14_HPP_

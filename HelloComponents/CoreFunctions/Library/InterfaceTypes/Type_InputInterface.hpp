@@ -1,8 +1,7 @@
 #ifndef TYPE_INPUT_INTERFACE_HPP_
 #define TYPE_INPUT_INTERFACE_HPP_
 
-namespace RomanoViolet
-{
+
   template < typename T >
   class TypeInputInterface
   {
@@ -18,7 +17,7 @@ namespace RomanoViolet
   private:
     T _value;
   };
-}  // namespace RomanoViolet
+
 
 #include "Type_InputInterface.inl"
 
