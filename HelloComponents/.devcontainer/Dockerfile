@@ -64,10 +64,22 @@ RUN \
   mkdir -p /googletest/build  && \
   cd /googletest/build  && \
   cmake .. && make && make install  && \
-  cd / && rm -rf /googletest && \
-  #
-  # LLVM Repository
-  bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+  cd / && rm -rf /googletest
+#
+# LLVM Repository
+RUN \
+  mkdir /LLVM && \
+  cd /LLVM && \
+  wget -c https://apt.llvm.org/llvm.sh && \
+  chmod +x /LLVM/llvm.sh
+
+RUN \
+  cd /LLVM && \
+  bash -c "/LLVM/llvm.sh all" && \
+  cd .. && \
+  rm -rf /LLVM
+
+#bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)" all
 
 # Python Requirements
 COPY requirements-py3.txt .
@@ -85,10 +97,10 @@ RUN \
   apt-get autoremove -y && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
-  #update-alternatives --install /usr/bin/clang clang /usr/bin/clang-8 100 && \
-  #update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-8 100 && \
-  #update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-8 100 && \
-  #update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-8 100 && \
+  update-alternatives --install /usr/bin/clang clang /usr/bin/clang-14 100 && \
+  update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-14 100 && \
+  update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-14 100 && \
+  update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-14 100 && \
   #
   # Setup locales
   sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
