@@ -1,5 +1,5 @@
 {
-	"name": "C++-v.22.06",
+	"name": "C++-v.22.06.01",
 	"dockerFile": "Dockerfile",
 	"runArgs": [
 		"-u",
@@ -51,7 +51,6 @@
 		"shaharkazaz.git-merger",
 		"stayfool.vscode-asciidoc",
 		"tomoki1207.pdf",
-		"twxs.cmake",
 		"waderyan.gitblame",
 		"wengerk.highlight-bad-chars",
 		"xaver.clang-format",
@@ -59,6 +58,8 @@
 		"ionutvmi.path-autocomplete",
 		"cheshirekow.cmake-format",
 		"notskm.clang-tidy",
-		"ms-vscode.cmake-tools"
+		"ms-vscode.cmake-tools",
+		"njpwerner.autodocstring",
+		//"VisualStudioExptTeam.vscodeintellicode"
 	]
 }
