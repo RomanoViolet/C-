@@ -5,11 +5,11 @@
             "label": "GCC Debug Build",
             "type": "shell",
             "linux": {
-                "command": "${workspaceFolder}/.devcontainer/BuildScripts/Docker/GeneralBuild",
+                "command": "${workspaceFolder}/BuildScripts/Docker/GeneralBuild",
                 "args": [
                     "debug",
                     "GCC",
-                    "20"
+                    "14"
                 ]
             },
             "windows": {
@@ -24,11 +24,11 @@
             "label": "GCC Release Build",
             "type": "shell",
             "linux": {
-                "command": "${workspaceFolder}/.devcontainer/BuildScripts/Docker/GeneralBuild",
+                "command": "${workspaceFolder}/BuildScripts/Docker/GeneralBuild",
                 "args": [
                     "release",
                     "GCC",
-                    "20"
+                    "14"
                 ]
             },
             "windows": {
@@ -43,11 +43,11 @@
             "label": "LLVM Debug Build",
             "type": "shell",
             "linux": {
-                "command": "${workspaceFolder}/.devcontainer/BuildScripts/Docker/GeneralBuild",
+                "command": "${workspaceFolder}/BuildScripts/Docker/GeneralBuild",
                 "args": [
                     "debug",
                     "LLVM",
-                    "20"
+                    "14"
                 ]
             },
             "windows": {
@@ -62,11 +62,11 @@
             "label": "LLVM Release Build",
             "type": "shell",
             "linux": {
-                "command": "${workspaceFolder}/.devcontainer/BuildScripts/Docker/GeneralBuild",
+                "command": "${workspaceFolder}/BuildScripts/Docker/GeneralBuild",
                 "args": [
                     "release",
                     "LLVM",
-                    "20"
+                    "14"
                 ]
             },
             "windows": {
@@ -81,7 +81,7 @@
             "label": "Generate Coverage Report",
             "type": "shell",
             "linux": {
-                "command": "${workspaceFolder}/.devcontainer/BuildScripts/Docker/Generate-Coverage-from-UnitTests"
+                "command": "${workspaceFolder}/BuildScripts/Docker/Generate-Coverage-from-UnitTests"
             },
             "group": "build",
             "problemMatcher": [
