@@ -1,7 +1,6 @@
 {
     "configurations": [
         {
-            //"name": "Docker Properties",
             "name": "C++ Properties",
             "browse": {
                 "path": [
@@ -14,14 +13,16 @@
                 "${workspaceFolder}/CoreFunctions/Library/**",
                 "/usr/include/c++/11",
                 "/usr/include",
-                "/usr/lib/llvm-14/include"
+                "/usr/lib/llvm-14/include",
+                "${workspaceFolder}/CoreFunctions"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang++-14",
             "cStandard": "c11",
             "cppStandard": "c++14",
             "intelliSenseMode": "clang-x64",
-            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "configurationProvider": "ms-vscode.cmake-tools"
         }
     ],
     "version": 4

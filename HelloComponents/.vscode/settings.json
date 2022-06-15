@@ -76,7 +76,6 @@
     "files.eol": "\n",
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
-    "clang-format.style": "file",
     "files.insertFinalNewline": true,
     "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
     "terminal.integrated.cwd": ".",
@@ -88,5 +87,16 @@
     "clang-tidy.buildPath": "build",
     "C_Cpp.intelliSenseEngine": "Default",
     "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": "active"
+    "editor.guides.bracketPairs": "active",
+    "[cpp]": {
+        "editor.formatOnSave": true,
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+    },
+    "clang-format.executable": "clang-format-14",
+    "clang-format.style": "file",
+    "clang-format.language.cpp.enable": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true
 }

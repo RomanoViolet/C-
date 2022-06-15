@@ -13,10 +13,9 @@
     enum class ErrorCode : short { NO_ERROR = 0U, BAD_INPUT_DATA = 1U };
 
     Producer( )
-        : a_in( TypeInputInterface< InterfaceA >( ) ), b_out( TypeOutputInterface< InterfaceB >( ) )
+        :  b_out( TypeOutputInterface< InterfaceB >( ) )
     {
     }
-    TypeInputInterface< InterfaceA > a_in;
     TypeOutputInterface< InterfaceB > b_out;
 
     void initialize( );

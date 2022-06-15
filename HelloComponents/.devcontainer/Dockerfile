@@ -90,7 +90,7 @@ RUN \
 RUN \
   apt-get purge -y --auto-remove build-essential && \
   apt-get purge -y --auto-remove software-properties-common && \
-  apt-get purge -y --auto-remove curl wget && \
+  apt-get purge -y --auto-remove wget && \
   apt-get purge -y --auto-remove xz-utils && \
   apt-get purge -y --auto-remove python3-pip && \
   apt-get purge -y --auto-remove apt-transport-https && \
