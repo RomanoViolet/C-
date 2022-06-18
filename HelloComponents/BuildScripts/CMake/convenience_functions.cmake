@@ -1,5 +1,3 @@
-find_package(GTest REQUIRED)
-
 function(add_headers)
 
   message("CMAKE_CURRENT_LIST_FILE: " ${CMAKE_CURRENT_LIST_FILE})
@@ -24,6 +22,9 @@ endfunction(add_sources)
 
 function(add_unittests)
   enable_testing()
+  find_package(GTest CONFIG REQUIRED)
+  include(GoogleTest)
+  include_directories(${GTEST_INCLUDE_DIRS})
   get_filename_component(this_directory ${CMAKE_PARENT_LIST_FILE} DIRECTORY)
   get_filename_component(this_folder ${this_directory} NAME)
   set(name_of_test_executable ${this_folder}_tests)
@@ -31,7 +32,9 @@ function(add_unittests)
   target_sources(${name_of_test_executable} PRIVATE ${ARGN})
   set_target_properties(${name_of_test_executable} PROPERTIES LINKER_LANGUAGE
                                                               CXX)
-  message("Added unit test: ${name_of_test_executable} with source: ${ARGN}")
+  message(
+    "Added unit test: ${name_of_test_executable} with source: ${ARGN} and ${GTEST_LIBRARY}"
+  )
 
   gtest_discover_tests(${name_of_test_executable})
   target_link_libraries(
@@ -44,7 +47,8 @@ function(add_unittests)
     pthread
     gmock_main
     gtest_main
-    gmock)
+    gmock
+    gtest)
 
 endfunction(add_unittests)
 
