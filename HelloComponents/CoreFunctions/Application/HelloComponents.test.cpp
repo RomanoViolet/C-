@@ -6,5 +6,8 @@
 
 TEST ( ClassDeathTest, ZeroCapacityFIFO ) // NOLINT
 {
+    Producer p;
+    Consumer c;
+    c.a_in.setValue(p.a_out.getValue());
     EXPECT_TRUE ( true );
 }
