@@ -59,6 +59,7 @@
 		"notskm.clang-tidy",
 		"ms-vscode.cmake-tools",
 		"njpwerner.autodocstring",
-		"codezombiech.gitignore"
+		"codezombiech.gitignore",
+		"mhutchie.git-graph"
 	]
 }
