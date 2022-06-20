@@ -2,14 +2,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug AstDump",
+            "name": "Debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/CPPProject",
-            "args": [
-                "${workspaceFolder}/TestVectors/Component.hpp",
-                "-I${workspaceFolder}/CoreFunctions"
-            ],
+            "program": "${workspaceFolder}/build/CoreFunctions/Application/Application_tests",
+            "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],

@@ -10,7 +10,7 @@
   public:
     InterfaceA( ) = default;
 
-    SafeType< 1, 4 > minWithIntegerBounds{ 2.F };
+    SafeType< 1, 4 > minWithIntegerBounds{ 2 };
     VelocityType velocity{ 0.51F };
 
   private:

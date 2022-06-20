@@ -6,7 +6,8 @@
   class TypeInputInterface
   {
   public:
-    TypeInputInterface( ) = default;
+    TypeInputInterface( const T value ): _value(value){};
+    TypeInputInterface(  ){};
     void setValue( const T &value );
     const T &getValue( ) const;
 

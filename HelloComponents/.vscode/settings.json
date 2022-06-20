@@ -3,7 +3,15 @@
     "editor.insertSpaces": true,
     "editor.parameterHints.enabled": true,
     "editor.codeLens": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.find.loop": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.formatOnSave": true,
     "C_Cpp.enhancedColorization": "Enabled",
+    "C_Cpp.intelliSenseEngine": "Default",
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -20,6 +28,17 @@
     "C_Cpp.default.cppStandard": "c++14",
     "C_Cpp.inactiveRegionBackgroundColor": "gray",
     "C_Cpp.clang_format_path": "/usr/bin/clang-format-14",
+    "C_Cpp.clang_format_sortIncludes": true,
+    "C_Cpp.autocompleteAddParentheses": true,
+    "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
+        "*"
+    ],
+    "C_Cpp.codeAnalysis.clangTidy.path": "/usr/bin/clang-tidy-14",
+    "C_Cpp.codeAnalysis.runAutomatically": true,
+    "C_Cpp.default.intelliSenseMode": "clang-x64",
+    "C_Cpp.dimInactiveRegions": true,
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.autoAddFileAssociations": true,
     "C_Cpp.clang_format_fallbackStyle": "none",
     "cmake.configureOnOpen": false,
     "files.associations": {
@@ -74,8 +93,6 @@
         "random": "cpp"
     },
     "files.eol": "\n",
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
     "files.insertFinalNewline": true,
     "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
     "terminal.integrated.cwd": ".",
@@ -85,18 +102,9 @@
     "clang-tidy.lintOnSave": true,
     "clang-tidy.fixOnSave": true,
     "clang-tidy.buildPath": "build",
-    "C_Cpp.intelliSenseEngine": "Default",
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": "active",
-    "[cpp]": {
-        "editor.formatOnSave": true,
-        "editor.quickSuggestions": {
-            "strings": true
-        },
-    },
-    "clang-format.executable": "clang-format-14",
+    "clang-format.executable": "/usr/bin/clang-format-14",
     "clang-format.style": "file",
+    "clang-format.language.cpp.style": "",
     "clang-format.language.cpp.enable": true,
-    "editor.formatOnSaveMode": "file",
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true
 }

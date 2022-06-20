@@ -5,6 +5,7 @@
 #include <cassert>
 #include <cmath>
 #include <limits>
+#include <iostream>
 // Reading:
 // https://www.boost.org/doc/libs/1_61_0/libs/math/doc/html/math_toolkit/float_comparison.html
 
@@ -22,6 +23,7 @@
       : _min( NumeratorForMinBound / ( DenominatorForMinBound * 1.0F ) )
       , _max( NumeratorForMaxBound / ( DenominatorForMaxBound * 1.0F ) )
   {
+    std::cout << "Template specialization on line 25 chosen" << std::endl;
     // assert that denominators are not zero.
     static_assert( DenominatorForMinBound != 0, "Denominator for lower bound cannot be zero." );
     static_assert( DenominatorForMaxBound != 0, "Denominator for upper bound cannot be zero." );
@@ -187,6 +189,7 @@
       : _min( NumeratorForMinBound ), _max( NumeratorForMaxBound )
   {
     // min and max bounds are correct.
+    std::cout << "Template specialization on line 190 chosen" << std::endl;
     if ( value < _min ) {
       _value = _min;
       _errorCode = SafeTypeErrorCode::UNDERFLOW;

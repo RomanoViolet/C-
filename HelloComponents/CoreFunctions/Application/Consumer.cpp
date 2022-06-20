@@ -11,12 +11,8 @@ void Consumer::compute( )
 void Consumer::doPreconditionCheck( )
 {
   // do something clever
-  InterfaceA a;
-  a = this->a_in.getValue( );
-  if ( this->a_in.getValue( ).velocity.getErrorCode( ) == SafeTypeErrorCode::OVERFLOW ) {
-    a.velocity = 0.4F;  // this will cause an underflow.
-    this->_error = Consumer::ErrorCode::BAD_INPUT_DATA;
-  }
+  int16_t a;
+  a = this->a_in.getValue();
   ( void )a;
 }
 
