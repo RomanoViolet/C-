@@ -1,13 +1,15 @@
 #ifndef TYPE_OUTPUT_INTERFACE_HPP_
 #define TYPE_OUTPUT_INTERFACE_HPP_
-
+#include <memory>
 template < typename T >
 class TypeOutputInterface
 {
 public:
-  TypeOutputInterface( const T value ) : _value( value ){ };
+  TypeOutputInterface( const T value );
   TypeOutputInterface( ) = default;
   T getValue( ) const;
+  operator T *( );
+  void setReference( T &&ref );
 
 protected:
   // T is required to be of bounded type. Need a way to ensure this.
@@ -17,7 +19,11 @@ protected:
   void doPostConditionCheck( );
 
 private:
-  T _value;
+  // space for symbol must be allocated externally.
+  std::shared_ptr< T > *_value = nullptr;
+
+  // true when the initializer value is written at the pointer.
+  bool isInitialized = false;
 };
 
 #include "Type_OutputInterface.inl"
