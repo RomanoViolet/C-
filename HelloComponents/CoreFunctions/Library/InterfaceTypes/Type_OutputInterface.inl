@@ -14,7 +14,13 @@ template < typename T >
 T TypeOutputInterface< T >::getValue( ) const
 {
   // dummy return
-  return ( *this->_value );
+  return ( *this->_value.get( ) );
+}
+
+template < typename T >
+void TypeOutputInterface< T >::setValue( const T &value )
+{
+  *( this->_value.get( ) ) = value;
 }
 
 template < typename T >

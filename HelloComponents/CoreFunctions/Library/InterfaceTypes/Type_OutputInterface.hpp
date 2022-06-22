@@ -11,10 +11,10 @@ public:
   // operator T *( );
   std::shared_ptr< T > toPtr( );
   void setReference( T &&ref );
+  void setValue( const T &value );
 
 protected:
   // T is required to be of bounded type. Need a way to ensure this.
-  void setValue( const T &value );
 
   // likely not required on a per interface basis due to usage of bounded types.
   void doPostConditionCheck( );

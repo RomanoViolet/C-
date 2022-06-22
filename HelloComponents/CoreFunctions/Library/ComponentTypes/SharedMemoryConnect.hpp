@@ -11,8 +11,8 @@ public:
     _memory = std::make_shared< T >( );
   };
 
-  SharedMemoryConnect &to( std::shared_ptr< T > to );
-  SharedMemoryConnect &from( std::shared_ptr< T > from );
+  SharedMemoryConnect &to( std::shared_ptr< T > &to );
+  SharedMemoryConnect &from( std::shared_ptr< T > &from );
 
   ~SharedMemoryConnect( )
   {

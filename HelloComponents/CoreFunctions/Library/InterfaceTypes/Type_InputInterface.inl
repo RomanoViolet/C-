@@ -5,7 +5,7 @@ template < typename T >
 const T &TypeInputInterface< T >::getValue( ) const
 {
   // dummy return
-  return ( *this->_value );
+  return ( *this->_value.get( ) );
 }
 
 template < typename T >

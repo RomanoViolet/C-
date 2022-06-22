@@ -16,4 +16,5 @@ void Producer::initialize( )
 }
 void Producer::compute( )
 {
+  this->a_out.setValue( 37U );
 }

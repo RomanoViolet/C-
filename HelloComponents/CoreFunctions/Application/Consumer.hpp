@@ -21,6 +21,11 @@ public:
   void compute( );
   void doPostConditionCheck( );
 
+#ifndef NDEBUG
+  // debug mode
+  int16_t getStoredValue( );
+#endif
+
 private:
   ErrorCode _error;
 };
