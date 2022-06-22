@@ -5,7 +5,7 @@ template < typename T >
 TypeOutputInterface< T >::TypeOutputInterface( const T value )
 {
   if ( this->_value ) {
-    *this->_value = value;
+    *( this->_value.get( ) ) = value;
     this->isInitialized = true;
   }
 }
@@ -28,8 +28,14 @@ void TypeOutputInterface< T >::setReference( T &&ref )
   this->_value = ref;
 }
 
+// template < typename T >
+// TypeOutputInterface< T >::operator T *( )
+// {
+//   return this->_value;
+// }
+
 template < typename T >
-TypeOutputInterface< T >::operator T *( )
+std::shared_ptr< T > TypeOutputInterface< T >::toPtr( )
 {
   return this->_value;
 }

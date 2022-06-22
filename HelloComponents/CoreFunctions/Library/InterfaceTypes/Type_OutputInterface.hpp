@@ -8,7 +8,8 @@ public:
   TypeOutputInterface( const T value );
   TypeOutputInterface( ) = default;
   T getValue( ) const;
-  operator T *( );
+  // operator T *( );
+  std::shared_ptr< T > toPtr( );
   void setReference( T &&ref );
 
 protected:
@@ -20,7 +21,7 @@ protected:
 
 private:
   // space for symbol must be allocated externally.
-  std::shared_ptr< T > *_value = nullptr;
+  std::shared_ptr< T > _value = nullptr;
 
   // true when the initializer value is written at the pointer.
   bool isInitialized = false;

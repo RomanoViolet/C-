@@ -90,7 +90,13 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "numeric": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "any": "cpp",
+        "bit": "cpp",
+        "cerrno": "cpp",
+        "compare": "cpp",
+        "queue": "cpp",
+        "variant": "cpp"
     },
     "files.eol": "\n",
     "files.insertFinalNewline": true,
