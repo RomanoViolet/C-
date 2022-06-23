@@ -89,6 +89,34 @@
             ]
         },
         {
+            "label": "Run Valgrind on Executable",
+            "dependsOn": [
+                "GCC Release Build",
+            ],
+            "type": "shell",
+            "linux": {
+                "command": "valgrind",
+                "args": [
+                    "--tool=memcheck",
+                    "--trace-children=no",
+                    "--vgdb=full",
+                    "--demangle=yes",
+                    "--leak-check=full",
+                    "--leak-resolution=high",
+                    "--show-reachable=yes",
+                    "--track-origins=yes",
+                    "${workspaceFolder}/build/CoreFunctions/Main/Main_app"
+                ]
+            },
+            "windows": {
+                "command": "echo Configuration not complete for a Windows system."
+            },
+            "group": "build",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
             "label": "Echo Environment Variables",
             "type": "shell",
             "linux": {

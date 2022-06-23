@@ -14,7 +14,7 @@
                 "/usr/include/c++/11",
                 "/usr/include",
                 "/usr/lib/llvm-14/include",
-                "${workspaceFolder}/CoreFunctions"
+                "${workspaceFolder}/CoreFunctions/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang++-14",

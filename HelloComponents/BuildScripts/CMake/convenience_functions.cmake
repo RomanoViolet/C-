@@ -5,6 +5,9 @@ function(add_headers)
   get_filename_component(this_folder ${this_directory} NAME)
   add_library(${this_folder} STATIC ${ARGN})
   message("New Library: " ${this_folder} " with: " ${ARGN})
+  set(library_name
+      "${this_folder}"
+      CACHE INTERNAL "library_name")
 
 endfunction(add_headers)
 
@@ -14,11 +17,23 @@ function(add_sources)
   get_filename_component(this_folder ${this_directory} NAME)
   message("Added source: ${ARGN} to library ${this_folder}")
   target_sources(${this_folder} PRIVATE ${ARGN})
+  set(source_list
+      "${ARGN}"
+      CACHE INTERNAL "source_list")
   # target_sources(${this_folder} PUBLIC ${ARGN})
   set_target_properties(${this_folder} PROPERTIES LINKER_LANGUAGE "CXX")
   # message("Added source: ${ARGN} to library ${this_folder}")
 
 endfunction(add_sources)
+
+function(create_executable)
+  get_filename_component(this_directory ${CMAKE_PARENT_LIST_FILE} DIRECTORY)
+  get_filename_component(this_folder ${this_directory} NAME)
+  set(name_of_test_executable ${this_folder}_app)
+  message("Executable is: ${name_of_test_executable}")
+  add_executable(${name_of_test_executable} ${source_list} ${ARGN})
+  target_link_libraries(${name_of_test_executable} ${library_name})
+endfunction(create_executable)
 
 function(add_unittests)
   enable_testing()
