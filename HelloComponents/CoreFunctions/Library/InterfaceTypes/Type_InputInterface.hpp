@@ -10,7 +10,7 @@ public:
   TypeInputInterface( ){ };
   void setValue( const T &value );
   const T &getValue( ) const;
-  std::shared_ptr< T > toPtr( );
+  std::shared_ptr< T > &toPtr( );
 
 protected:
   // likely not required on a per interface basis due to usage of bounded types.

@@ -41,7 +41,7 @@ void TypeOutputInterface< T >::setReference( T &&ref )
 // }
 
 template < typename T >
-std::shared_ptr< T > TypeOutputInterface< T >::toPtr( )
+std::shared_ptr< T > &TypeOutputInterface< T >::toPtr( )
 {
   return this->_value;
 }

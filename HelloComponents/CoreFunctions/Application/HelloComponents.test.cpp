@@ -12,6 +12,7 @@ TEST( BaseTests, Instantiation )  // NOLINT
   Consumer c;
   SharedMemoryConnect< int16_t > shm;
   shm.from( p.a_out.toPtr( ) ).to( c.a_in.toPtr( ) );
+  p.compute( );
   EXPECT_EQ( c.getStoredValue( ), 37U );
 
   // EXPECT_EQ( r, 45U );

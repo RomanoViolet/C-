@@ -15,7 +15,7 @@ void TypeInputInterface< T >::setValue( const T &value )
 }
 
 template < typename T >
-std::shared_ptr< T > TypeInputInterface< T >::toPtr( )
+std::shared_ptr< T > &TypeInputInterface< T >::toPtr( )
 {
   return this->_value;
 }

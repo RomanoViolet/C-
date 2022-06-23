@@ -9,7 +9,7 @@ public:
   TypeOutputInterface( ) = default;
   T getValue( ) const;
   // operator T *( );
-  std::shared_ptr< T > toPtr( );
+  std::shared_ptr< T > &toPtr( );
   void setReference( T &&ref );
   void setValue( const T &value );
 
