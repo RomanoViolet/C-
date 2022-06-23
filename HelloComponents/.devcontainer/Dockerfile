@@ -40,6 +40,7 @@ RUN \
   apt-get install -qqy gcc && \
   apt-get install -qqy g++ && \
   apt-get install -qqy lcov && \
+  apt-get install -qqy valgrind && \
   apt-get install -qqy bash && \
   apt-get install -qqy gdb && \
   apt-get install -qqy cppcheck && \
