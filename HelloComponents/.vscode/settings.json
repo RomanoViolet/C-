@@ -28,12 +28,17 @@
     "C_Cpp.default.cppStandard": "c++14",
     "C_Cpp.inactiveRegionBackgroundColor": "gray",
     "C_Cpp.clang_format_path": "/usr/bin/clang-format-14",
+    "C_Cpp.codeAnalysis.clangTidy.config": "",
     "C_Cpp.clang_format_sortIncludes": true,
     "C_Cpp.autocompleteAddParentheses": true,
     "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
         "*"
     ],
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
     "C_Cpp.codeAnalysis.clangTidy.path": "/usr/bin/clang-tidy-14",
+    "C_Cpp.codeAnalysis.clangTidy.args": [
+        "-std=c++14"
+    ],
     "C_Cpp.codeAnalysis.runAutomatically": true,
     "C_Cpp.default.intelliSenseMode": "clang-x64",
     "C_Cpp.dimInactiveRegions": true,
@@ -102,15 +107,5 @@
     "files.insertFinalNewline": true,
     "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
     "terminal.integrated.cwd": ".",
-    "clang-tidy.compilerArgsBefore": [
-        "-std=c++14"
-    ],
-    "clang-tidy.lintOnSave": true,
-    "clang-tidy.fixOnSave": true,
-    "clang-tidy.buildPath": "build",
-    "clang-format.executable": "/usr/bin/clang-format-14",
-    "clang-format.style": "file",
-    "clang-format.language.cpp.style": "",
-    "clang-format.language.cpp.enable": true,
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true
 }
