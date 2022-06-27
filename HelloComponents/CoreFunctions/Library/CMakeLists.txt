@@ -1,7 +1,7 @@
-include_directories(BEFORE SYSTEM "${PROJECT_SOURCE_DIR}/CoreFunctions"
-                    "${PATH_TO_COPY_BOUNDEDTYPES_SOURCES}")
+#include_directories(BEFORE SYSTEM "${PROJECT_SOURCE_DIR}/CoreFunctions"
+#                    "${PATH_TO_COPY_BOUNDEDTYPES_SOURCES}")
 
-message("Provided path: ${PATH_TO_COPY_BOUNDEDTYPES_SOURCES}")
+#message("Provided path: ${PATH_TO_COPY_BOUNDEDTYPES_SOURCES}")
 
 # Get a list of all source files.
 file(GLOB_RECURSE SRC *.hpp *.inl *.cpp)

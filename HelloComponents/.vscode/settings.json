@@ -3,12 +3,15 @@
     "editor.insertSpaces": true,
     "editor.parameterHints.enabled": true,
     "editor.codeLens": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.find.loop": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.formatOnSave": true,
     "C_Cpp.enhancedColorization": "Enabled",
-    "c-cpp-flylint.debug": true,
-    "c-cpp-flylint.clang.pedantic": true,
-    "c-cpp-flylint.flexelint.executable": "/usr/bin/cppcheck",
-    "c-cpp-flylint.clang.executable": "/usr/bin/clang++",
-    "c-cpp-flylint.cppcheck.verbose": true,
+    "C_Cpp.intelliSenseEngine": "Default",
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -16,49 +19,26 @@
         "**/CVS": true,
         "**/.DS_Store": true
     },
-    "c-cpp-flylint.flexelint.enable": false,
-    "c-cpp-flylint.cppcheck.enable": true,
-    "c-cpp-flylint.clang.extraArgs": [
-        "-Wno-c++98-compat"
-    ],
-    "c-cpp-flylint.clang.includePaths": [
-        "${workspaceFolder}/CoreFunctions"
-    ],
     "C_Cpp.suggestSnippets": true,
     "C_Cpp.loggingLevel": "Debug",
     "C_Cpp.exclusionPolicy": "checkFilesAndFolders",
     "C_Cpp.default.includePath": [
         "${workspaceFolder}/CoreFunctions/**"
     ],
-    "c-cpp-flylint.includePaths": [
-        "${workspaceFolder}/CoreFunctions"
-    ],
-    "c-cpp-flylint.cppcheck.standard": [
-        "c11",
-        "c++11"
-    ],
-    "C_Cpp.default.cppStandard": "c++11",
+    "C_Cpp.default.cppStandard": "c++14",
     "C_Cpp.inactiveRegionBackgroundColor": "gray",
-    "c-cpp-flylint.clang.enable": true,
-    "c-cpp-flylint.clang.standardLibs": null,
-    "c-cpp-flylint.clang.severityLevels": {
-        "fatal": "Error",
-        "error": "Error",
-        "warning": "Warning",
-        "note": "Information"
-    },
-    "c-cpp-flylint.standard": [
-        "c11",
-        "c++11"
+    "C_Cpp.clang_format_path": "/usr/bin/clang-format-14",
+    "C_Cpp.clang_format_sortIncludes": true,
+    "C_Cpp.autocompleteAddParentheses": true,
+    "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
+        "*"
     ],
-    "c-cpp-flylint.clang.language": "cpp",
-    "c-cpp-flylint.clang.standard": [
-        "c++11"
-    ],
-    "c-cpp-flylint.excludeFromWorkspacePaths": [
-        "${workspaceFolder}/Documentation"
-    ],
-    "C_Cpp.clang_format_path": "/usr/bin/clang-format",
+    "C_Cpp.codeAnalysis.clangTidy.path": "/usr/bin/clang-tidy-14",
+    "C_Cpp.codeAnalysis.runAutomatically": true,
+    "C_Cpp.default.intelliSenseMode": "clang-x64",
+    "C_Cpp.dimInactiveRegions": true,
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.autoAddFileAssociations": true,
     "C_Cpp.clang_format_fallbackStyle": "none",
     "cmake.configureOnOpen": false,
     "files.associations": {
@@ -110,13 +90,27 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "numeric": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "any": "cpp",
+        "bit": "cpp",
+        "cerrno": "cpp",
+        "compare": "cpp",
+        "queue": "cpp",
+        "variant": "cpp"
     },
     "files.eol": "\n",
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "clang-format.style": "file",
     "files.insertFinalNewline": true,
     "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
-    "terminal.integrated.cwd": "."
+    "terminal.integrated.cwd": ".",
+    "clang-tidy.compilerArgsBefore": [
+        "-std=c++14"
+    ],
+    "clang-tidy.lintOnSave": true,
+    "clang-tidy.fixOnSave": true,
+    "clang-tidy.buildPath": "build",
+    "clang-format.executable": "/usr/bin/clang-format-14",
+    "clang-format.style": "file",
+    "clang-format.language.cpp.style": "",
+    "clang-format.language.cpp.enable": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true
 }

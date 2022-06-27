@@ -5,7 +5,12 @@
             "label": "GCC Debug Build",
             "type": "shell",
             "linux": {
-                "command": "${workspaceFolder}/BuildScripts/Docker/GCC-Debug-Build"
+                "command": "${workspaceFolder}/BuildScripts/Docker/GeneralBuild",
+                "args": [
+                    "debug",
+                    "GCC",
+                    "14"
+                ]
             },
             "windows": {
                 "command": "echo Configuration not complete for a Windows system."
@@ -19,7 +24,12 @@
             "label": "GCC Release Build",
             "type": "shell",
             "linux": {
-                "command": "${workspaceFolder}/BuildScripts/Docker/GCC-Release-Build"
+                "command": "${workspaceFolder}/BuildScripts/Docker/GeneralBuild",
+                "args": [
+                    "release",
+                    "GCC",
+                    "14"
+                ]
             },
             "windows": {
                 "command": "echo Configuration not complete for a Windows system."
@@ -33,7 +43,12 @@
             "label": "LLVM Debug Build",
             "type": "shell",
             "linux": {
-                "command": "${workspaceFolder}/BuildScripts/Docker/LLVM-Debug-Build"
+                "command": "${workspaceFolder}/BuildScripts/Docker/GeneralBuild",
+                "args": [
+                    "debug",
+                    "LLVM",
+                    "14"
+                ]
             },
             "windows": {
                 "command": "echo Configuration not complete for a Windows system."
@@ -47,7 +62,12 @@
             "label": "LLVM Release Build",
             "type": "shell",
             "linux": {
-                "command": "${workspaceFolder}/BuildScripts/Docker/LLVM-Release-Build"
+                "command": "${workspaceFolder}/BuildScripts/Docker/GeneralBuild",
+                "args": [
+                    "release",
+                    "LLVM",
+                    "14"
+                ]
             },
             "windows": {
                 "command": "echo Configuration not complete for a Windows system."
@@ -62,6 +82,34 @@
             "type": "shell",
             "linux": {
                 "command": "${workspaceFolder}/BuildScripts/Docker/Generate-Coverage-from-UnitTests"
+            },
+            "group": "build",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "Run Valgrind on Executable",
+            "dependsOn": [
+                "GCC Release Build",
+            ],
+            "type": "shell",
+            "linux": {
+                "command": "valgrind",
+                "args": [
+                    "--tool=memcheck",
+                    "--trace-children=no",
+                    "--vgdb=full",
+                    "--demangle=yes",
+                    "--leak-check=full",
+                    "--leak-resolution=high",
+                    "--show-reachable=yes",
+                    "--track-origins=yes",
+                    "${workspaceFolder}/build/CoreFunctions/Main/Main_app"
+                ]
+            },
+            "windows": {
+                "command": "echo Configuration not complete for a Windows system."
             },
             "group": "build",
             "problemMatcher": [

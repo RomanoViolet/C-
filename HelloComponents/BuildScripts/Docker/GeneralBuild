@@ -14,7 +14,10 @@ fi
 
 mkdir ./build
 cd ./build
+echo "In directory: " `pwd`
 #reset && \
-cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF -DCMAKE_BUILD_TYPE=$1 -DCOMPILER=$2 -DSTANDARD=$3 --graphviz=graph.dot ..  && \
+cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF -DCMAKE_BUILD_TYPE=$1 -DCOMPILER=$2 -DSTANDARD=$3 ..  && \
 make && \
-cp ./compile_commands.json ../
+#ctest --verbose . && \
+ctest . && \
+cd ..

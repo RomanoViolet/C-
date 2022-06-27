@@ -40,6 +40,7 @@ RUN \
   apt-get install -qqy gcc && \
   apt-get install -qqy g++ && \
   apt-get install -qqy lcov && \
+  apt-get install -qqy valgrind && \
   apt-get install -qqy bash && \
   apt-get install -qqy gdb && \
   apt-get install -qqy cppcheck && \
@@ -64,10 +65,22 @@ RUN \
   mkdir -p /googletest/build  && \
   cd /googletest/build  && \
   cmake .. && make && make install  && \
-  cd / && rm -rf /googletest && \
-  #
-  # LLVM Repository
-  bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+  cd / && rm -rf /googletest
+#
+# LLVM Repository
+RUN \
+  mkdir /LLVM && \
+  cd /LLVM && \
+  wget -c https://apt.llvm.org/llvm.sh && \
+  chmod +x /LLVM/llvm.sh
+
+RUN \
+  cd /LLVM && \
+  bash -c "/LLVM/llvm.sh all" && \
+  cd .. && \
+  rm -rf /LLVM
+
+#bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)" all
 
 # Python Requirements
 COPY requirements-py3.txt .
@@ -78,17 +91,17 @@ RUN \
 RUN \
   apt-get purge -y --auto-remove build-essential && \
   apt-get purge -y --auto-remove software-properties-common && \
-  apt-get purge -y --auto-remove curl wget && \
+  apt-get purge -y --auto-remove wget && \
   apt-get purge -y --auto-remove xz-utils && \
   apt-get purge -y --auto-remove python3-pip && \
   apt-get purge -y --auto-remove apt-transport-https && \
   apt-get autoremove -y && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
-  #update-alternatives --install /usr/bin/clang clang /usr/bin/clang-8 100 && \
-  #update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-8 100 && \
-  #update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-8 100 && \
-  #update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-8 100 && \
+  update-alternatives --install /usr/bin/clang clang /usr/bin/clang-14 100 && \
+  update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-14 100 && \
+  update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-14 100 && \
+  update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-14 100 && \
   #
   # Setup locales
   sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
@@ -113,13 +126,16 @@ RUN \
 
 # Add default home for the non-admin user
 WORKDIR /home/dockeruser
-RUN /home/dockeruser/.config
+RUN mkdir /home/dockeruser/.config && \
+  mkdir /home/dockeruser/.config/powerline-shell && \
+  mkdir /home/dockeruser/.config/themes
+
 ADD --chown=dockeruser Configurations/.gitconfig /home/dockeruser/.gitconfig
 ADD --chown=dockeruser Configurations/.bashrc /home/dockeruser/.bashrc
 ADD --chown=dockeruser Configurations/git-completion.sh /home/dockeruser/git-completion.sh
 ADD --chown=dockeruser Configurations/git-prompt.sh /home/dockeruser/git-prompt.sh
-ADD --chown=dockeruser Configurations/powerline-shell /home/dockeruser/.config/
-ADD --chown=dockeruser Configurations/themes /home/dockeruser/.config/
+COPY --chown=dockeruser Configurations/powerline-shell/ /home/dockeruser/.config/powerline-shell/
+ADD --chown=dockeruser Configurations/themes/ /home/dockeruser/.config/themes/
 #ADD --chown=dockeruser VSCodeExtensions/extensions /home/dockeruser/.vscode-server/extensions
 
 ENV LANG en_US.UTF-8
